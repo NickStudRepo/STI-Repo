@@ -1,0 +1,96 @@
+Links:
+https://www.w3.org/TR/2003/REC-PNG-20031110/
+https://www.youtube.com/watch?v=EFUYNoFRHQI
+
+
+Bildkompression:
+
+verlustbehaftet vs. verlustfrei
+
+- beruht auf Datenkompression
+- Ziele: Speicherplatz minimieren, Übertragungszeit
+
+- Datenkompression versucht, redundante Informationen zu entfernen
+- Daten -> neue Darstellung der Daten (Kompression)
+
+Was ist Redundanz?
+
+Lauflängenkodierung, LZW oder die Huffman-Kodierung (Kompressionsverfahren)
+
+
+Was ist Bild, Farbräume, Raw Data, vlt. wie werden Bilder am Bildschirm angezeigt
+Metriken wie Bildqualität gemessen wird
+
+
+PNG: 	Rastergrafikformat mit verlustfreier Datenkompression
+	
+Filterung: Zuerst wird eine Filterung auf das Bild angewendet. Dieser Schritt dient dazu, die Daten im Bild so zu reorganisieren, dass sie besser komprimiert werden können. Dabei werden unterschiedliche Filter wie Subtraktion, Vorhersage und Durchschnitt verwendet.
+
+Entropie-Codierung: Nach der Filterung werden die Daten mit einer Entropie-Codierung komprimiert. Dies geschieht mit dem DEFLATE-Algorithmus, der auf einer Kombination von Huffman-Codierung und einer LZ77-Kompression (Lempel-Ziv-Welch) basiert.
+
+Komprimierte Daten: Die resultierenden Daten werden in Blöcke aufgeteilt, um die Komprimierung und Dekomprimierung zu erleichtern. Diese Blöcke werden dann in den PNG-Dateien gespeichert.
+
+
+Zip:
+
+In computing, Deflate (stylized as DEFLATE, and also called Flate[1][2]) is a lossless data compression file format that uses a combination of LZ77 and Huffman coding. It was designed by Phil Katz, for version 2 of his PKZIP archiving tool. Deflate was later specified in RFC 1951 (1996).[3]
+
+Katz also designed the original algorithm used to construct Deflate streams. This algorithm was patented as U.S. Patent 5,051,745, and assigned to PKWARE, Inc.[4][5] As stated in the RFC document, an algorithm producing Deflate files was widely thought to be implementable in a manner not covered by patents.[3] This led to its widespread use – for example, in gzip compressed files and PNG image files, in addition to the ZIP file format for which Katz originally designed it. The patent has since expired.
+
+
+WebP
+
+Bildanalyse: Bevor die Kompression beginnt, analysiert der WebP-Encoder das Eingangsbild, um Informationen über Farben, Muster und andere visuelle Elemente zu gewinnen.
+
+Verlustfreie Kompression: Für verlustfreie WebP-Kompression wird normalerweise die "Predictive Coding with Adaptive Linear Prediction (PALP)"-Technik verwendet. Dies ist ein verlustfreies Kompressionsverfahren, bei dem Vorhersagealgorithmen und Entropie-Codierung angewendet werden, um die Dateigröße zu reduzieren, ohne die Bildqualität zu beeinträchtigen.
+
+Verlustbehaftete Kompression: Für verlustbehaftete WebP-Kompression wird ein Ansatz verwendet, der auf der Diskreten Kosinustransformation (DCT) und der Quantisierung basiert, ähnlich wie bei anderen verlustbehafteten Bildformaten wie JPEG. Hier werden visuelle Informationen in Blöcke aufgeteilt, transformiert und quantisiert. Die Quantisierung entfernt Details, die für das menschliche Auge weniger sichtbar sind, und reduziert die Dateigröße.
+
+Vorhersage- und Entropie-Codierung: Nach der Transformation und Quantisierung werden die verbleibenden Daten mit Vorhersagealgorithmen und Entropie-Codierung weiter komprimiert. Dies umfasst normalerweise die Verwendung von Algorithmen wie Huffman-Codierung und adaptiver Entropie-Codierung, um die Daten effizient zu speichern.
+
+Filterung: Ähnlich wie bei PNG werden auch bei WebP-Bildern Filter auf die Daten angewendet, um die Kompression zu optimieren. Dies kann dazu beitragen, wiederholte Muster oder Pixelblöcke in den Daten zu identifizieren und effizienter zu komprimieren.
+
+
+JPEG:
+Unterteilung in Blöcke: Das Eingangsbild wird normalerweise in 8x8-Pixel-Blöcke unterteilt. Dies ist der grundlegende Verarbeitungsschritt für JPEG-Kompression.
+
+Diskrete Kosinustransformation (DCT): Jeder 8x8-Pixel-Block wird einer DCT unterzogen. Die DCT ist eine mathematische Transformation, die das Bild in eine Frequenzdomäne umwandelt. Dies bedeutet, dass die Bildinformationen in Frequenzkomponenten zerlegt werden, wobei die niedrigeren Frequenzen die wichtigen Informationen des Bildes enthalten und die höheren Frequenzen feinere Details repräsentieren.
+
+Quantisierung: Die DCT-Koeffizienten werden quantisiert, was bedeutet, dass die Werte gerundet und skaliert werden. Dieser Schritt führt zur Entfernung von Informationen in den höheren Frequenzen, was zu einem Qualitätsverlust führt. Durch die Quantisierung werden Informationen entfernt, die für das menschliche Auge weniger sichtbar sind. Die Quantisierungsmatrix kann je nach Qualitätsstufe variieren.
+
+Komprimierung und Entropie-Codierung: Die quantisierten Koeffizienten werden dann in eine kompakte Form gebracht. Dies wird normalerweise durch Entropie-Codierungsalgorithmen wie Huffman-Codierung erreicht. Diese Algorithmen reduzieren die Datenmenge, indem sie häufige Werte effizienter codieren und weniger häufige Werte mit längeren Codes.
+
+Zusammenfügen und Speichern: Die komprimierten Blöcke werden in der Reihenfolge ihrer Position im Bild zusammengefügt, um das endgültige JPEG-Bild zu erstellen. Dieses Bild wird dann im JPEG-Format gespeichert.
+
+
+
+Idee: 
+Rohdaten Textfiles, Bilder, anders im Speicher
+Zip LZ 77 und Huffman im Deflate Algorithmus
+Wie kann man das auf Images übertragen: 
+bekanntestes image file format png, benutzt Filter um Deflate zu verwenden
+Wie funktionieren Filter: Redundanz in den Daten hinzufügen, aber Frage: woher weiß ich welcher Filter in welche Zeile muss um das Maximum rauszuholen
+Filterauswahl: Zeitkomplexität 5n (jede Zeile jeden Filter 1 mal), besser als alles mit allem Testen
+
+
+Algorithmic Complexity: Describe the algorithmic complexity of compression algorithms. Analyze their time complexity and space complexity in terms of encoding (compression) and decoding (decompression) processes.
+Information Theory: Explore the relationship between compression algorithms and information theory. Information theory concepts such as entropy, redundancy, and the Shannon entropy can provide a theoretical basis for understanding compression.
+
+Kolmogorow-Komplexität
+Schubfachprinzip
+Informationsgehalt, seltene Ereignisse enthalten mehr information als häufigere
+Redundanz und Definition (Deduplikation)
+
+Titel: Datenkompression anhand von Zip und PNG erklärt
+
+
+Write a scientific paper about the following toppic:
+"Data Compression Explained Using Zip and PNG"
+The paper should go into detail about Theoretical computer science concepts used.
+
+
+
+
+
+
+

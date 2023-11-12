@@ -1,0 +1,34 @@
+Data Compression Explained Using Zip and PNG: A Theoretical Computer Science Perspective
+
+
+1. Introduction
+
+2.1. Information Theory in Data Compression
+- understanding the limits and possibilities of data compression
+- lossless compression methodes
+- Entropy
+- Source Coding Theorem, otherwise compression into infinity possible
+- Redundancy and Mutual Information 
+- Kolmogorow-Komplexität
+- Schubfachprinzip
+- Informationsgehalt, seltene Ereignisse enthalten mehr information als häufigere
+
+Zip Compression: A Theoretical Perspective
+- what is zip
+- on what data is it used on
+- why/ functionality
+- how does it work
+3.1. DEFLATE Algorithm:
+The DEFLATE algorithm employed by the Zip format combines LZ77 (Lempel-Ziv 1977) and Huffman coding.
+
+- Algorithmic Complexity (maybe)
+
+- What is the difference of text/ file date to image
+- difference in given data structure
+- bad to exploit redundancy in images only with LZ77 and Huffman
+- idea behind png: apply filters to original image to increase redundancy that can be exploited
+- what filters, how do they work
+
+Resume:
+- data compression is a complexe field, theoretical limits, but the main focus is to exploit as much 
+as possible of given application field (e.g. text, image, sound, ...)
