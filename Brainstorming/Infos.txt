@@ -1,0 +1,12 @@
+- Kriterien wie kann ich ausgangsdaten bewerten
+- Welche Daten kann ich wie komprimieren
+- Was sind bessere Ergebnisse, kompressionsrate
+- wie kann ich es messen, Rechenkomplexität, Zeitkomplexität
+- Wissenschaftlichs, was ist das Ziel
+- Zielsetzung der Arbeit
+- Qualitativ und Quantitativ, Dateien Messen, vlt. Versuch
+- vlt. mit versuch aufpimpen, 
+- Metrik, was messe ich, was ist gut, Kompressionsgrad, Laufzeit
+- Meilensteinplan
+
+--> so wird es wissenschaftlich, Metriken
