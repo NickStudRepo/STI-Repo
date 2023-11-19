@@ -1,7 +1,7 @@
 import rawpy
 import imageio
 import numpy as np
-
+from PIL import Image
 
 def get_flat_np_arr_from_image(file_name: str, file_type: str) -> np.array:
 
@@ -22,6 +22,20 @@ def get_flat_np_arr_from_image(file_name: str, file_type: str) -> np.array:
 
     return flat_arr
 
+
+def read_png_to_array(file_name):
+    file_path = './images/input/' + file_name
+    # Open the PNG file
+    img = Image.open(file_path)
+
+    # Convert the image to RGB mode if it's not already
+    img = img.convert("RGB")
+
+    # Convert the image to a NumPy array
+    img_array = np.array(img)
+    print(str(img_array.shape))
+
+    return img_array.flatten()
 
 
 if __name__ == "__main__":
@@ -49,7 +63,7 @@ if __name__ == "__main__":
 
     # work with np array
     flat_arr = image_array.flatten()
-    print("Size of img: " + (len(flat_arr)) + " Byte") # 72721728 Byte
+    print("Size of img: " + str(len(flat_arr)) + " Byte") # 72721728 Byte
 
 
     # Now, image_array is a NumPy array containing the pixel values of your ARW image
