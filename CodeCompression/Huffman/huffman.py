@@ -6,6 +6,7 @@ from collections import defaultdict
 import sys
 sys.path.append('./')
 from ImageConversion.imageToNpArr import get_flat_np_arr_from_image
+from ImageConversion.imageToNpArr import read_png_to_array
 
 
 def huffman_tree(freq):
@@ -45,7 +46,8 @@ def huffman_decompress(compressed_data, codes):
 
 if __name__ == "__main__":
 
-    flat_np_arr = get_flat_np_arr_from_image("reh", "ARW")
+    # flat_np_arr = get_flat_np_arr_from_image("reh", "ARW")
+    flat_np_arr = read_png_to_array("folie.png")
 
     # Huffman-Kompression
     compressed_data, codes = huffman_compress(flat_np_arr)
