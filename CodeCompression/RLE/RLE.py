@@ -1,4 +1,5 @@
 import numpy as np
+import time
 
 def run_length_encode(arr):
     # Ensure input is a NumPy array
@@ -43,11 +44,22 @@ def smallest_two_exponent(number):
         x += 1
     return x
 
+def run_and_time_function(func, func_parameter, name):
+    start_time = time.time()
+    res = func(func_parameter)
+    finish_time = time.time()
+    elapsed_time = (finish_time-start_time) * 1000 # this gets the time in ms
+    elapsed_time_str = "{:.2f}".format(elapsed_time)
+    print("Elapsed Time, " + name + ": " + elapsed_time_str + " ms")
+    return res
+
 # Example usage:
-# original_array = np.random.randint(0, 256, size=(1000, 1000, 3), dtype=np.uint8).flatten()
-original_array = np.array([1, 1, 2, 3, 3, 3, 4, 5, 5])
-encoded_array = run_length_encode(original_array)
-decoded_array = run_length_decode(encoded_array)
+original_array = np.random.randint(0, 256, size=(1000, 1000, 3), dtype=np.uint8).flatten()
+# original_array = np.array([1, 1, 2, 3, 3, 3, 4, 5, 5])
+
+encoded_array = run_and_time_function(run_length_encode, original_array, "RLE Encoding")
+decoded_array = run_and_time_function(run_length_decode, encoded_array, "RLE Decoding")
+
 
 print("Original Array:", original_array)
 print("Encoded Array:", encoded_array)
@@ -76,5 +88,6 @@ print("Encoded Image Size: " + str(encoded_array_size) + " Byte")
 
 decoded_array_size = len(decoded_array)
 print("Decoded Image Size: " + str(decoded_array_size) + " Byte")
+
 
 # this is RLE with adaptive Runlength depending on max Runlength
