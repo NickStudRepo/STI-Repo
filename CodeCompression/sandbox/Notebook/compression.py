@@ -8,6 +8,22 @@ from collections import defaultdict
 # %%
 image_name = "reh"
 image_type = ".ARW"
+# %%
+def remap_values(arr):
+    # Remap values above 127 to 256 - original value
+    remapped_arr = np.where(arr > 127, arr - 256, arr)
+    return remapped_arr
+
+arr = np.array([[[1, 2, 3],
+                [4, 5, 6],
+                [8, 8, 9],
+                [8, 8, 9]],
+                [[1, 2, 3],
+                [4, 5, 6],
+                [7, 8, 9],
+                [8, 8, 9]]])
+print(arr.shape)
+arr[0,:,:]
 
 # %%
 output_type = ".png"

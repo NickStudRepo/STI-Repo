@@ -22,6 +22,24 @@ def get_flat_np_arr_from_image(file_name: str, file_type: str) -> np.array:
 
     return flat_arr
 
+def get_np_arr_from_image(file_name: str, file_type: str) -> np.array:
+
+    base_input_path = './images/input/'
+    image_path = base_input_path + file_name + "." + file_type
+
+    # Read CR2 file using rawpy
+    with rawpy.imread(image_path) as raw:
+        # Perform demosaicing to obtain RGB image
+        rgb_image = raw.postprocess()
+
+    # Convert RGB image to NumPy array
+    image_array = np.array(rgb_image)
+
+    print("Original image shape: " + str(image_array.shape))
+    print("Size of image / np array: " + str(len(image_array.flatten())) + " Byte")
+
+    return image_array
+
 
 def read_png_to_array(file_name):
     file_path = './images/input/' + file_name
@@ -36,6 +54,20 @@ def read_png_to_array(file_name):
     print(str(img_array.shape))
 
     return img_array.flatten()
+
+def read_png_to_matrix(file_name):
+    file_path = './images/input/' + file_name
+    # Open the PNG file
+    img = Image.open(file_path)
+
+    # Convert the image to RGB mode if it's not already
+    img = img.convert("RGB")
+
+    # Convert the image to a NumPy array
+    img_array = np.array(img)
+    print(str(img_array.shape))
+
+    return img_array
 
 
 if __name__ == "__main__":

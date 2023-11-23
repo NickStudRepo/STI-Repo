@@ -170,30 +170,31 @@ class LZ77Compressor:
 		return None
 
 
-# np arr to text file
-import numpy as np
-import sys
-sys.path.append('./')
-from ImageConversion.imageToNpArr import get_flat_np_arr_from_image
-from ImageConversion.imageToNpArr import read_png_to_array
+if __name__ == "__main__":
+	# np arr to text file
+	import numpy as np
+	import sys
+	sys.path.append('./')
+	from ImageConversion.imageToNpArr import get_flat_np_arr_from_image
+	from ImageConversion.imageToNpArr import read_png_to_array
 
 
-image = "folie.png"
-flat_np_arr = read_png_to_array(image)
+	image = "folie.png"
+	flat_np_arr = read_png_to_array(image)
 
-image_bytes_file_path = "./files/LZ77/imageBytes.txt"
-compressed_image_bytes_file_path = "./files/LZ77/compressedImage.txt"
-decompressed_image_bytes_file_path = "./files/LZ77/decompressedImage.txt"
+	image_bytes_file_path = "./files/LZ77/imageBytes.txt"
+	compressed_image_bytes_file_path = "./files/LZ77/compressedImage.txt"
+	decompressed_image_bytes_file_path = "./files/LZ77/decompressedImage.txt"
 
-# write np.array byte values to file
-flat_np_arr.tofile(image_bytes_file_path)
+	# write np.array byte values to file
+	flat_np_arr.tofile(image_bytes_file_path)
 
-compressor = LZ77Compressor(window_size=100)
-compressor.compress(image_bytes_file_path,output_file_path=compressed_image_bytes_file_path)
-compressor.decompress(compressed_image_bytes_file_path, output_file_path=decompressed_image_bytes_file_path)
+	compressor = LZ77Compressor(window_size=100)
+	compressor.compress(image_bytes_file_path,output_file_path=compressed_image_bytes_file_path)
+	compressor.decompress(compressed_image_bytes_file_path, output_file_path=decompressed_image_bytes_file_path)
 
-# Read the binary data from file into a NumPy array
-# binary_array = np.fromfile(file_path, dtype=np.uint8)
+	# Read the binary data from file into a NumPy array
+	# binary_array = np.fromfile(file_path, dtype=np.uint8)
 
 
 
