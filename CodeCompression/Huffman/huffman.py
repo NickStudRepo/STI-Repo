@@ -7,6 +7,8 @@ import sys
 sys.path.append('./')
 from ImageConversion.imageToNpArr import get_flat_np_arr_from_image
 from ImageConversion.imageToNpArr import read_png_to_array
+from Helper.run_and_time_func import run_and_time_function_1_2
+from Helper.run_and_time_func import run_and_time_function_2_1
 
 
 def huffman_tree(freq):
@@ -43,6 +45,27 @@ def huffman_decompress(compressed_data, codes):
             current_code = ""
     return decompressed_data
 
+def huffman_all_get_compressed(input):
+    # Huffman-Kompression
+    # compressed_data, codes = huffman_compress(flat_np_arr)
+    compressed_data, codes = run_and_time_function_1_2(huffman_compress, input, "Huffman Compression")
+
+    # Huffman-Dekompression
+    # decompressed_array = huffman_decompress(compressed_data, codes)
+    decompressed_array = run_and_time_function_2_1(huffman_decompress, compressed_data, codes, "Huffman Decompression")
+
+    # Sizes: 
+    print("Size of original data: " + str(len(input)) + " Byte")
+
+    print("Size of Huffman compressed data: " + str(len(compressed_data)/8) + " Byte")    
+    # size of dict: key: 1 Byte, Value 2 Byte, worst case 
+    print("Size of dict: " + str(len(codes) * 3) + " Byte")
+
+    print("Size of Huffman decompressed data: " + str(len(decompressed_array)) + " Byte")
+
+    return compressed_data, codes
+
+
 
 if __name__ == "__main__":
 
@@ -50,14 +73,20 @@ if __name__ == "__main__":
     flat_np_arr = read_png_to_array("folie.png")
 
     # Huffman-Kompression
-    compressed_data, codes = huffman_compress(flat_np_arr)
-
-    print("Size of original data: " + str(len(flat_np_arr) * 8) + " Bits")
-    print("Size of Huffman compressed data: " + str(len(compressed_data)) + " Bits")
-
-    # size of dict: key: 1 Byte, Value 2 Byte, worst case Annahme
-    print("Size of dict: " + str(len(codes) * 3 * 8) + " Bits")
+    # compressed_data, codes = huffman_compress(flat_np_arr)
+    compressed_data, codes = run_and_time_function_1_2(huffman_compress, flat_np_arr, "Huffman Compression")
 
     # Huffman-Dekompression
-    decompressed_array = huffman_decompress(compressed_data, codes)
-    print("Size of Huffman decompressed data: " + str(len(decompressed_array) * 8) + " Bits")
+    # decompressed_array = huffman_decompress(compressed_data, codes)
+    decompressed_array = run_and_time_function_2_1(huffman_decompress, compressed_data, codes, "Huffman Decompression")
+
+    # Sizes: 
+    print("Size of original data: " + str(len(flat_np_arr)) + " Byte")
+
+    print("Size of Huffman compressed data: " + str(len(compressed_data)/8) + " Byte")    
+    # size of dict: key: 1 Byte, Value 2 Byte, worst case 
+    print("Size of dict: " + str(len(codes) * 3) + " Byte")
+
+    print("Size of Huffman decompressed data: " + str(len(decompressed_array)) + " Byte")
+    
+

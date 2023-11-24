@@ -1,4 +1,12 @@
 from bitarray import bitarray
+import numpy as np
+import time
+import sys
+
+sys.path.append('./')
+from ImageConversion.imageToNpArr import get_flat_np_arr_from_image
+from ImageConversion.imageToNpArr import read_png_to_array
+from Helper.run_and_time_func import print_time_infos
 
 class LZ77Compressor:
 	"""
@@ -171,27 +179,33 @@ class LZ77Compressor:
 
 
 if __name__ == "__main__":
-	# np arr to text file
-	import numpy as np
-	import sys
-	sys.path.append('./')
-	from ImageConversion.imageToNpArr import get_flat_np_arr_from_image
-	from ImageConversion.imageToNpArr import read_png_to_array
 
+	image_name = "folie"
+	image_type = ".png"
+	flat_np_arr = read_png_to_array(image_name + image_type)
 
-	image = "folie.png"
-	flat_np_arr = read_png_to_array(image)
-
-	image_bytes_file_path = "./files/LZ77/imageBytes.txt"
-	compressed_image_bytes_file_path = "./files/LZ77/compressedImage.txt"
-	decompressed_image_bytes_file_path = "./files/LZ77/decompressedImage.txt"
+	image_bytes_file_path = "./files/LZ77/imageBytes_" + image_name + ".txt"
+	compressed_image_bytes_file_path = "./files/LZ77/compressedImage_" + image_name + ".txt"
+	decompressed_image_bytes_file_path = "./files/LZ77/decompressedImage_" + image_name + ".txt"
 
 	# write np.array byte values to file
 	flat_np_arr.tofile(image_bytes_file_path)
 
 	compressor = LZ77Compressor(window_size=100)
+
+	# LZ77 Kompression
+	start_time = time.time()
 	compressor.compress(image_bytes_file_path,output_file_path=compressed_image_bytes_file_path)
+	finish_time = time.time()
+
+	print_time_infos(start_time, finish_time, "LZ77 Kompression")
+
+	# LZ77 Dekompression
+	start_time = time.time()
 	compressor.decompress(compressed_image_bytes_file_path, output_file_path=decompressed_image_bytes_file_path)
+	finish_time = time.time()
+
+	print_time_infos(start_time, finish_time, "LZ77 Kompression")
 
 	# Read the binary data from file into a NumPy array
 	# binary_array = np.fromfile(file_path, dtype=np.uint8)

@@ -1,12 +1,16 @@
 import numpy as np
 import warnings
+import time
 
 import sys
 sys.path.append('./')
 from LZ77.LZ77fast import LZ77Compressor
-from Helper.run_and_time_func import run_and_time_function
+from Helper.run_and_time_func import run_and_time_function_2_1
+from Helper.run_and_time_func import run_and_time_function_1_2
+from Helper.run_and_time_func import print_time_infos
 from ImageConversion.imageToNpArr import get_np_arr_from_image
 from ImageConversion.imageToNpArr import read_png_to_matrix
+from Huffman.huffman import huffman_all_get_compressed
 
 # surpress Runtime overflow warnings
 # Ignore the RuntimeWarning: overflow warning
@@ -145,41 +149,77 @@ def revert_filter(channel_matrix, x, y, filter_type):
 
 ##########################################
 
-# Example usage:
-# img_array = np.array(
-#     [
-#         [
-#             [1, 2, 3],
-#             [4, 5, 6],
-#             [8, 8, 9],
-#             [8, 8, 9]
-#         ],
-#         [
-#             [1, 2, 3],
-#             [4, 5, 6],
-#             [7, 8, 9],
-#             [8, 8, 9]
-#         ]
-#     ], dtype=np.uint8)
 
-# img_array = read_png_to_matrix("folie.png")
-img_array = get_np_arr_from_image("reh", "ARW")
-filtered_array, filter_used = apply_png_filter(img_array)
-reverted_array = revert_png_filter(filtered_array, filter_used)
+if __name__ == "__main__":
 
-print(np.array_equal(img_array, reverted_array))
+    # Example usage:
+    # img_array = np.array(
+    #     [
+    #         [
+    #             [1, 2, 3],
+    #             [4, 5, 6],
+    #             [8, 8, 9],
+    #             [8, 8, 9]
+    #         ],
+    #         [
+    #             [1, 2, 3],
+    #             [4, 5, 6],
+    #             [7, 8, 9],
+    #             [8, 8, 9]
+    #         ]
+    #     ], dtype=np.uint8)
+    
+    image_name = "folie"
+    image_type = ".png"
+    file_name = image_name + image_type
 
+    img_array = read_png_to_matrix(file_name)
+    # img_array = get_np_arr_from_image("reh", "ARW")
 
-# flat_array = filtered_array.flatten()
+    # filepaths 
+    filtered_image_bytes = "./files/LZ77/filteredImageBytes_" + image_name + ".txt"
+    compressed_filtered_image_bytes = "./files/LZ77/compressedFilteredImageBytes_" + image_name + ".txt"
+    decompressed_filtered_image_bytes = "./files/LZ77/decompressedFilteredImageBytes_" + image_name + ".txt"
+    filtered_image_filter_bytes = "./files/LZ77/filteredImageFilterBytes_" + image_name + ".txt"
+    defiltered_image_bytes = "./files/LZ77/defilteredImageBytes_" + image_name + ".txt"
 
-# image_bytes_file_path = "./files/PNG/imageBytes.txt"
-# compressed_image_bytes_file_path = "./files/PNG/compressedImage.txt"
-# decompressed_image_bytes_file_path = "./files/PNG/decompressedImage.txt"
+    # Time Filter application
+    filtered_array, filter_used = run_and_time_function_1_2(apply_png_filter,img_array, "PNG Filtering")
 
-# # write np.array byte values to file
-# flat_array.tofile(image_bytes_file_path)
+    # write filtered array to file
+    flat_array = filtered_array.flatten()
+    flat_array.tofile(filtered_image_bytes)
+    np.array(filter_used).tofile(filtered_image_filter_bytes)
 
-# compressor = LZ77Compressor(window_size=100)
-# compressor.compress(image_bytes_file_path,output_file_path=compressed_image_bytes_file_path)
-# compressor.decompress(compressed_image_bytes_file_path, output_file_path=decompressed_image_bytes_file_path)
+    # sizes
+    print("Size of original data: " + str(len(img_array.flatten())) + " Byte")
+    print("Size of filtered data: " + str(len(flat_array)) + " Byte")
+   
+    # Time Revert Filter application
+    reverted_array = run_and_time_function_2_1(revert_png_filter, filtered_array, filter_used, "Revert PNG Filtering")
 
+    print("Size of reverted filters file: " + str(len(reverted_array.flatten())) + " Byte")
+
+    # check if filters are equal
+    print(np.array_equal(img_array, reverted_array))
+
+    # LZ77
+    compressor = LZ77Compressor(window_size=100)
+
+	# LZ77 Kompression
+    start_time = time.time()
+    compressor.compress(filtered_image_bytes, output_file_path=compressed_filtered_image_bytes)
+    finish_time = time.time()
+    
+    print_time_infos(start_time, finish_time, "LZ77 Kompression")
+
+	# LZ77 Dekompression
+    start_time = time.time()
+    compressor.decompress(compressed_filtered_image_bytes, output_file_path=decompressed_filtered_image_bytes)
+    finish_time = time.time()
+    
+    print_time_infos(start_time, finish_time, "LZ77 Dekompression")
+
+    # Huffman
+    flat_np_arr = np.fromfile(compressed_filtered_image_bytes, dtype=np.uint8)
+    huffman_all_get_compressed(flat_np_arr)

@@ -3,7 +3,7 @@ import time
 
 import sys
 sys.path.append('./')
-from Helper.run_and_time_func import run_and_time_function
+from Helper.run_and_time_func import run_and_time_function_1_1
 from ImageConversion.imageToNpArr import get_flat_np_arr_from_image
 from ImageConversion.imageToNpArr import read_png_to_array
 
@@ -50,43 +50,43 @@ def smallest_two_exponent(number):
         x += 1
     return x
 
-# Example usage:
-# original_array = np.random.randint(0, 256, size=(1000, 1000, 3), dtype=np.uint8).flatten()
-# original_array = np.array([1, 1, 2, 3, 3, 3, 4, 5, 5])
 
-original_array = get_flat_np_arr_from_image("reh", "ARW")
+if __name__ == "__main__":
 
-encoded_array = run_and_time_function(run_length_encode, original_array, "RLE Encoding")
-decoded_array = run_and_time_function(run_length_decode, encoded_array, "RLE Decoding")
+    # original_array = get_flat_np_arr_from_image("reh", "ARW")
+    original_array = read_png_to_array("folie.png")
+
+    # RLE Kompression
+    encoded_array = run_and_time_function_1_1(run_length_encode, original_array, "RLE Encoding")
+    # RLE Dekompression
+    decoded_array = run_and_time_function_1_1(run_length_decode, encoded_array, "RLE Decoding")
+
+    original_array_size = len(original_array) 
+    print("Original Image Size: " + str(original_array_size) + " Byte")
+
+    # get max Runlength: 
+    max_runlength = max(encoded_array, key=lambda x: x[1])[1]
+    print("Max Runlenght: " + str(max_runlength))
+
+    # how many bits to encode max runlength
+    bits_for_max_runlength = smallest_two_exponent(max_runlength)
+    print("Bits for max runlength: " + str(bits_for_max_runlength))
+    # Filter the tuple_list for tuples with a second element above Threshhold
+    threshhold = 16 # With 4 Bits you can represent ints from 1 to 16, including both
+    filtered_tuples = [tup for tup in encoded_array if tup[1] > threshhold]
+
+    # Annahme (value, Runlength), Value = 1 Byte, Runlength = 4 Bit -> Max Value: 16
+    # + 0.5 Byte to tell the size of Bits of Runlength
+    print(encoded_array.shape)
+    encoded_array_size = len(encoded_array) * 1.5 + 0.5 
+
+    original_array_size = len(original_array) 
+    print("Original Image Size: " + str(original_array_size) + " Byte")
+
+    print("Encoded Image Size: " + str(encoded_array_size) + " Byte")
+
+    decoded_array_size = len(decoded_array)
+    print("Decoded Image Size: " + str(decoded_array_size) + " Byte")
 
 
-print("Original Array:", original_array)
-print("Encoded Array:", encoded_array)
-print("Decoded Array:", decoded_array)
-
-original_array_size = len(original_array) 
-print("Original Image Size: " + str(original_array_size) + " Byte")
-
-# get max Runlength: 
-max_runlength = max(encoded_array, key=lambda x: x[1])[1]
-print("Max Runlenght: " + str(max_runlength))
-
-# how many bits to encode max runlength
-bits_for_max_runlength = smallest_two_exponent(max_runlength)
-print("Bits for max runlength: " + str(bits_for_max_runlength))
-# Filter the tuple_list for tuples with a second element above Threshhold
-threshhold = 16 # With 4 Bits you can represent ints from 1 to 16, including both
-filtered_tuples = [tup for tup in encoded_array if tup[1] > threshhold]
-print("Filtered tuples:", filtered_tuples)
-
-# Annahme (value, Runlength), Value = 1 Byte, Runlength = 4 Bit -> Max Value: 16
-# + 0.5 Byte to tell the size of Bits of Runlength
-encoded_array_size = len(encoded_array) * 1.5 + 0.5 
-
-print("Encoded Image Size: " + str(encoded_array_size) + " Byte")
-
-decoded_array_size = len(decoded_array)
-print("Decoded Image Size: " + str(decoded_array_size) + " Byte")
-
-
-# this is RLE with adaptive Runlength depending on max Runlength
+    # this is RLE with adaptive Runlength depending on max Runlength
