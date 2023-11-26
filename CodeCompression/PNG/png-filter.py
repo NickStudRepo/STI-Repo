@@ -151,25 +151,8 @@ def revert_filter(channel_matrix, x, y, filter_type):
 
 
 if __name__ == "__main__":
-
-    # Example usage:
-    # img_array = np.array(
-    #     [
-    #         [
-    #             [1, 2, 3],
-    #             [4, 5, 6],
-    #             [8, 8, 9],
-    #             [8, 8, 9]
-    #         ],
-    #         [
-    #             [1, 2, 3],
-    #             [4, 5, 6],
-    #             [7, 8, 9],
-    #             [8, 8, 9]
-    #         ]
-    #     ], dtype=np.uint8)
     
-    image_name = "folie"
+    image_name = "Katzen"
     image_type = ".png"
     file_name = image_name + image_type
 

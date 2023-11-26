@@ -180,7 +180,7 @@ class LZ77Compressor:
 
 if __name__ == "__main__":
 
-	image_name = "folie"
+	image_name = "Katzen"
 	image_type = ".png"
 	flat_np_arr = read_png_to_array(image_name + image_type)
 
@@ -205,7 +205,7 @@ if __name__ == "__main__":
 	compressor.decompress(compressed_image_bytes_file_path, output_file_path=decompressed_image_bytes_file_path)
 	finish_time = time.time()
 
-	print_time_infos(start_time, finish_time, "LZ77 Kompression")
+	print_time_infos(start_time, finish_time, "LZ77 Dekompression")
 
 	# Read the binary data from file into a NumPy array
 	# binary_array = np.fromfile(file_path, dtype=np.uint8)

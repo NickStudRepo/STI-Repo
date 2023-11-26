@@ -54,7 +54,7 @@ def smallest_two_exponent(number):
 if __name__ == "__main__":
 
     # original_array = get_flat_np_arr_from_image("reh", "ARW")
-    original_array = read_png_to_array("folie.png")
+    original_array = read_png_to_array("Katzen.png")
 
     # RLE Kompression
     encoded_array = run_and_time_function_1_1(run_length_encode, original_array, "RLE Encoding")

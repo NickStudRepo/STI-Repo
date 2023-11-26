@@ -15,8 +15,10 @@ def get_flat_np_arr_from_image(file_name: str, file_type: str) -> np.array:
 
     # Convert RGB image to NumPy array
     image_array = np.array(rgb_image)
-
     print("Original image shape: " + str(image_array.shape))
+
+    img_array = np.transpose(img_array, (2, 0, 1))
+    print(str(img_array.shape))
     flat_arr = image_array.flatten()
     print("Size of image / np array: " + str(len(flat_arr)) + " Byte")
 
@@ -38,6 +40,9 @@ def get_np_arr_from_image(file_name: str, file_type: str) -> np.array:
     print("Original image shape: " + str(image_array.shape))
     print("Size of image / np array: " + str(len(image_array.flatten())) + " Byte")
 
+    img_array = np.transpose(img_array, (2, 0, 1))
+    print(str(img_array.shape))
+
     return image_array
 
 
@@ -52,7 +57,8 @@ def read_png_to_array(file_name):
     # Convert the image to a NumPy array
     img_array = np.array(img)
     print(str(img_array.shape))
-
+    img_array = np.transpose(img_array, (2, 0, 1))
+    print(str(img_array.shape))
     return img_array.flatten()
 
 def read_png_to_matrix(file_name):
@@ -65,6 +71,8 @@ def read_png_to_matrix(file_name):
 
     # Convert the image to a NumPy array
     img_array = np.array(img)
+    print(str(img_array.shape))
+    img_array = np.transpose(img_array, (2, 0, 1))
     print(str(img_array.shape))
 
     return img_array

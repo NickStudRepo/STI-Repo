@@ -11,9 +11,10 @@ from Helper.run_and_time_func import run_and_time_function_2_1
 
 if __name__ == "__main__":
 
+    file_name = "Katzen"
+
     # load LZ77 compressed file 
-    file_name = "compressedImage_folie.txt"
-    file_path = "./files/LZ77/" + file_name
+    file_path = "./files/LZ77/compressedImage_" + file_name + ".txt"
     flat_np_arr = np.fromfile(file_path, dtype=np.uint8)
 
     huffman_all_get_compressed(flat_np_arr)

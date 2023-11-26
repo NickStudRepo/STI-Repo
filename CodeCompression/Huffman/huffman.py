@@ -70,7 +70,7 @@ def huffman_all_get_compressed(input):
 if __name__ == "__main__":
 
     # flat_np_arr = get_flat_np_arr_from_image("reh", "ARW")
-    flat_np_arr = read_png_to_array("folie.png")
+    flat_np_arr = read_png_to_array("Katzen.png")
 
     # Huffman-Kompression
     # compressed_data, codes = huffman_compress(flat_np_arr)
