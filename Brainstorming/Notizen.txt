@@ -1,0 +1,4 @@
+8 - Bit oder 16 Bit color Kanal?
+
+- Gliederungspunkt: Anforderungen an die Daten damit sie komprimiert werden können.
+- Ziel: Was sind besonderheiten in Daten
