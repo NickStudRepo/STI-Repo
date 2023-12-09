@@ -21,6 +21,19 @@
 \providecommand{\BIBdecl}{\relax}
 \BIBdecl
 
+\bibitem{Ingles}
+F.~M. Ingels, \emph{Information and coding theory}.\hskip 1em plus 0.5em minus
+  0.4em\relax Scranton, Intext Educational Publishers, 1971.
+
+\bibitem{Maluck}
+J.~S. Peter~Maluck, ``Quellencodierung, gelenktes entdeckendes lernen,''
+  \emph{EducETH}, 2009.
+
+\bibitem{Burke}
+E.~Burke, ``Schallquellensystem zur untersuchung der wahrnehmung von
+  infraschall in kombination mit hörschall,'' \emph{Physikalisch-Technische
+  Bindesanstalt}, 2019.
+
 \bibitem{autor2023}
 D.~Autor, ``Titel des artikels,'' \emph{Name des Journals}, pp. 123--145, 2023.
 

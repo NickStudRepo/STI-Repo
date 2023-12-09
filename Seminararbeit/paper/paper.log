@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10.12) (preloaded format=pdflatex 2023.12.7)  8 DEC 2023 19:41
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10.12) (preloaded format=pdflatex 2023.12.7)  9 DEC 2023 19:38
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -278,7 +278,12 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 LaTeX Font Info:    Trying to load font information for U+msb on input line 26.
  (C:\Users\Nick\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) (paper.bbl)
+)
+Underfull \hbox (badness 1622) in paragraph at lines 38--45
+\OT1/ptm/m/n/10 angewen-det wird. Da-her wird Datenkom-pres-sion oft als
+ []
+
+(paper.bbl)
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -293,7 +298,6 @@ Before submitting the final camera ready copy, remember to:
 [1{C:/Users/Nick/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/Nick/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}
 
 
-
 ] (paper.aux)
  ***********
 LaTeX2e <2023-11-01>
@@ -301,15 +305,15 @@ L3 programming layer <2023-11-09>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 4187 strings out of 474587
- 66534 string characters out of 5746174
- 1929558 words of memory out of 5000000
- 26332 multiletter control sequences out of 15000+600000
+ 4192 strings out of 474587
+ 66521 string characters out of 5746174
+ 1939558 words of memory out of 5000000
+ 26337 multiletter control sequences out of 15000+600000
  596077 words of font info for 108 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  57i,8n,65p,286b,259s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/Nick/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/Nick/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmbi8a.pfb><C:/Users/Nick/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/Nick/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on paper.pdf (1 page, 57762 bytes).
+Output written on paper.pdf (1 page, 63352 bytes).
 PDF statistics:
  27 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

@@ -11,7 +11,7 @@
     T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
 \begin{document}
 
-\title{TODO Title}
+\title{Vergleich verlustfreier Datenkompressionsverfahren auf Bilddaten}
 
 \author{
     \IEEEauthorblockN{Nick Schreiber}
@@ -29,12 +29,60 @@ or Math in Paper Title or Abstract.
 \end{abstract}
 
 
+% \begin{IEEEkeywords}
+% component, formatting, style, styling, insert
+% \end{IEEEkeywords}
 
-\begin{IEEEkeywords}
-component, formatting, style, styling, insert
-\end{IEEEkeywords}
+\section{Einleitung}
+
+Datenkompression beschreibt ein Verfahren, das zum Ziel hat, eine Nachricht 
+ohne relevanten Informationsverlust zu verkleinern.  
+Als Nachricht ist jede Art von digitalen Daten gemeint, z.B. Text, Bild, Audio, etc..   
+Daten können komprimiert werden, indem Redundanz entfernt oder eine Kodierung angewendet wird.
+Daher wird Datenkompression oft als Kodierung bezeichnet.
+Kodierung ist ein allgemeiner Begriff, der jede spezielle Darstellung von Daten nach 
+einem bestimmten Schema umfasst. \cite{Ingles}
+
+Es gibt zwei Arten der Datenkompression: die verlustbehaftete und die verlustfreie Kompression. 
+Bei der verlustbehafteten Datenkompression kann eine bestimmte Menge an Information durch die 
+Kompression verloren gehen, was in Kauf genommen wird, da dadurch die Datenmenge erheblich 
+reduziert werden kann oder weil die verlorene Informationen für die Anwendung kaum relevant sind.
+Das wird auch als Irrelevanzreduktion bezeichnet \cite[S. 5]{Maluck}.
+Ein Beispiel für Irrelevanzreduktion kann bei Audiosignalen beobachtet werden. 
+Der menschliche Hörfrequenzbereich liegt zwischen 20 Hz und 20 kHz \cite{Burke}. 
+Daher ist es nicht sinnvoll, Frequenzen, die weit außerhalb des hörbaren Bereichs liegen, 
+in Audiodateien zu speichern. 
+Bei der verlustfreien Datenkompression wird die Integrität der Daten bewahrt.
+Das bedeutet, dass sämtliche Informationen in den komprimierten Daten enthalten sind 
+und die Originaldaten vollständig rekonstruierbar sind.
+In dieser Arbeit wird nur die verlustfreie Datenkompression untersucht, da 
+Irrelevanzreduktion nicht direkt zum Themengebiet der Datenkompression gehört.
+
+Die Datenkompression von Bildern wird aus verschiedenen Gründen eingesetzt. 
+Speichernutzung: Unkomprimierte Bilddaten können beträchtlich mehr Speicherplatz beanspruchen. 
+Übertragungseffizienz: Bei der Übertragung von Bildern über Netzwerke oder das Internet spielt 
+die Übertragungseffizienz eine entscheidende Rolle. 
+Wenn ein Bild über einen Kanal mit begrenzter Bandbreite gesendet wird, kann es effizienter 
+sein, das Bild zu komprimieren, es zu übertragen und dann beim Empfänger zu dekomprimieren. 
+Dadurch wird die Übertragungszeit verkürzt und das Bild kann schneller bereitgestellt werden.
+Dies führt zu einer höheren Übertragungsrate und einer reduzierten Bandbreitennutzung.
 
 
+
+\section{Zielsetzung der Arbeit}
+
+Ziel der Arbeit ist es zu untersuchen, ob und warum bestimmte verlustfreie 
+Datenkompressionsverfahren für Bilddaten besser geeignet sind als andere.
+Dazu werden die theoretischen Aspekte der Kompressionsalgorithmen untersucht.
+Außerdem wird untersucht, wie Bilddaten aufgebaut sind und welche Besonderheiten 
+in der Datenstruktur für die Datenkompression genutzt werden können.
+Die Arbeit beinhaltet auch einen praktischen Teil.
+Verschiedene Algorithmen zur verlustfreien Datenkompression wurden manuell 
+implementiert und an unterschiedlichen Bilddaten getestet.
+So konnten konkrete Ergebnisse über die Leistungsfähigkeit der Algorithmen gewonnen werden.
+Die verglichenen Algorithmen sind Run Length Encoding (RLE), Huffman Encoding, Lempel-Ziv 1977 (LZ77), 
+PNG Algorithmus und verschiedene Kombinationen der Algorithmen. 
+Die Ergebnisse werden interpretiert und mit den theoretischen Erwartungswerten verglichen.
 
 
 
