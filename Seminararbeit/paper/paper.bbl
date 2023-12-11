@@ -34,6 +34,23 @@ E.~Burke, ``Schallquellensystem zur untersuchung der wahrnehmung von
   infraschall in kombination mit hörschall,'' \emph{Physikalisch-Technische
   Bindesanstalt}, 2019.
 
+\bibitem{shannon}
+\BIBentryALTinterwordspacing
+C.~E. Shannon, ``A mathematical theory of communication,'' \emph{The Bell
+  System Technical Journal}, vol.~27, pp. 379--423, 1948. [Online]. Available:
+  \url{http://plan9.bell-labs.com/cm/ms/what/shannonday/shannon1948.pdf}
+\BIBentrySTDinterwordspacing
+
+\bibitem{shannon2}
+C.~E. Shannon and W.~Weaver, \emph{The Mathematical Theory of
+  Communication}.\hskip 1em plus 0.5em minus 0.4em\relax Urbana, IL: University
+  of Illinois Press, 1949.
+
+\bibitem{friedrichs}
+B.~Friedrichs and B.~Friedrichs, ``Grundlagen der shannon’schen
+  informationstheorie,'' \emph{Kanalcodierung: Grundlagen und Anwendungen in
+  modernen Kommunikationssystemen}, pp. 33--68, 1996.
+
 \bibitem{autor2023}
 D.~Autor, ``Titel des artikels,'' \emph{Name des Journals}, pp. 123--145, 2023.
 

@@ -1,14 +1,14 @@
 # Fdb version 4
-["bibtex paper"] 1702147087 "paper.aux" "paper.bbl" "paper" 1702147088 0
-  "./mybib.bib" 1702141342 2216 bba3d8e5cceca4e3c1b4772b63e39392 ""
+["bibtex paper"] 0 "paper.aux" "paper.bbl" "paper" 1702257287 -1
+  "./mybib.bib" 1702252866 4949 72eb0ed7e78730a10960b9b6da1eb909 ""
   "C:/Users/Nick/AppData/Local/Programs/MiKTeX/bibtex/bst/ieeetran/IEEEtran.bst" 1440622569 57748 7c8250ecf02814ce6ddc0cdbb63df1dd ""
-  "paper.aux" 1702147087 868 252a9a7860a8f3012a85c29a5e628b30 "pdflatex"
+  "paper.aux" 1702257287 2175 e15d15e520e77854f230f02aa216c318 "pdflatex"
   (generated)
   "paper.bbl"
   "paper.blg"
   (rewritten before read)
-["pdflatex"] 1702147087 "c:/Users/Nick/Desktop/M1/STI/STI-Repo/Seminararbeit/paper/paper.tex" "paper.pdf" "paper" 1702147088 0
-  "C:/Users/Nick/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1702059904 82507 a9eef8696c92627b87e9975edea03b2a ""
+["pdflatex"] 1702257286 "c:/Users/Nick/Desktop/M1/STI/STI-Repo/Seminararbeit/paper/paper.tex" "paper.pdf" "paper" 1702257287 0
+  "C:/Users/Nick/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1702254823 82507 a9eef8696c92627b87e9975edea03b2a ""
   "C:/Users/Nick/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1701972384 24212759 3e6ce9de2b74cdffca51671c9976484e ""
   "C:/Users/Nick/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc" 1458473887 4993 80dc9bab7f31fb78a000ccfed0e27cab ""
   "C:/Users/Nick/AppData/Local/Programs/MiKTeX/fonts/tfm/adobe/times/ptmb7t.tfm" 1136768654 2172 fd0c924230362ff848a33632ed45dc23 ""
@@ -34,6 +34,13 @@
   "C:/Users/Nick/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmr9.tfm" 1136765053 1292 6b21b9c2c7bebb38aa2273f7ca0fb3af ""
   "C:/Users/Nick/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmsy6.tfm" 1136765053 1116 933a60c408fc0a863a92debe84b2d294 ""
   "C:/Users/Nick/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmsy9.tfm" 1136765053 1116 25a7bf822c58caf309a702ef79f4afbb ""
+  "C:/Users/Nick/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb" 1247596667 30251 6afa5cb1d0204815a708a080681d4674 ""
+  "C:/Users/Nick/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb" 1247596667 36299 5f9df58c2139e7edcf37c8fca4bd384d ""
+  "C:/Users/Nick/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb" 1247596667 36281 c355509802a035cadc5f15869451dcee ""
+  "C:/Users/Nick/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1247596667 35752 024fb6c41858982481f6968b5fc26508 ""
+  "C:/Users/Nick/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb" 1247596667 32762 7fee39e011c23b3589931effd97b9702 ""
+  "C:/Users/Nick/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1247596667 32569 5e5ddc8df908dea60932f3c484a54c0d ""
+  "C:/Users/Nick/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb" 1247596666 32716 08e384dc442464e7285e891af9f45947 ""
   "C:/Users/Nick/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb" 1136849748 44729 fea0975e20ec51c992338362f05f1146 ""
   "C:/Users/Nick/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmbi8a.pfb" 1136849748 44656 0cbca70e0534538582128f6b54593cca ""
   "C:/Users/Nick/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb" 1136849748 46026 687528a208fbfc1f00832bb96cccebbb ""
@@ -71,10 +78,10 @@
   "C:/Users/Nick/AppData/Local/Programs/MiKTeX/tex/latex/l3backend/l3backend-pdftex.def" 1699552361 29988 6d57d2b884f7464419678df319af86d2 ""
   "C:/Users/Nick/AppData/Local/Programs/MiKTeX/tex/latex/psnfss/ot1ptm.fd" 1585253778 1007 15056f4a61917ceed3a44e4ac11fcc52 ""
   "C:/Users/Nick/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1700127522 55487 80a65caedd3722f4c20a14a69e785d8f ""
-  "c:/Users/Nick/Desktop/M1/STI/STI-Repo/Seminararbeit/paper/paper.tex" 1702147086 5254 eb987fb97a792ed67dc85d4b9ab981a7 ""
-  "paper.aux" 1702147087 868 252a9a7860a8f3012a85c29a5e628b30 "pdflatex"
-  "paper.bbl" 1702147087 1479 bdb313d2a78d300666b9e15bd7ad758f "bibtex paper"
-  "paper.tex" 1702147086 5254 eb987fb97a792ed67dc85d4b9ab981a7 ""
+  "c:/Users/Nick/Desktop/M1/STI/STI-Repo/Seminararbeit/paper/paper.tex" 1702257286 13226 99f6237281050884f58da9ddc1976608 ""
+  "paper.aux" 1702257287 2175 e15d15e520e77854f230f02aa216c318 "pdflatex"
+  "paper.bbl" 1702255599 2207 68c921eb9bd45ba8c926265e70a8ba27 "bibtex paper"
+  "paper.tex" 1702257286 13226 99f6237281050884f58da9ddc1976608 ""
   (generated)
   "paper.aux"
   "paper.log"
