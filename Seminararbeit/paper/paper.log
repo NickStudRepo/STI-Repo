@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10.12) (preloaded format=pdflatex 2023.12.7)  11 DEC 2023 02:14
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10.12) (preloaded format=pdflatex 2023.12.7)  14 DEC 2023 01:45
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -284,7 +284,7 @@ Underfull \hbox (badness 1622) in paragraph at lines 38--45
  []
 
 
-Underfull \hbox (badness 1478) in paragraph at lines 97--105
+Underfull \hbox (badness 1478) in paragraph at lines 96--104
 []\OT1/ptm/m/n/10 Claude Shan-non, der Erfinder der In-for-ma-tion-s-the-o-rie,
  []
 
@@ -292,11 +292,61 @@ Underfull \hbox (badness 1478) in paragraph at lines 97--105
 
 
 ] [2]
-Underfull \hbox (badness 6575) in paragraph at lines 250--251
-[]\OT1/ptm/m/n/10 Bsp. un-kom-prim-ier-bare Daten: gle-ichverteilte Zu-fall-
+Underfull \hbox (badness 2582) in paragraph at lines 256--271
+\OT1/ptm/m/n/10 Ob-jekt als Aus-gabe erzeugt. Hier ein Beispiel f[]ur so
  []
 
-(paper.bbl)
+
+Underfull \hbox (badness 10000) in paragraph at lines 305--309
+[]\OT1/ptm/m/n/10 Unstrukturierte Daten sind Daten, in de-nen keine
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 305--309
+\OT1/ptm/m/n/10 wiederkehrende oder vorher-sag-bare Muster en-thal-ten
+ []
+
+
+Underfull \hbox (badness 2401) in paragraph at lines 370--377
+[]\OT1/ptm/m/n/10 Dieser Ab-schnitt besch[]aftigt sich mit der dem Auf-
+ []
+
+[3]
+Underfull \hbox (badness 2529) in paragraph at lines 437--441
+[]\OT1/ptm/m/n/10 Abwiegen und Gewichten je nach An-wen-dung. Bsp.
+ []
+
+
+Underfull \hbox (badness 2142) in paragraph at lines 437--441
+\OT1/ptm/m/n/10 pres-sion-srate Vlt. nur Dekomp entschei-dend, Bsp. Inet.
+ []
+
+(paper.bbl
+Underfull \hbox (badness 3291) in paragraph at lines 55--59
+\OT1/ptm/m/n/8 zwischen-daten-informationen-und-wissen/, 2017, [On-line; ac-cessed
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 78--81
+[]\OT1/ptm/m/n/8 M. Nel-son, ``The ran-dom com-pres-sion chal-lenge,''
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 78--81
+\OT1/ptm/m/n/8 https://marknelson.us/posts/2012/10/09/the-random-compression-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 88--91
+[]\OT1/ptm/m/n/8 X.-R. Color, ``Ad-di-tive farb-mis-chung,''
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 88--91
+\OT1/ptm/m/n/8 https://www.xrite.com/de/blog/what-is-additive-rgb-color-mixing,
+ []
+
+)
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -308,26 +358,24 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-[3
-
-] (paper.aux)
+[4] (paper.aux)
  ***********
 LaTeX2e <2023-11-01>
 L3 programming layer <2023-11-09>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 4200 strings out of 474587
- 66658 string characters out of 5746174
- 1942558 words of memory out of 5000000
- 26345 multiletter control sequences out of 15000+600000
+ 4209 strings out of 474587
+ 66725 string characters out of 5746174
+ 1944558 words of memory out of 5000000
+ 26354 multiletter control sequences out of 15000+600000
  596077 words of font info for 108 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  57i,8n,65p,286b,259s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/Nick/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Nick/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Nick/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/Nick/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Nick/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/Nick/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Nick/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/Nick/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/Nick/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmbi8a.pfb><C:/Users/Nick/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/Nick/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on paper.pdf (3 pages, 141157 bytes).
+Output written on paper.pdf (4 pages, 151063 bytes).
 PDF statistics:
- 68 PDF objects out of 1000 (max. 8388607)
+ 71 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

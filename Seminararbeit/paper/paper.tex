@@ -75,15 +75,14 @@ Ziel der Arbeit ist es zu untersuchen, ob und warum bestimmte verlustfreie
 Datenkompressionsverfahren für Bilddaten besser geeignet sind als andere.
 Dazu werden die theoretischen Aspekte der Kompressionsalgorithmen untersucht.
 Außerdem wird untersucht, wie Bilddaten aufgebaut sind und welche Besonderheiten
-in der Datenstruktur für die Datenkompression genutzt werden können.
-Die Arbeit beinhaltet auch einen praktischen Teil.
+in den Bilddaten für die Datenkompression genutzt werden können.
+Die Arbeit hat einen praktischen Anteil.
 Verschiedene Algorithmen zur verlustfreien Datenkompression wurden manuell
 implementiert und an unterschiedlichen Bilddaten getestet.
 So konnten konkrete Ergebnisse über die Leistungsfähigkeit der Algorithmen gewonnen werden.
-Die verglichenen Algorithmen sind Run Length Encoding (RLE), Huffman Encoding, Lempel-Ziv 1977 (LZ77),
-PNG Algorithmus und verschiedene Kombinationen der Algorithmen.
+Die verglichenen Algorithmen sind Run Length Encoding (RLE), Huffman Encoding, 
+Lempel-Ziv 1977 (LZ77), PNG Algorithmus und verschiedene Kombinationen der Algorithmen.
 Die Ergebnisse werden interpretiert und mit den theoretischen Erwartungswerten verglichen.
-
 
 % Todo ab hier nochmal verbessern!
 \section{Grundlagen zur Datenkompression}
@@ -205,49 +204,242 @@ zu steigern.
 
 \section{Informationstheorie}
 
-Unterscheidung zwischen Daten und Information:
-Die Unterscheidung zwischen Daten und Information liegt in der
-Verarbeitung und Bedeutung.
+Eine wichtige Punkt in der Informationstheorie ist die Unterscheidung 
+zwischen Daten und Information.
+Daten und Information werden im normalen Sprachgebrauch häufig als Synonym verwendet,
+was eigentlich nicht korrekt ist.
+
 Daten sind rohe Fakten oder Symbole, die an sich keine spezifische Bedeutung haben.
 Informationen entstehen durch die Interpretation, Organisation und Strukturierung
-von Daten, wodurch ein sinnvoller Kontext geschaffen wird.
+von Daten, wodurch ein sinnvoller Kontext geschaffen wird. \cite{pieper}
 Daten werden zu Informationen, wenn sie für einen bestimmten Zweck verwendet werden können.
-Im Kontext der Datenkompression ist es wichtig zu verstehen, dass nicht alle Daten
-gleichermaßen informativ sind, und effektive Kompressionsalgorithmen sollten redundante
-oder weniger informative Teile der Daten eliminieren, um die wesentliche Information zu
-bewahren.
 
+Im Kontext der Datenkompression ist es wichtig zu verstehen, dass nicht alle Daten
+gleichermaßen informativ sind. 
+Ein effektiver Kompressionsalgorithmen entfernt redundante
+und nicht informative Teile der Daten.
+Jedoch bleibt die gesamte Information enthalten. 
+Die Daten sind somit invormativer und komprimierter als zuvor.
 
 \subsection{Quellencodierungstheorem/ Source Coding Theorem}
-Erklärung der Theorie, dass Daten nicht bis ins Unendliche komprimiert werden können.
-Darlegung der Grenzen und Limitationen der Datenkompression. Schubfachprinzip
-keine unendliche kompression:
-Betonung der Bedeutung von Entropie in diesem Kontext.
+
+Das Quellencodierungstheorem beschäftigt sich mit der Effizienz der Datenkompression
+und sagt aus, dass es eine Grenze für die minimale mittlere Codierungslänge gibt, 
+die für die Darstellung von Information aus einer bestimmten Quelle erforderlich 
+ist. \cite{sharma} 
+Das Quellencodierungstheorem besagt, dass die mittlere Codierungslänge $L$ pro Symbol 
+für eine gegebene Quelle nicht kleiner sein kann als die Entropie $H$ der Quelle. 
+Mathematisch in Formel \ref{eq:sct} ausgedrückt.
+
+\begin{equation}
+    \label{eq:sct}
+    L \ge H
+\end{equation}
+
+Die Entropie stellt dabei die untere Schranke für die mittlere Codierungslänge dar.
+Das zeigt, dass Datenkompression nicht bis ins unendliche möglich ist ohne 
+Information zu verlieren. 
+Die Maximale Kompression ist genau dann erreicht, wenn $L = H$ entspricht.
+Es würde also bei solchen Daten keinen sinn machen zu versuchen die Daten 
+zu komprimieren, da das ohne Informationsverlust nicht möglich ist. 
+
+Vlt. Todo: Schubfachprinzip, Bedeutung von Entropie in diesem Kontext.
 
 \subsection{Kolmogorov Komplexität}
 
-Die Kolmogorov-Komplexität dient als Maß für die algorithmische Komplexität von Informationen.
-Diese Komplexität wird durch die kürzeste Beschreibungslänge eines Algorithmus definiert,
-der eine bestimmte Menge an Daten erzeugt. Eine enge Verbindung besteht zur Vorstellung
-der optimalen, universellen Datenkompression – je einfacher die Beschreibung, desto
-effizienter kann die Datenmenge komprimiert werden.
+Die Kolmogorov Komplexität ist ein Maß für die Strukturiertheit einer Zeichenkette. 
+Sie entspricht der Länge des kürzesten Programms, das die Zeichenkette erzeugen 
+kann. \cite{li}
+Die Kolmogorov Komplexität ist dementsprechend ein Maß für die algorithmische Komplexität 
+von Informationen.
 
-Die Kolmogorov-Komplexität ermöglicht es, den Informationsgehalt eines Datensatzes in
+Die Kolmogorov Komplexität eines Objekts, z. B. eines Textes, ist die Länge 
+des kürzesten Programms, das das Objekt als Ausgabe erzeugt.
+Hier ein Beispiel für so ein Programm.
+Betrachten wir die folgende Zeichenkette: "AAAAAAAAABBBBBCCCCCC".
+Die Zeichenkette besteht aus 20 Zeichen (9 x A, 5 x B, 6 x C).
+Mit einem einfachen Programm lässt sich die Zeichenkette deutlich kürzer
+beschreiben: "9A5B6C".
+Das Programm gibt die Länge der identischen aufeinanderfolgenden Zeichen an, 
+gefolgt von dem Zeichen.
+So lässt sich die ursprüngliche Zeichenkette der Länge 20 in nur 6 Zeichen darstellen.
+Wir haben ein Programm gefunden, das die Länge der Beschreibung der Zeichenkette 
+erheblich reduziert.
+Die Kolmogorov Komplexität dieser Zeichenkette ist deutlich geringer als
+die ursprüngliche Länge der Zeichenkette.
+Das zeigt, dass in der Zeichenkette Strukturen vorhanden sind.
+
+Es ist wichtig zu beachten, dass die tatsächliche Kolmogorov Komplexität für 
+allgemeine Zeichenketten wegen des Halteproblemes nicht praktisch 
+berechenbar ist. \cite{OPPaper}
+Allerdings können Abschätzungen gemacht werden. 
+Wenn ein Algorithmus gefunden wird, der eine Zeichenkette in einem kürzeren 
+Programm darstellt entspricht die Kolmogorov Komplexität der Zeichenkette 
+maximal der Länge des Programms.
+Es ermöglicht den Informationsgehalt von Daten in
 Bezug auf die kürzeste mögliche algorithmische Beschreibung zu verstehen.
-Dieses Konzept hat weitreichende praktische Anwendungen, von der Identifikation von
-wiederholten Mustern bis hin zur Bewertung von Algorithmeneffizienz.
-Allerdings stehen der Anwendung auch Herausforderungen gegenüber, wie der Unberechenbarkeit
-des absoluten Komplexitätsmaßes und der Schwierigkeit, universelle Algorithmen zu finden,
-die für alle Daten gleichermaßen effizient sind. Das Verständnis der Kolmogorov-Komplexität
-trägt maßgeblich zur Entwicklung fortgeschrittener Datenkompressionsverfahren bei und bietet
-Einblicke in die Grenzen der Komprimierbarkeit von Informationen.
 
-\subsection{Anforderungen an Daten, damit diese komprimierbar sind}
-Strukturierte Daten vs. unstrukturierte Daten.
-Wiederholungen und Muster in den Daten.
-Zusammenhang zwischen Datenqualität und Kompressionsmöglichkeiten.
+% Eine enge Verbindung besteht zur Vorstellung
+% der optimalen, universellen Datenkompression – je einfacher die Beschreibung, desto
+% effizienter kann die Datenmenge komprimiert werden.
+% Dieses Konzept hat weitreichende praktische Anwendungen, von der Identifikation von
+% wiederholten Mustern bis hin zur Bewertung von Algorithmeneffizienz.
+% Allerdings stehen der Anwendung auch Herausforderungen gegenüber, wie der Unberechenbarkeit
+% des absoluten Komplexitätsmaßes und der Schwierigkeit, universelle Algorithmen zu finden,
+% die für alle Daten gleichermaßen effizient sind. Das Verständnis der Kolmogorov-Komplexität
+% trägt maßgeblich zur Entwicklung fortgeschrittener Datenkompressionsverfahren bei und bietet
+% Einblicke in die Grenzen der Komprimierbarkeit von Informationen.
 
-Bsp. unkomprimierbare Daten: gleichverteilte Zufallszahlen, ohne Struktur, ..
+% Anforderungen an Daten, damit diese komprimierbar sind
+\subsection{Datenanforderungen, Komprimierbarkeit}
+
+Daten können in verschiedene Gruppen eingeteilt werden.
+Auf der einen Seite stehen strukturierte Daten und auf der anderen Seite
+unstrukturierte Daten.
+
+Strukturierte Daten sind Daten in denen wiederkehrende oder vorhersagbare Muster 
+enthalten sind. 
+Die Entropie der Daten ist niedrig.
+Ein Beispiel für strukturierte Daten sind Tabellen. 
+
+Unstrukturierte Daten sind Daten, in denen keine wiederkehrende oder vorhersagbare 
+Muster enthalten sind.
+Die Entropie der Daten ist hoch.
+Ein Beispiel für unstrukturierte Daten sind zufällig erzeugte Daten.
+
+Strukturierte Daten enthalten meist eine höhere Redundanz als unstrukturierte 
+Daten. 
+Das ist dem Fakt geschuldet, dass die maximal mögliche Kompression, der Information in den 
+Daten, der Entropie, entspricht. 
+Daten können theoretisch maximal auf das Niveau der Entropie der Daten komprimiert werden.
+Strukturierte Daten mit geringer Entropie haben ein tieferes Limit als unstrukturierte Daten.
+Deshalb können strukturierte Daten meist mehr komprimiert werden als unstrukturierte.
+
+\subsubsection{Vorverarbeitung}
+
+Eine Möglichkeit aus etwas unstrukturierten Daten strukturiertere zu machen ist über 
+eine Vorverarbeitung der Daten.
+So eine Vorverarbeitung ist meist eine Normalisierung oder eine Datenfilterung.
+Wichtig ist, dass der Vorverarbeitungsschritt umkehrbar ist.
+Eine Art wie Daten für die Kompression Vorverarbeitet werden, wird im Lauf der 
+Arbeit anhand des PNG Algorithmus gezeigt. 
+PNG verwendet eine Datenfilterung.
+
+\subsubsection{Limitationen}
+
+Ein Beispiel für maximal unstrukturierte Daten die scheinbar nicht komprimierbar 
+sind, sind normalverteilte Zufallszahlen.
+"The Random Compression Challenge" von Mark Nelson \cite{nelson} betrachtet genau dieses
+Problem. 
+Das Ziel der Challenge ist es eine Datei, die etwa ein halbes Megabyte groß ist 
+zu komprimieren. 
+Die Datei besteht aus einer Millionen Zufallszahlen, die gleichverteilt sind und 
+aus dem Buch "A Million Random Digits with 100,000 Normal Deviates" \cite{amilli}
+kommen. 
+
+Es gibt zwei Arten wie die Challenge gewonnen werden kann.
+Die eine Möglichkeit ist es, die Kolmogorov Komplexität zu verwenden und ein 
+Programm zu schreiben, dass die ursprüngliche Datei erzeugt. 
+Die größe des Programms muss kleiner sein, als die zu komprimierende Datei. 
+Es geht dabei darum zu zeigen, dass die Kolmogorov Komplexität kleiner ist 
+als die Größe der Datei selbst.
+
+Die andere Möglichkeit ist es, ein System zu entwickeln, dass Dateien mit normalverteilten
+Zufallszahlen komprimieren und vollständig wieder aus der komprimierten Datei 
+dekomprimieren kann.
+Die größe des Systems spielt dabei keine Rolle, weil das System mehr als nur eine 
+Datei erfolgreich komprimieren und dekomprimieren muss.
+Es ist bewiesen, dass dieser Ansatz unmöglich ist \cite{nelson}. 
+Der Grund dafür ist, dass die Entropie der größe der Datei selbst entspricht und 
+ohne Informationsverlust nicht verkleinert werden kann. 
+
+Bis heute hat noch niemand die Challenge gewonnen. 
+Das ist nicht verwunderlich, da
+die zweite Möglichkeit zu gewinnen bewiesenermaßen unmöglich ist.
+Hingegen ist die erste Möglichkeit mit dem Kolmogorov Komplexität nur 
+vermutlich unmöglich.
+Das bedeutet es könnte eine Lösung geben, ist aber nach jetzigem Stand unwahrscheinlich.
+
+Die Challenge ist ein perfektes Beispiel dafür, wieso es Sinn macht die Daten zu 
+kennen die man komprimieren will.
+Sie zeigt die Limitationen der Datenkompression auf.
+
+
+\section{Aufbau und Struktur von Bilddaten}
+
+Dieser Abschnitt beschäftigt sich mit der dem Aufbau und der Struktur von Bilddaten.
+Es gibt verschiedene Möglichkeiten Bilddaten zu speichern und darzustellen.
+In dieser Arbeit werden die Bilder in Form einer Rastergrafik/ Bitmap gespeichert, dem
+RGB Format.
+Eine Rastergrafik ist eine pixelbasierte Darstellung eines Bildes.
+Die Auflösung eines Bildes gibt an, wie viele Pixel in der Breite und Höhe vorhanden sind.
+Ein Pixel ist die kleinste diskrete Einheit in einem digitalen Bild.
+
+Das RGB Format ist eine Möglichkeit, Farbinformationen in digitalen Bildern zu 
+repräsentieren und zu speichern. 
+RGB steht für die Farben Rot (R), Grün (G) und Blau (B). 
+Es ist ein additives Farbmodell und jede Farbe wird durch eine Kombination 
+der drei Grundfarben erzeugt, auch weiß und schwarz. \cite{rite}
+
+Ein Beispielbild mit einer Auflösung von 800 Pixel Breite und 800 Pixel Höhe wird in 
+dem RGB Format durch eine Matrix gespeichert.
+Die zugehörige Matrix hat eine Größe von (800, 800, 3), (Breite, Höhe, Farbkanäle).
+Die dritte Dimension ist die Anzahl der Farbkanäle.
+Für jeden Pixel werden drei Werte, die die Farbe des Pixels beschreiben, gespeichert.
+Der erste Wert ist der Rotanteil, der zweite der Grünanteil und der dritte 
+den Blauanteil.
+Das RGB Format verwendet normalerweise 8 Bit pro Farbkanal, was eine Farbtiefe von 
+24 Bit pro Pixel ergibt.
+Jeder Farbwert eines Pixels hat 8 Bit, bzw. 1 Byte Speicher zur Verfügung und kann 
+Werte zwischen 0 und 255 annehmen.
+
+Bilder im RGB Format sind nach einem bestimmten Schema aufgebaut, weshalb 
+Strukturen in den Bilddaten entstehen. 
+Diese Strukturen können bei der Datenkompression helfen die Bilder zu komprimieren.
+Eine Struktur im RGB Format ist die Darstellung von Nichtfarben 
+wie schwarz und weiß. 
+Um schwarz, bzw. weiß darzustellen muss ein Pixel für alle drei Farbkanälwerte entweder 
+den Wert 0 oder 255 annehmen.
+Um reine Farben darzustellen wie rot, wird nur ein Pixelwert für den Rotanteil 
+benötigt, während der Grün- und Blauanteil auf Null gesetzt ist.
+Ebenso gibt es viele Farbmischungen bei denen eine der Grundfarben nicht benötigt 
+wird und somit deren Anteil im Pixel auf 0 gesetzt wird.
+Diese Strukturen entstehen durch das Speichern des Bildes im RGB Format.
+Eine weitere Struktur, die in den meisten Bildern vorhanden ist, ist, dass benachbarte 
+Pixel meist ähnliche oder die gleiche Farbe besitzen.
+Das hat damit zu tun, dass es in Bildern meistens Regionen gibt, die zu einem 
+Objekt oder Bildteil gehören, die eine homogene Farbe besitzen.
+
+Diese Strukturen und Wiederholungen in Bilddaten können ausgenutzt werden um die 
+Daten zu komprimieren. 
+Bei der Datenkompression ist es entscheidend, welche Algorithmen diese in Bildern
+spezifisch enthaltenen Redundanzen erkennen und ausnutzen kann. 
+
+% Todo vlt Vergleich mit Textdaten, Unterschiede!!!!, hier oder später aber wäre interessant
+
+
+\section{Messbarkeit der Kompressionsalgorithmen}
+
+
+- Messbarkeit definieren um Ergebnisse der Algorithmen zu vergleichen und zu entscheiden
+was ist ein guter Kompressionsalgorithmus
+
+Wie ist Kompressionsalgorithmus aufgebaut: 
+    Daten die zu komp sind -> Kompression (Vorverarbeitung möglicherweise) 
+    -> Dekompression (Vorverarbeitung der Daten rückgängig machen)
+    -> Weil verlustfrei müssen nach komp und dekomp Originaldaten rauskommen
+
+- Kompressionsrate, wie wird berechnet, Formel
+- Kompressionsgeschwindigkeit, wie wird gemessen, möglicherweise Vorverarbeitungsschritte,
+die zur Zeitmessung dazugehören
+- Dekompressionsgeschwindigkeit, wie wird gemessen, aus komp Daten Unkomprimierte Daten
+
+Abwiegen und Gewichten je nach Anwendung.
+Bsp. echtzeit, nutzlos lange dekomp oder komp aber beste Kompressionsrate
+Vlt. nur Dekomp entscheidend, Bsp. Inet.
+Möglicherweise nur 1 interessant Komp oder Dekomp, Bsp.
+
+
 
 
 
