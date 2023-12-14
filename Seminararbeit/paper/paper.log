@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10.12) (preloaded format=pdflatex 2023.12.7)  14 DEC 2023 01:45
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10.12) (preloaded format=pdflatex 2023.12.7)  14 DEC 2023 23:11
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -312,13 +312,23 @@ Underfull \hbox (badness 2401) in paragraph at lines 370--377
  []
 
 [3]
-Underfull \hbox (badness 2529) in paragraph at lines 437--441
-[]\OT1/ptm/m/n/10 Abwiegen und Gewichten je nach An-wen-dung. Bsp.
+Underfull \hbox (badness 1960) in paragraph at lines 423--426
+\OT1/ptm/m/n/10 notwendig, um Datenkom-pres-sion-sal-go-rith-men und deren
+ []
+
+[4]
+Underfull \hbox (badness 2564) in paragraph at lines 510--517
+\OT1/ptm/m/n/10 ein Al-go-rith-mus ben[]otigt um die ur-spr[]unglichen Daten
  []
 
 
-Underfull \hbox (badness 2142) in paragraph at lines 437--441
-\OT1/ptm/m/n/10 pres-sion-srate Vlt. nur Dekomp entschei-dend, Bsp. Inet.
+Underfull \hbox (badness 1377) in paragraph at lines 527--535
+\OT1/ptm/m/n/10 der Empf[]angerseite m[]ussen die Daten m[]oglichst schnell
+ []
+
+
+Underfull \hbox (badness 2564) in paragraph at lines 561--566
+\OT1/ptm/m/n/10 fahren an-hand von Bilder-daten miteinan-der ver-gle-ichen.
  []
 
 (paper.bbl
@@ -346,7 +356,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 88--91
 \OT1/ptm/m/n/8 https://www.xrite.com/de/blog/what-is-additive-rgb-color-mixing,
  []
 
-)
+[5])
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -358,24 +368,26 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-[4] (paper.aux)
+[6
+
+] (paper.aux)
  ***********
 LaTeX2e <2023-11-01>
 L3 programming layer <2023-11-09>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 4209 strings out of 474587
- 66725 string characters out of 5746174
- 1944558 words of memory out of 5000000
- 26354 multiletter control sequences out of 15000+600000
+ 4210 strings out of 474587
+ 66736 string characters out of 5746174
+ 1943558 words of memory out of 5000000
+ 26355 multiletter control sequences out of 15000+600000
  596077 words of font info for 108 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  57i,8n,65p,286b,259s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/Nick/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Nick/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Nick/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/Nick/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Nick/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/Nick/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Nick/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/Nick/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/Nick/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmbi8a.pfb><C:/Users/Nick/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/Nick/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on paper.pdf (4 pages, 151063 bytes).
+Output written on paper.pdf (6 pages, 160771 bytes).
 PDF statistics:
- 71 PDF objects out of 1000 (max. 8388607)
+ 77 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

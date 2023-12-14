@@ -420,48 +420,171 @@ spezifisch enthaltenen Redundanzen erkennen und ausnutzen kann.
 
 \section{Messbarkeit der Kompressionsalgorithmen}
 
+Es ist wichtig, Kriterien festzulegen, anhand derer die Algorithmen bewertet werden können. 
+Eine Messbarkeit ist notwendig, um Datenkompressionsalgorithmen und deren Ergebnisse 
+vergleichen zu können und um zu entscheiden, was ein guter Kompressionsalgorithmus ist.
 
-- Messbarkeit definieren um Ergebnisse der Algorithmen zu vergleichen und zu entscheiden
-was ist ein guter Kompressionsalgorithmus
+Ein Kompressionsalgorithmus funktioniert nach verschiedenen Schritten.
+Schritt 1 ist die Vorverarbeitung der zu komprimierenden Daten. 
+Dieser Schritt ist Optional und transformiert die ursprünglichen Daten.
+Schritt 2 ist die Kompression der Daten.
+In diesem Schritt wird der für die Kompression spezifische Algorithmus angewendet, 
+um die Daten zu Komprimieren.
+Heraus kommen komprimierte Daten und optional je nach Algorithmus 
+spezifische Zusatzinformationen.
+Schritt 3 ist die Dekompression der komprimierten Daten.
+Dabei wird die Kompression rückgängig gemacht.
+Schritt 4 ist das Rückgangigmachen des Vorverarbeitungsschritt, falls verwendet.
+Die Daten, die den Zyklus durchlaufen, sind mit den Originaldaten identisch, 
+da es sich um verlustfreie Kompressionsalgorithmen handelt.
 
-Wie ist Kompressionsalgorithmus aufgebaut: 
-    Daten die zu komp sind -> Kompression (Vorverarbeitung möglicherweise) 
-    -> Dekompression (Vorverarbeitung der Daten rückgängig machen)
-    -> Weil verlustfrei müssen nach komp und dekomp Originaldaten rauskommen
+Um die Qualität eines Kompressionsalgorithmus konkret bewerten zu können, werden 
+die folgenden drei Kriterien festgelegt, anhand derer die Bewertung vorgenommen wird.
 
-- Kompressionsrate, wie wird berechnet, Formel
-- Kompressionsgeschwindigkeit, wie wird gemessen, möglicherweise Vorverarbeitungsschritte,
-die zur Zeitmessung dazugehören
-- Dekompressionsgeschwindigkeit, wie wird gemessen, aus komp Daten Unkomprimierte Daten
+\subsection{Kompressionsrate}
 
-Abwiegen und Gewichten je nach Anwendung.
-Bsp. echtzeit, nutzlos lange dekomp oder komp aber beste Kompressionsrate
-Vlt. nur Dekomp entscheidend, Bsp. Inet.
-Möglicherweise nur 1 interessant Komp oder Dekomp, Bsp.
+Ein Punkt um zu entscheiden wie gut ein Datenkompressionsverfahren
+funktioniert ist die Datengröße der komprimierten Daten (nach Schritt 2, inklusive
+Zusatzinformationen falls vorhanden) zu betrachten.
+Die Datengröße kann in der Maßeinheit Bit, bzw. Byte, bestimmt werden und gibt an,
+wie viel Speicherplatz Daten benötigen.
+% Die komprimierten Daten enthälten sämtliche Information und die Originaldaten 
+% können daraus rekonstruiert werden.
+Ein Maß um zu messen, wie stark die Daten im Verhältnis zu den Originaldaten mit dem 
+jeweiligen Algorithmus komprimierbar sind, ist die Kompressionsrate.
+
+Die Kompressionsrate wird aus dem Verhältnis zwischen der Größe der ursprünglichen, 
+nicht komprimierten, Daten und der Größe der komprimierten Daten bestimmt.
+Sie wird in Prozent angegeben und ist in Formel \ref{eq:komprate} angegeben.
+
+\begin{equation}
+    \label{eq:komprate}
+    \text{Kompressionsrate} = \left(1 - \frac{\text{Größe komp. Daten}}{\text{Größe unkomp. Daten}}\right) \times 100 \%
+\end{equation}
+
+Je höher die Kompressionsrate, desto stärker hat der Algorithmus die Daten 
+komprimiert. 
+Eine Kompressionsrate von 100 \% ist nicht erreichbar, außer die Originaldaten enthalten
+keine Information, bzw. sind leer. 
+Ein Wert von 0 \% bedeutet, dass keine Kompression stattgefunden hat und die komprimierten 
+Daten genauso groß sind wie die ursprünglichen.
+Ein negativer Wert ist möglich und zeigt, dass die komprimierten Daten mehr Speicherplatz 
+benötigen als die ursprünglichen Daten. 
+Das bedeutet, dass der Algorithmus die ursprünglichen Daten nicht erfolgreich 
+komprimieren kann.
+Die Kompressionsrate kann Werte annehmen im Bereich $(-\infty, 100]$.
+
+Die Bewertung mit der Kompressionsrate ist datenabhängig und wird konkret 
+ermittelt. 
+Das Bedeutet die zu komprimierenden Daten sind entscheidend.
+
+\subsection{Kompressionszeit}
+
+Ein weiterer Punkt um Datenkompressionsalgorithmen zu bewerten, ist die 
+Kompressionszeit.
+Die Kompressionszeit gibt an, wie lange ein Algorithmus benötigt um 
+komprimierte Daten aus den ursprünglichen Daten zu erzeugen.
+Sie misst die kombinierte Zeit für die Vorverarbeitung (Schritt 1) und die 
+anwendung des Kompressionsalgorithmus (Schritt 2).
+Die Kompressionszeit wird in Sekunden, bzw. Millisekunden, gemessen.
+
+Eine Messung erfolgt immer genau an einem Input, der komprimiert wird.
+Es werden also konkrete Werte gemessen.
+Durch das Messen und den Vergleichen verschiedengroßer Eingangsdaten können konkrete
+Aussagen über die Kompressionszeit abhängig von der Größe der 
+Eingangsdaten getroffen werden.
+
+Die konkreten Ergebnisse der Kompressionszeit können mit der 
+theoretisch erwarteten Laufzeit der Algorithmen verglichen werden.
+Die theoretische Laufzeit eines Algorithmus wird in Form der O-Notation
+angegeben.
+Die O-Notation beschreibt die Obergrenze des Wachstumsverhaltens der Laufzeit 
+eines Algorithmus in Bezug auf einen wachsenden Input. \cite{chivers}
+Mit den praktischen Messungen und der theoretischen Vorhersage können 
+Erkenntnisse über die implementierten Algorithmen getroffen werden. 
+
+% vlt noch mehr O-Notation
+
+\subsection{Dekompressionszeit}
+
+Die Dekompressionszeit ein weiteres Maß um Datenkompressionsalgorithmen zu bewerten.
+Sie gibt an, wie lange ein Algorithmus benötigt um 
+die ursprünglichen Daten aus den komprimierten Daten zu erzeugen.
+Sie misst die kombinierte Zeit für die Dekompression (Schritt 3) und das 
+Rückgangigmachen der Vorverarbeitung (Schritt 4).
+Die Dekompressionszeit wird in Sekunden, bzw. Millisekunden, gemessen.
+Die Messungen erfolgen ebenso wie bei der Kompressionszeit an konkreten Daten.
+
+\subsection{Abwiegen der Messkriterien}
+
+Nach der definition der drei Messkriterien anhand derer die 
+Kompressionsalgorithmen verglichen werden, können diese zudem gewichtet 
+werden.
+Je nach Anwendungsfall sind die Messkriterien unterschiedlich wichtig.
+In den folgenden Abschnitten werden drei Beispiele für unterschiedliche 
+Anwendungen und Gewichtungen der Kriterien dargestellt.
+
+Beispiel 1, Echtzeitanwendungen: 
+Beim Senden von Daten über ein bandbreitenbegrenztes Netz macht es für 
+Echtzeitanwendungen Sinn die Daten vor dem Senden zu komprimieren.
+Dadurch wird nur eine geringere Bandbreite benötigt und die Übertragung der 
+Daten funktioniert schneller. 
+Auf der Empfängerseite müssen die Daten möglichst schnell dekomprimiert werden.
+Für diesen Anwendungsfall ist die Kompressions- und Dekompressionszeit entscheidend.
+Die Kompressionsrate spielt eine hintergeordnete Rolle.
+
+Beispiel 2, Ressourcen im Internet:
+Bei einer Webseite die Ressourcen wie Bilder anzeigen soll ist es wichtig,
+dem Besucher der Webseite die Ressourcen möglichst schnell bereitzustellen.
+Da das Internet ein bandbreitenbegrenztes Netz ist, macht es Sinn Ressourcen komprimiert
+zu senden und beim Besucher zu dekomprimieren.
+Für diesen Anwendungsfall ist die Kompressionszeit egal, da die Ressourcen 
+bereits in vorkomprimierter Form vorliegen können.
+Entscheidend ist hier die Dekompressionszeit und zweitrangig die Kompressionsrate.
+
+Beispiel 3, Archivierung: 
+Archivierung ist das langfristiges Speichern von Daten. 
+Auf die Daten wird nur selten zugegriffen. 
+Entscheidend ist, dass die Daten möglichst wenig Speicherplatz benötigen,
+um möglichst viel speichern zu können.
+Für diesen Anwendungsfall ist das Messkriterium Kompressionsrate wichtig.
+Kompressions- und Dekompressionszeit der Daten spielt wegen der seltenen und 
+nicht dringenden Datenzugriffe keine Rolle.
+
+Aus den Beispielen ist zu erkennen, dass es Sinn hat die 
+Datenkompressionsalgorithmen nach den drei Kriterien zu vergleichen, 
+da je nach Anforderung unterschiedlich wichtig sind.
+
+
+\section{Aufbau des praktischen Versuchs}
+
+Idee: wie kann man verschiedene Datenkompressionsverfahren anhand von Bilderdaten
+miteinander vergleichen.
+Einige der gewählten Algorithmen nicht direkt für Bilder ausgelegt -> 
+Vorbereiten der Bilddaten um das Bild für den jeweiligen Algorithmus 
+komprimierbar zu machen.
+
+(Idee mit Bild)
+
+Umsetzung in Python, high level programming language, schnell umsetzbar, aber nicht 
+Laufzeitoptimiert
+Vereinfachungen/ Annahmen getroffen:
+- keine Optimierungen der Algorithmen, 
+- 8-Bit Farbinformationen, 
 
 
 
 
+\section{Vorstellung der Algorithmen}
 
 
+\section{Wahl der Testbilder}
 
 
+\section{Ergebnisse und Interpretation}
 
-\section{Introduction}
-This document is a model and instructions for \LaTeX.
-Please observe the conference page \cite{autor2023} limits.
 
-\section{Ease of Use}
-
-\subsection{Maintaining the Integrity of the Specifications}
-
-The IEEEtran class file is used to format your paper and style the text. All margins,
-column widths, line spaces, and text fonts are prescribed; please do not
-alter them. You may note peculiarities. For example, the head margin
-measures proportionately more than is customary. This measurement
-and others are deliberate, using specifications that anticipate your paper
-as one part of the entire proceedings, and not as an independent document.
-Please do not revise any of the current designations.
+\section{Finale Auswertung}
 
 
 \bibliographystyle{IEEEtran}

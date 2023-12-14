@@ -89,7 +89,10 @@ X.-R. Color, ``Additive farbmischung,''
   \url{https://www.xrite.com/de/blog/what-is-additive-rgb-color-mixing}, 2022,
   [Online; accessed 06.12.2023].
 
-\bibitem{autor2023}
-D.~Autor, ``Titel des artikels,'' \emph{Name des Journals}, pp. 123--145, 2023.
+\bibitem{chivers}
+I.~Chivers, J.~Sleightholme, I.~Chivers, and J.~Sleightholme, ``An introduction
+  to algorithms and the big o notation,'' \emph{Introduction to Programming
+  with Fortran: With Coverage of Fortran 90, 95, 2003, 2008 and 77}, pp.
+  359--364, 2015.
 
 \end{thebibliography}
