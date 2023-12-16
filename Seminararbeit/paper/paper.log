@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10.12) (preloaded format=pdflatex 2023.12.7)  14 DEC 2023 23:11
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10.12) (preloaded format=pdflatex 2023.12.7)  16 DEC 2023 18:11
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -229,62 +229,185 @@ Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1370.
 Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1371.
 Package xcolor Info: Model `Gray' substituted by `gray' on input line 1372.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1373.
-) (C:\Users\Nick\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
+) (C:\Users\Nick\AppData\Local\Programs\MiKTeX\tex/latex/threeparttable\threeparttable.sty
+Package: threeparttable 2003/06/13  v 3.0
+\@tempboxb=\box55
+) (C:\Users\Nick\AppData\Local\Programs\MiKTeX\tex/latex/tools\tabularx.sty
+Package: tabularx 2023/07/08 v2.11c `tabularx' package (DPC)
+ (C:\Users\Nick\AppData\Local\Programs\MiKTeX\tex/latex/tools\array.sty
+Package: array 2023/10/16 v2.5g Tabular extension package (FMi)
+\col@sep=\dimen175
+\ar@mcellbox=\box56
+\extrarowheight=\dimen176
+\NC@list=\toks24
+\extratabsurround=\skip56
+\backup@length=\skip57
+\ar@cellbox=\box57
+)
+\TX@col@width=\dimen177
+\TX@old@table=\dimen178
+\TX@old@col=\dimen179
+\TX@target=\dimen180
+\TX@delta=\dimen181
+\TX@cols=\count283
+\TX@ftn=\toks25
+) (C:\Users\Nick\AppData\Local\Programs\MiKTeX\tex/latex/booktabs\booktabs.sty
+Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
+\heavyrulewidth=\dimen182
+\lightrulewidth=\dimen183
+\cmidrulewidth=\dimen184
+\belowrulesep=\dimen185
+\belowbottomsep=\dimen186
+\aboverulesep=\dimen187
+\abovetopsep=\dimen188
+\cmidrulesep=\dimen189
+\cmidrulekern=\dimen190
+\defaultaddspace=\dimen191
+\@cmidla=\count284
+\@cmidlb=\count285
+\@aboverulesep=\dimen192
+\@belowrulesep=\dimen193
+\@thisruleclass=\count286
+\@lastruleclass=\count287
+\@thisrulewidth=\dimen194
+) (C:\Users\Nick\AppData\Local\Programs\MiKTeX\tex/latex/siunitx\siunitx.sty
+Package: siunitx 2023-11-14 v3.3.9 A comprehensive (SI) units package
+\l__siunitx_number_uncert_offset_int=\count288
+\l__siunitx_number_exponent_fixed_int=\count289
+\l__siunitx_number_min_decimal_int=\count290
+\l__siunitx_number_min_integer_int=\count291
+\l__siunitx_number_round_precision_int=\count292
+\l__siunitx_number_lower_threshold_int=\count293
+\l__siunitx_number_upper_threshold_int=\count294
+\l__siunitx_number_group_first_int=\count295
+\l__siunitx_number_group_size_int=\count296
+\l__siunitx_number_group_minimum_int=\count297
+\l__siunitx_angle_tmp_dim=\dimen195
+\l__siunitx_angle_marker_box=\box58
+\l__siunitx_angle_unit_box=\box59
+\l__siunitx_compound_count_int=\count298
+ (C:\Users\Nick\AppData\Local\Programs\MiKTeX\tex/latex/translations\translations.sty
+Package: translations 2022/02/05 v1.12 internationalization of LaTeX2e packages (CN)
+ (C:\Users\Nick\AppData\Local\Programs\MiKTeX\tex/latex/etoolbox\etoolbox.sty
+Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count299
+) (C:\Users\Nick\AppData\Local\Programs\MiKTeX\tex/generic/pdftexcmds\pdftexcmds.sty
+Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO)
+ (C:\Users\Nick\AppData\Local\Programs\MiKTeX\tex/generic/infwarerr\infwarerr.sty
+Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+) (C:\Users\Nick\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.sty
+Package: iftex 2022/02/03 v1.0f TeX engine tests
+) (C:\Users\Nick\AppData\Local\Programs\MiKTeX\tex/generic/ltxcmds\ltxcmds.sty
+Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
+)
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+))
+\l__siunitx_table_tmp_box=\box60
+\l__siunitx_table_tmp_dim=\dimen196
+\l__siunitx_table_column_width_dim=\dimen197
+\l__siunitx_table_integer_box=\box61
+\l__siunitx_table_decimal_box=\box62
+\l__siunitx_table_uncert_box=\box63
+\l__siunitx_table_before_box=\box64
+\l__siunitx_table_after_box=\box65
+\l__siunitx_table_before_dim=\dimen198
+\l__siunitx_table_carry_dim=\dimen199
+\l__siunitx_unit_tmp_int=\count300
+\l__siunitx_unit_position_int=\count301
+\l__siunitx_unit_total_int=\count302
+) (C:\Users\Nick\AppData\Local\Programs\MiKTeX\tex/latex/kantlipsum\kantlipsum.sty
+Package: kantlipsum 2023/11/27 v0.8c Generate text in Kantian style
+\l__kgl_start_int=\count303
+\l__kgl_end_int=\count304
+
+Package kantlipsum Info: The package provides paragraphs 1 to 164. Values
+(kantlipsum)             outside this range will be ignored.
+
+) (C:\Users\Nick\AppData\Local\Programs\MiKTeX\tex/latex/capt-of\capt-of.sty
+Package: capt-of 2009/12/29 v0.2 standard captions outside of floats
+) (C:\Users\Nick\AppData\Local\Programs\MiKTeX\tex/latex/sttools\cuted.sty
+Package: cuted 2021/10/04 v2.0 Mixing onecolumn and twocolumn modes
+\At@ViperColsBreak=\toks26
+\preCutedStrip=\toks27
+\postCutedStrip=\toks28
+\cuted@@tempbox@a=\box66
+\cuted@@tempbox@c=\box67
+\cuted@@tempbox@var=\box68
+\hold@viper=\box69
+\@viper=\box70
+\cuted@@varbox@a=\box71
+\cuted@@varbox@c=\box72
+\cuted@@tempdim@spread=\dimen256
+\cuted@@tempdim@a=\dimen257
+\cuted@@tempdim@b=\dimen258
+\ht@hold@viper=\dimen259
+\ht@viper=\dimen260
+\var@@pagediscards@ht=\dimen261
+\stripsep=\skip58
+\viper@penalty=\count305
+)
+Package translations Info: No language package found. I am going to use `english' as default language. on input line 26.
+ (C:\Users\Nick\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
 File: l3backend-pdftex.def 2023-11-09 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count283
-\l__pdf_internal_box=\box55
+\l__color_backend_stack_int=\count306
+\l__pdf_internal_box=\box73
 ) (paper.aux)
 \openout1 = `paper.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
 
 -- Lines per column: 56 (exact).
 (C:\Users\Nick\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count284
-\scratchdimen=\dimen175
-\scratchbox=\box56
-\nofMPsegments=\count285
-\nofMParguments=\count286
-\everyMPshowfont=\toks24
-\MPscratchCnt=\count287
-\MPscratchDim=\dimen176
-\MPnumerator=\count288
-\makeMPintoPDFobject=\count289
-\everyMPtoPDFconversion=\toks25
+\scratchcounter=\count307
+\scratchdimen=\dimen262
+\scratchbox=\box74
+\nofMPsegments=\count308
+\nofMParguments=\count309
+\everyMPshowfont=\toks29
+\MPscratchCnt=\count310
+\MPscratchDim=\dimen263
+\MPnumerator=\count311
+\makeMPintoPDFobject=\count312
+\everyMPtoPDFconversion=\toks30
 ) (C:\Users\Nick\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
  (C:\Users\Nick\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
-))
-LaTeX Font Info:    Trying to load font information for U+msa on input line 26.
+)) (C:\Users\Nick\AppData\Local\Programs\MiKTeX\tex/latex/translations/dicts\translations-basic-dictionary-english.trsl
+File: translations-basic-dictionary-english.trsl (english translation file `translations-basic-dictionary')
+)
+Package translations Info: loading dictionary `translations-basic-dictionary' for `english'. on input line 26.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 40.
  (C:\Users\Nick\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 26.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 40.
  (C:\Users\Nick\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Underfull \hbox (badness 1622) in paragraph at lines 38--45
+Underfull \hbox (badness 1622) in paragraph at lines 52--59
 \OT1/ptm/m/n/10 angewen-det wird. Da-her wird Datenkom-pres-sion oft als
  []
 
 
-Underfull \hbox (badness 1478) in paragraph at lines 96--104
+Underfull \hbox (badness 1478) in paragraph at lines 110--118
 []\OT1/ptm/m/n/10 Claude Shan-non, der Erfinder der In-for-ma-tion-s-the-o-rie,
  []
 
@@ -292,51 +415,70 @@ Underfull \hbox (badness 1478) in paragraph at lines 96--104
 
 
 ] [2]
-Underfull \hbox (badness 2582) in paragraph at lines 256--271
+Underfull \hbox (badness 2582) in paragraph at lines 270--285
 \OT1/ptm/m/n/10 Ob-jekt als Aus-gabe erzeugt. Hier ein Beispiel f[]ur so
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 305--309
+Underfull \hbox (badness 10000) in paragraph at lines 319--323
 []\OT1/ptm/m/n/10 Unstrukturierte Daten sind Daten, in de-nen keine
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 305--309
+Underfull \hbox (badness 10000) in paragraph at lines 319--323
 \OT1/ptm/m/n/10 wiederkehrende oder vorher-sag-bare Muster en-thal-ten
  []
 
 
-Underfull \hbox (badness 2401) in paragraph at lines 370--377
+Underfull \hbox (badness 2401) in paragraph at lines 384--391
 []\OT1/ptm/m/n/10 Dieser Ab-schnitt besch[]aftigt sich mit der dem Auf-
  []
 
 [3]
-Underfull \hbox (badness 1960) in paragraph at lines 423--426
+Underfull \hbox (badness 1960) in paragraph at lines 437--440
 \OT1/ptm/m/n/10 notwendig, um Datenkom-pres-sion-sal-go-rith-men und deren
  []
 
 [4]
-Underfull \hbox (badness 2564) in paragraph at lines 510--517
+Underfull \hbox (badness 2564) in paragraph at lines 524--531
 \OT1/ptm/m/n/10 ein Al-go-rith-mus ben[]otigt um die ur-spr[]unglichen Daten
  []
 
 
-Underfull \hbox (badness 1377) in paragraph at lines 527--535
+Underfull \hbox (badness 1377) in paragraph at lines 541--549
 \OT1/ptm/m/n/10 der Empf[]angerseite m[]ussen die Daten m[]oglichst schnell
  []
 
 
-Underfull \hbox (badness 2564) in paragraph at lines 561--566
-\OT1/ptm/m/n/10 fahren an-hand von Bilder-daten miteinan-der ver-gle-ichen.
+Underfull \hbox (badness 2961) in paragraph at lines 575--580
+[]\OT1/ptm/m/n/10 Das Ziel des prak-tis-chen Ver-suches ist ver-schiedene
  []
 
+<./images/Idea.png, id=25, 840.522pt x 349.962pt>
+File: ./images/Idea.png Graphic file (type png)
+<use ./images/Idea.png>
+Package pdftex.def Info: ./images/Idea.png  used on input line 584.
+(pdftex.def)             Requested size: 252.0pt x 104.91998pt.
+<./images/Images.png, id=27, 545.529pt x 297.402pt>
+File: ./images/Images.png Graphic file (type png)
+<use ./images/Images.png>
+Package pdftex.def Info: ./images/Images.png  used on input line 636.
+(pdftex.def)             Requested size: 252.0pt x 137.38289pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
 (paper.bbl
+Underfull \vbox (badness 1917) has occurred while \output is active []
+
+ [5 <./images/Idea.png>]
+Overfull \vbox (37.21129pt too high) has occurred while \output is active []
+
+
 Underfull \hbox (badness 3291) in paragraph at lines 55--59
 \OT1/ptm/m/n/8 zwischen-daten-informationen-und-wissen/, 2017, [On-line; ac-cessed
  []
 
-
+[6 <./images/Images.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 78--81
 []\OT1/ptm/m/n/8 M. Nel-son, ``The ran-dom com-pres-sion chal-lenge,''
  []
@@ -356,7 +498,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 88--91
 \OT1/ptm/m/n/8 https://www.xrite.com/de/blog/what-is-additive-rgb-color-mixing,
  []
 
-[5])
+)
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -368,7 +510,7 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-[6
+[7
 
 ] (paper.aux)
  ***********
@@ -377,17 +519,17 @@ L3 programming layer <2023-11-09>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 4210 strings out of 474587
- 66736 string characters out of 5746174
- 1943558 words of memory out of 5000000
- 26355 multiletter control sequences out of 15000+600000
- 596077 words of font info for 108 fonts, out of 8000000 for 9000
+ 9012 strings out of 474587
+ 202007 string characters out of 5746174
+ 1954558 words of memory out of 5000000
+ 31092 multiletter control sequences out of 15000+600000
+ 600929 words of font info for 118 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 57i,8n,65p,286b,259s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 73i,11n,80p,286b,529s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/Nick/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Nick/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Nick/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/Nick/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Nick/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/Nick/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Nick/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/Nick/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/Nick/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmbi8a.pfb><C:/Users/Nick/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/Nick/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on paper.pdf (6 pages, 160771 bytes).
+Output written on paper.pdf (7 pages, 4043965 bytes).
 PDF statistics:
- 77 PDF objects out of 1000 (max. 8388607)
+ 87 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 11 words of extra memory for PDF output out of 10000 (max. 10000000)
 
