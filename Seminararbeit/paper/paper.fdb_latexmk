@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex paper"] 1702746638 "paper.aux" "paper.bbl" "paper" 1702746676 0
-  "./mybib.bib" 1702586243 8254 9e231a70aed714cb849389745cdf58b7 ""
+["bibtex paper"] 1702833673 "paper.aux" "paper.bbl" "paper" 1702833675 0
+  "./mybib.bib" 1702833560 8593 c0d8bbf91f134b7495375b8f6f7fd80c ""
   "C:/Users/Nick/AppData/Local/Programs/MiKTeX/bibtex/bst/ieeetran/IEEEtran.bst" 1440622569 57748 7c8250ecf02814ce6ddc0cdbb63df1dd ""
-  "paper.aux" 1702746676 4517 3bbfa794004c8c9217fd2c6b4060c0fc "pdflatex"
+  "paper.aux" 1702833674 5690 293a68ec30e8cf7984e80a8971896281 "pdflatex"
   (generated)
   "paper.bbl"
   "paper.blg"
   (rewritten before read)
-["pdflatex"] 1702746675 "c:/Users/Nick/Desktop/M1/STI/STI-Repo/Seminararbeit/paper/paper.tex" "paper.pdf" "paper" 1702746676 0
+["pdflatex"] 1702833673 "c:/Users/Nick/Desktop/M1/STI/STI-Repo/Seminararbeit/paper/paper.tex" "paper.pdf" "paper" 1702833675 0
   "C:/Users/Nick/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1702743594 82507 a9eef8696c92627b87e9975edea03b2a ""
   "C:/Users/Nick/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1701972384 24212759 3e6ce9de2b74cdffca51671c9976484e ""
   "C:/Users/Nick/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc" 1458473887 4993 80dc9bab7f31fb78a000ccfed0e27cab ""
@@ -98,12 +98,12 @@
   "C:/Users/Nick/AppData/Local/Programs/MiKTeX/tex/latex/translations/dicts/translations-basic-dictionary-english.trsl" 1644048522 5588 0c1628daf15f4411ff1f463114c634a3 ""
   "C:/Users/Nick/AppData/Local/Programs/MiKTeX/tex/latex/translations/translations.sty" 1644048522 44247 2188b95d0ee74e31eca4d316263c58a7 ""
   "C:/Users/Nick/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1700127522 55487 80a65caedd3722f4c20a14a69e785d8f ""
-  "c:/Users/Nick/Desktop/M1/STI/STI-Repo/Seminararbeit/paper/paper.tex" 1702746674 34513 84fcf1dd4b3bfea4b5f110e6693abc8b ""
+  "c:/Users/Nick/Desktop/M1/STI/STI-Repo/Seminararbeit/paper/paper.tex" 1702833670 36583 1f96abe043f54c5b49fb08bd512e25be ""
   "images/Idea.png" 1702654095 1185321 026ff8ccd8808729ea75f9103c31f4c2 ""
   "images/Images.png" 1702742912 3226604 2ede94302e6cde429744ca5bcf3278f5 ""
-  "paper.aux" 1702746676 4517 3bbfa794004c8c9217fd2c6b4060c0fc "pdflatex"
-  "paper.bbl" 1702746638 3893 6358e95b9f2b4b1fe2c4f8a6268cb9c4 "bibtex paper"
-  "paper.tex" 1702746674 34513 84fcf1dd4b3bfea4b5f110e6693abc8b ""
+  "paper.aux" 1702833674 5690 293a68ec30e8cf7984e80a8971896281 "pdflatex"
+  "paper.bbl" 1702833673 4144 8bf3352dda9ca7d2d0e17c8032ca0e4e "bibtex paper"
+  "paper.tex" 1702833670 36583 1f96abe043f54c5b49fb08bd512e25be ""
   (generated)
   "paper.aux"
   "paper.log"

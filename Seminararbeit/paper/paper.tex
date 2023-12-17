@@ -579,10 +579,10 @@ Bildern ausgelegt.
 Die Bilder müssen vorbereitet und in das richtige Format gebracht werden.
 
 \begin{figure}[h]
-    \label{fig:idea}
     \centering
     \includegraphics[width=\columnwidth]{./images/Idea.png}
     \caption{Umsetzung des Versuchs}
+    \label{fig:idea}
 \end{figure}
 
 Abbildung \ref{fig:idea} zeigt den Aufbau des Versuchs.
@@ -590,24 +590,35 @@ Die erste Zeile zeigt wie das Eingangsbild in das benötigte Format umgewandelt
 wird.
 Das Origanlbild das komprimiert werden soll ist unkomprimiert und unbearbeitet.
 Es wird im ersten Schritt in eine RGB Matrix umgewandelt.
-Diese Umwandlung ist vom Originalbild zur Matrix, aber auch von der Matrix 
-zum Originalbild möglich und ist eindeutig umkehrbar.
+Das Konvertieren vom Originalbild zur Matrix, aber auch von der Matrix 
+zum Originalbild ist möglich und eindeutig umkehrbar.
 Die Matrix hat die Form (Pixelbreite Originalbild, Pixelhöhe Originalbild, 
 3 Farbkanäle).
 Jeder der drei Farbkanäle (rot, grün, blau) beschreibt eine zweidimensionale Matrix, 
 die für jeden Pixel den Wert der entsprechenden Farbe angibt.
 Im nächsten Schritt wird aus der Matrix eine Flache Liste gemacht.
 Dazu werden alle Werte der Farbkanäle aneinandergereiht.
-Zuerst alle Werte von Kanal rot, dann grün, dann blau.
+Zuerst alle Werte von Farbkanal für rot, dann grün, dann blau.
 
-% todoasdf
-Algorithmen für Text ausgelegt, Liste mit Werte zwischen 0,255, 1-Dimensional
---> können von Algorithmen die Text komprimieren können komprimiert werden.
+Einige der Kompressionsalgorithmen, die verglichen werden, sind für Textdaten ausgelegt. 
+Textdaten sind eindimensionale Daten, während Bilddaten je nach Darstellung 
+zweidimensional oder dreidimensional sind.
+Mit den oben beschriebenen Schritten wird ein Bild in eine eindimensionale 
+Form umgewandelt. 
+Die Algorithmen können mit dieser Reprasentation eines Bildes arbeiten.
 
+Die untere Zeile in Abbildung \ref{fig:idea} beschreibt den Programmablauf.
+Input für die Kompressionsalgorithmen ist die eindimensionale RGB Liste.
+Der Algorithmus komprimiert die Eingagnsdaten und erzeugt die komprimierte 
+Darstellung des Bildes, hier Komprimiertes Bild gennant.
+Die Zeit von Start des Algorithmus bis zum komprimierten Bild wird gemessen 
+und als Kompressionszeit gespeichert.
+Aus den komprimierten Daten wird die Kompressionsrate, wie in Formel \ref{eq:komprate}
+beschrieben, berechnet.
+Im nächsten Schritt dekomprimiert der Algorithmus die komprimierten Daten und 
+erzeugt die ursprüngliche RGB Liste.
+Die Zeit für die Dekompression wird als Dekompressionszeit gespeichert.
 
-
-Die nächste Zeile in Abbildung \ref{fig:idea} beschreibt den Programmablauf.
-Liste von Bild weiter gearbeitet.
 
 
 
@@ -625,17 +636,55 @@ Vereinfachungen/ Annahmen getroffen:
 
 
 
-\section{Vorstellung der Algorithmen}
+\section{Vorstellung der Kompressionsalgorithmen}
+
+In diesem Abschnitt werden die verglichenen Datenkompressionsalgorithmen 
+mit ihren jeweiligen Spezifikationen vorgestellt. 
+Alle Algorithmen wurden in der Programmiersprache Python implementiert. 
+Python ist eine Hochsprachen-Programmiersprache, die es ermöglicht, 
+die verschiedenen Algorithmen entsprechend ihrer Spezifikationen zu implementieren. 
+Die Sprache Python wurde gewählt, da sie eine schnelle Implementierung ermöglicht.
+Python ist eine interpretierte Sprache und nicht auf die Laufzeit von Programmen 
+optimiert. \cite{nadav}
+In den Implementierungen der Algorithmen wurden keine Laufzeitoptimierungen der 
+Algorithmen vorgenommen.
+Es geht in dem Versuch darum die Kompressionsalgorithmen untereinander zu 
+vergleichen und nicht eine jeweils beste Lösung zu implementieren.
+
+
+\subsection{Run Length Encoding - RLE}
+
+Erklären
+
+Besonderheiten
+
+Laufzeitkomplexität Komp. Dekomp.
+- mit den gewählten spezifikationen: O(n) für . und . für .
+
+\subsection{Huffman Codierung}
+\subsection{Lempel-Ziv 1977 - LZ77}
+\subsection{Portable Network Graphics Algorithmus - PNG}
+
+
+\subsection{Kombinationen}
+\subsubsection{Deflate Algorithmus}
+\subsubsection{Filter + Huffman}
+\subsubsection{Filter + LZ77}
 
 
 \section{Wahl der Testbilder}
 
 \begin{figure}[h]
-  \label{fig:testbilder}
   \centering
   \includegraphics[width=\columnwidth]{./images/Images.png}
   \caption{Testbilder mit Auflösung}
+  \label{fig:testbilder}
 \end{figure}
+
+- wieso die Bilder
+
+
+\subsection{Erwartungen}
 
 
 
@@ -718,7 +767,7 @@ Vereinfachungen/ Annahmen getroffen:
 
 
 
-\section{Finale Auswertung}
+\section{Evaluation}
 
 
 \bibliographystyle{IEEEtran}

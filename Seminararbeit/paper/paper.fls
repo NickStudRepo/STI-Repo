@@ -193,6 +193,7 @@ INPUT .\images\Idea.png
 INPUT .\images\Idea.png
 INPUT .\images\Idea.png
 INPUT .\images\Idea.png
+INPUT C:\Users\Nick\AppData\Local\Programs\MiKTeX\fonts\vf\adobe\times\ptmr7t.vf
 INPUT .\images\Images.png
 INPUT .\images\Images.png
 INPUT .\images\Images.png
@@ -211,13 +212,12 @@ INPUT C:\Users\Nick\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmr7t.t
 INPUT .\paper.bbl
 INPUT .\paper.bbl
 INPUT paper.bbl
-INPUT C:\Users\Nick\AppData\Local\Programs\MiKTeX\fonts\vf\adobe\times\ptmr7t.vf
+INPUT C:\Users\Nick\AppData\Local\Programs\MiKTeX\fonts\vf\adobe\times\ptmri7t.vf
+INPUT C:\Users\Nick\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmri8r.tfm
 INPUT C:\Users\Nick\AppData\Local\Programs\MiKTeX\fonts\vf\adobe\times\ptmrc7t.vf
 INPUT C:\Users\Nick\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmr8r.tfm
 INPUT C:\Users\Nick\AppData\Local\Programs\MiKTeX\fonts\vf\adobe\times\ptmr7t.vf
 INPUT C:\Users\Nick\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmr8r.tfm
-INPUT C:\Users\Nick\AppData\Local\Programs\MiKTeX\fonts\vf\adobe\times\ptmri7t.vf
-INPUT C:\Users\Nick\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmri8r.tfm
 INPUT paper.aux
 INPUT C:\Users\Nick\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmex10.pfb
 INPUT C:\Users\Nick\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmex10.pfb

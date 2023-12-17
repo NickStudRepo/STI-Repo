@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10.12) (preloaded format=pdflatex 2023.12.7)  16 DEC 2023 18:11
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10.12) (preloaded format=pdflatex 2023.12.7)  17 DEC 2023 18:21
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -457,28 +457,27 @@ Underfull \hbox (badness 2961) in paragraph at lines 575--580
 <./images/Idea.png, id=25, 840.522pt x 349.962pt>
 File: ./images/Idea.png Graphic file (type png)
 <use ./images/Idea.png>
-Package pdftex.def Info: ./images/Idea.png  used on input line 584.
+Package pdftex.def Info: ./images/Idea.png  used on input line 583.
 (pdftex.def)             Requested size: 252.0pt x 104.91998pt.
-<./images/Images.png, id=27, 545.529pt x 297.402pt>
+[5 <./images/Idea.png>]
+Underfull \hbox (badness 1540) in paragraph at lines 641--653
+\OT1/ptm/m/n/10 pres-sion-sal-go-rith-men mit ihren jew-eili-gen Spez-i-fika-tio-nen
+ []
+
+<./images/Images.png, id=31, 545.529pt x 297.402pt>
 File: ./images/Images.png Graphic file (type png)
 <use ./images/Images.png>
-Package pdftex.def Info: ./images/Images.png  used on input line 636.
+Package pdftex.def Info: ./images/Images.png  used on input line 679.
 (pdftex.def)             Requested size: 252.0pt x 137.38289pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 (paper.bbl
-Underfull \vbox (badness 1917) has occurred while \output is active []
-
- [5 <./images/Idea.png>]
-Overfull \vbox (37.21129pt too high) has occurred while \output is active []
-
-
 Underfull \hbox (badness 3291) in paragraph at lines 55--59
 \OT1/ptm/m/n/8 zwischen-daten-informationen-und-wissen/, 2017, [On-line; ac-cessed
  []
 
-[6 <./images/Images.png>]
+
 Underfull \hbox (badness 10000) in paragraph at lines 78--81
 []\OT1/ptm/m/n/8 M. Nel-son, ``The ran-dom com-pres-sion chal-lenge,''
  []
@@ -510,24 +509,22 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-[7
-
-] (paper.aux)
+[6 <./images/Images.png>] [7] (paper.aux)
  ***********
 LaTeX2e <2023-11-01>
 L3 programming layer <2023-11-09>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 9012 strings out of 474587
- 202007 string characters out of 5746174
- 1954558 words of memory out of 5000000
- 31092 multiletter control sequences out of 15000+600000
+ 9013 strings out of 474587
+ 202014 string characters out of 5746174
+ 1951558 words of memory out of 5000000
+ 31093 multiletter control sequences out of 15000+600000
  600929 words of font info for 118 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  73i,11n,80p,286b,529s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/Nick/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Nick/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Nick/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/Nick/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Nick/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/Nick/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Nick/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/Nick/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/Nick/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmbi8a.pfb><C:/Users/Nick/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/Nick/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on paper.pdf (7 pages, 4043965 bytes).
+Output written on paper.pdf (7 pages, 4046072 bytes).
 PDF statistics:
  87 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
