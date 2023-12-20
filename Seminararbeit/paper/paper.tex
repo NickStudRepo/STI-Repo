@@ -640,7 +640,9 @@ Vereinfachungen/ Annahmen getroffen:
 
 In diesem Abschnitt werden die verglichenen Datenkompressionsalgorithmen 
 mit ihren jeweiligen Spezifikationen vorgestellt. 
-Alle Algorithmen wurden in der Programmiersprache Python implementiert. 
+Für den praktischen Teil der Arbeit wurden alle 
+Algorithmen in der Programmiersprache Python manuell implementiert
+(GitHub Repo \cite{nick}).
 Python ist eine Hochsprachen-Programmiersprache, die es ermöglicht, 
 die verschiedenen Algorithmen entsprechend ihrer Spezifikationen zu implementieren. 
 Die Sprache Python wurde gewählt, da sie eine schnelle Implementierung ermöglicht.
@@ -654,20 +656,176 @@ vergleichen und nicht eine jeweils beste Lösung zu implementieren.
 
 \subsection{Run Length Encoding - RLE}
 
-Erklären
+RLE, auf deutsch Lauflängenkodierung, ist eine der einfachsten Kompressionsalgorithmen.
+Die Grundidee besteht darin, aufeinanderfolgende gleiche Elemente durch 
+eine einzige Instanz des Elements und die Anzahl der Wiederholungen zu ersetzen.
+RLE ist besonders effektiv, wenn in den Daten viele aufeinanderfolgende 
+gleiche Zeichen vorhanden sind.
+RLE ist eine Encoding Algorithmus und versucht die Kompression der Daten 
+durch eine andere Struktur der Daten zu erreichen.
+RLE ist besonders effektiv, wenn in den Daten viele aufeinanderfolgende 
+gleiche Zeichen vorhanden sind, da diese Redundanz durch das Zeichen und die 
+Anzahl an wiederholungen repräsentiert werden kann.
 
-Besonderheiten
+Die Daten die komprimiert werden sollen sind Ganzzahlwerten zwischen 0 und 255.
+Ein Ganzzahlwert ist ein Element und benötigt ein Byte Speicher.
+Die Anzahl der gleichen hintereinanderfolgenden Elemente ist die Lauflänge. 
+Die RLE Darstellung der Daten ist: (Element, Lauflänge)*.
+Über dieses Encoding versucht RLE Daten zu komprimieren.
 
-Laufzeitkomplexität Komp. Dekomp.
-- mit den gewählten spezifikationen: O(n) für . und . für .
+Es gibt viele leicht abweichende Spezifikationen um eine Lauflänge 
+von einem Elementen abgrenzbar zu machen.
+Es gibt die Möglichkeit bestimmte Trennsymbole zu verwenden.
+Die Spezifikation die für den Versuch gewählt wurde, ist, 
+dass die Lauflänge immer eine bestimmte Anzahl an Bits verwendet.
+Die Anzahl an Bits entspricht genau der minimalen Anzahl an Bits,
+mit der die maximale Lauflänge repräsentiert werden kann.
+Diese Bitanzahl wird benötigt um die Encodierten Daten zu Decodieren.
+Sie wird als ein Byte Metadaten mitgespeichert.
+Weitere Metadaten sind die 
+Auflösung des Bildes um aus den eindimensionalen Daten das Originalbild 
+zu rekonstruieren.
+
+Nach der gewählten Implementierung hat
+RLE für das Encoding, bzw. den Kompressionsschritt, eine 
+Laufzeitkomplexität von $O(n)$, n entspricht der Länge der Ausgangsdaten. 
+Für das Decoding, bzw. den Dekompressionsschritt hat RLE eine 
+Laufzeitkomplexität von $O(m)$, m ientspricht der Länge der encodierten Daten. \cite{nick} 
+% todo repo vorbereiten
 
 \subsection{Huffman Codierung}
+
+Die Huffman Codierung beruht auf der Idee, häufig vorkommende Zeichen in einem Datenstrom 
+mit kürzeren Binärcodes zu repräsentieren, während seltener vorkommende Zeichen längere Codes 
+erhalten. 
+Der Algorithmus beginnt mit einer Analyse der Häufigkeit jedes Zeichens in den Daten.
+Anschließend wird ein Huffman Baum erstellt, wobei jedem Zeichen ein Blatt zugeordnet wird.
+Die Erstellung des Baums erfolgt so, dass häufige Zeichen kürzere Pfade im Baum haben.
+Jedes Zeichen erhält einen eindeutigen Binärcode.
+Die Zuordnung der Binärcodes erfolgt durch das durchschreiten des Huffman Baums. 
+Eine Linksabzweigung im Baum entspricht einem Binärwert "0", rechts entspricht "1". 
+Für die Decodierung der Encodierten Daten wird der Huffman Baum benötigt. 
+Dieser muss als Metadaten mitgespeichert werden. 
+
+Die Datenkompression erfolgt durch Redundanzminimierung mittels Analyse 
+der Zeichenhäufigkeiten und entsprechender Kodierung.
+Die Huffman Codierung ist besonders effektiv auf Daten, in denen die 
+Wahrscheinlichkeiten der auftretenden Zeichen stark variieren.
+\cite{moffat}
+
+Nach der gewählten Implementierung hat
+die Huffman Codierung für das Encoding, bzw. den Kompressionsschritt, eine 
+Laufzeitkomplexität von $O(n log n)$, n entspricht Länge der Ausgangsdaten. 
+Für das Decoding, bzw. den Dekompressionsschritt hat die Huffman Codierung eine 
+Laufzeitkomplexität von $O(m)$, m entspricht der Länge der encodierten Daten. \cite{moffat} 
+
 \subsection{Lempel-Ziv 1977 - LZ77}
+
+Die Idee des LZ77 Algorithmus besteht darin, wiederkehrende Muster 
+in einem Datenstrom zu erkennen und durch Verweise auf bereits übertragene Daten zu ersetzen.
+Der Algorithmus funktioniert, indem er eine sogenannte "Sliding Window" über den 
+Datenstrom bewegt.
+nnerhalb dieses Fensters wird nach wiederkehrenden Sequenzen gesucht. 
+Wenn eine solche Sequenz gefunden wird, wird sie durch einen Verweis auf die 
+vorherige Instanz der Sequenz ersetzt, wobei die Position und Länge der vorherigen Instanz 
+angegeben werden.
+
+Die Datenkompression erfolgt durch das entfernen von Redundanz durch das verweisen auf bereits 
+bekannte Zeichensequenzen.
+Der Algorithmus ist besonders effektiv für Daten mit wiederkehrenden Mustern.
+
+Nach der gewählten Implementierung hat
+LZ77 für den Kompressionsschritt eine Laufzeitkomplexität von 
+$O(n * s)$, n entspricht der Länge der Ausgangsdaten und s entspricht der
+Größe des Sliding Window. 
+Für den Dekompressionsschritt hat LZ77 eine 
+Laufzeitkomplexität von $O(m * s)$, m entspricht der Länge der encodierten Daten, s entspricht der
+Größe des Sliding Window. \cite{nick} 
+
+Eine Spezifikation die für LZ77 bei der Implementierung getroffen wurde ist, 
+dass die Größe des "Sliding Window" auf 100 Zeichen gesetzt wurde.
+Eine größere Größe des Sliding Window ist mit Python ohne 
+weitere optimierungen nicht für große Datenmengen geeignet, da die Laufzeit 
+sonst übermäßig ansteigt.
+
+\subsection{Deflate Algorithmus}
+
+Der Deflate Algorithmus kombiniert LZ77 und Huffman Codierung.
+Die Daten werden im ersten Schritt mit LZ77 codiert.
+Die Codierten Daten werden im nächsten Schritt mit Huffman weiter codiert.
+Zum Decodierung der komprimierten Daten werden die Decodierungsschritte von Huffman 
+und LZ77 benötigt. 
+Die Laufzeitkomplexität der Kompression und Dekompression entsprechen der von 
+LZ77, da $O(n + n * s) = O(n * s)$.
+
 \subsection{Portable Network Graphics Algorithmus - PNG}
+
+PNG ist ein Format um Bilder zu speichern.
+Der PNG Algorithmus ist ein verlustfreies Bildkompressionsformat. 
+PNG und alle Spezifikationen sind im Standard von W3C definiert. \cite{w3c}
+
+Der PNG Algorithmus kann in drei großen Schritten zusammengefasst werden.
+Schritt 1 ist ein Vorverarbeitungsschritt der Bilddaten die mit Hilfe von 
+Filtern für den Kompressionsschritt vorbereitet werden.
+Schritt 2 ist der Kompressionsschritt. 
+Die Daten werden mit Hilfe des Deflate Algorithmus komprimiert.
+Schritt 3 ist ein Cyclic Redundancy Check zur Integritätsüberprüfung.
+
+
+\subsubsection{Vorverarbeitung der Bilder mit Filtern}
+
+Der Vorverarbeitungsschritt, bzw. das Filtern, dient dazu, lokale Korrelationen und 
+Muster in den Bilddaten zu erzeugen.
+Die Idee dabei ist es, dass der nachfolgende Kompressionsschritt
+auf den gefilterten Daten besser funktioniert als auf den ungefilterten.
+Der Vorverarbeitungsschritt versucht Redundanz in den Daten zu erzeugen, welche 
+von dem Deflate Algorithmus entfernt werden kann. 
+
+Beim Filtern wird jeder Farbkanal eines Bildes einzeln betrachtet. 
+Das Filtern erfolgt zeilenweise. 
+Ein Filter wird auf jedem Pixel einer Zeile angewendet.
+
+Für jede Zeile kann genau ein Filtertyp gewählt werden. 
+Es gibt fünf verschiedene Filtertypen, die auf jeder Zeile 
+des Bildes angewendet werden können: None, Sub, Up, Average und Paeth. 
+Jeder dieser Filter transformiert die Werte in einer Reihe Pixelweise nach einer spezifischen
+Funktion.
+
+\begin{enumerate}
+  \item Der None Filter verändert den Inhalt einer Zeile nicht.
+  \item Der Sub Filter berechnet die Differenzen der in einer Zeile aufeinanderfolgenden Pixel.
+  \item Der Up Filter berechnet die Differenze des Pixelwertes in der aktuellen Zeile mit 
+  dem Pixelwert der Zeile darüber.
+  \item Der Average Filter berechnet die durchschnittliche Differenz eines Pixelwertes zum 
+  Pixelwert links und darüber.
+  \item Der Paeth Filter berechnet die Differenzen zum Pixelwert links, darüber, darüber links und nimmt den
+  minimalen Wert der Differenzen der drei Pixelnachbarn.
+\end{enumerate}
+
+Die ausführlichen Spezifikationen der Filter finden sich in den W3C Spezifikationen \cite{w3c} unter
+Abschnitt 9. 
+
+Da für jede Zeile nur ein Filtertyp angewendet werden kann, muss für die jeweilige 
+Reihe der best passende Filtertyp gewählt werden, um die erzeugte Redundanz zu maximieren.
+Die Auswahl erfolgt auf Basis einer Heuristik.
+Die Heuristik zielt darauf ab den Filtertyp zu wählen, der am meisten Redundanz erzeugt.
+Die Heuristik wählt den Filtertyp für den die Summe aller Werte in einer Reihe 
+am geringsten ist. 
+Es gibt keine Garantie, dass der gewählte Filtertyp zu der besten Datenkompression 
+führt. 
+Um die tatsächlich beste Kombination an Filtertyp pro Zeile zu finden müssten alle 
+Kombinationen ausprobiert werden. 
+Das ist allerdings nicht möglich, da die Anzahl an Kombinationen die Filter 
+anzuordnen exponentiell mit der Zeilenanzahl steigt.
+Mit der Heuristik wird das Problem umgangen.
+
+
+Unterschiede Implementierung zur echten PNG implementierung.
+- kein CRC
 
 
 \subsection{Kombinationen}
-\subsubsection{Deflate Algorithmus}
+
 \subsubsection{Filter + Huffman}
 \subsubsection{Filter + LZ77}
 

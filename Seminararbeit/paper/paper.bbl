@@ -95,10 +95,22 @@ I.~Chivers, J.~Sleightholme, I.~Chivers, and J.~Sleightholme, ``An introduction
   with Fortran: With Coverage of Fortran 90, 95, 2003, 2008 and 77}, pp.
   359--364, 2015.
 
+\bibitem{nick}
+N.~Schreiber, ``Sti-repo,'' \url{https://github.com/NickStudRepo/STI-Repo/},
+  2023.
+
 \bibitem{nadav}
 N.~Altshuler, ``Why is python so slow? - tackling python's performance
   issues,''
   \url{https://bodyvisionmedical.com/articles/why-is-python-so-slow-tackling-pythons-performance-issues},
   2019, [Online; accessed 10.12.2023].
+
+\bibitem{moffat}
+A.~MOFFAT, ``Huffman coding,'' \emph{ACM Comput. Surv.}, 2019.
+
+\bibitem{w3c}
+``Portable network graphics (png) specification (second edition),''
+  \url{https://www.w3.org/TR/2003/REC-PNG-20031110/}, 2003, iSO/IEC 15948:2003
+  (E).
 
 \end{thebibliography}

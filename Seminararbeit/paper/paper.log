@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10.12) (preloaded format=pdflatex 2023.12.7)  17 DEC 2023 18:21
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10.12) (preloaded format=pdflatex 2023.12.7)  20 DEC 2023 02:07
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -460,19 +460,41 @@ File: ./images/Idea.png Graphic file (type png)
 Package pdftex.def Info: ./images/Idea.png  used on input line 583.
 (pdftex.def)             Requested size: 252.0pt x 104.91998pt.
 [5 <./images/Idea.png>]
-Underfull \hbox (badness 1540) in paragraph at lines 641--653
+Underfull \hbox (badness 1540) in paragraph at lines 641--655
 \OT1/ptm/m/n/10 pres-sion-sal-go-rith-men mit ihren jew-eili-gen Spez-i-fika-tio-nen
  []
 
-<./images/Images.png, id=31, 545.529pt x 297.402pt>
+
+Underfull \hbox (badness 7540) in paragraph at lines 710--715
+[]\OT1/ptm/m/n/10 Die Datenkom-pres-sion er-folgt durch Re-dun-danzmin-
+ []
+
+
+Underfull \hbox (badness 5817) in paragraph at lines 710--715
+\OT1/ptm/m/n/10 imierung mit-tels Anal-yse der Ze-ichenh[]aufigkeiten und
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 724--732
+[]\OT1/ptm/m/n/10 Die Idee des LZ77 Al-go-rith-mus besteht darin,
+ []
+
+
+Underfull \hbox (badness 4886) in paragraph at lines 724--732
+\OT1/ptm/m/n/10 dieses Fen-sters wird nach wiederkehren-den Se-quen-zen
+ []
+
+[6]
+Underfull \hbox (badness 2057) in paragraph at lines 799--801
+[]\OT1/ptm/m/n/10 Der Av-er-age Fil-ter berech-net die durch-schnit-tliche
+ []
+
+<./images/Images.png, id=34, 545.529pt x 297.402pt>
 File: ./images/Images.png Graphic file (type png)
 <use ./images/Images.png>
-Package pdftex.def Info: ./images/Images.png  used on input line 679.
+Package pdftex.def Info: ./images/Images.png  used on input line 837.
 (pdftex.def)             Requested size: 252.0pt x 137.38289pt.
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-(paper.bbl
+(paper.bbl [7 <./images/Images.png>]
 Underfull \hbox (badness 3291) in paragraph at lines 55--59
 \OT1/ptm/m/n/8 zwischen-daten-informationen-und-wissen/, 2017, [On-line; ac-cessed
  []
@@ -497,6 +519,16 @@ Underfull \hbox (badness 10000) in paragraph at lines 88--91
 \OT1/ptm/m/n/8 https://www.xrite.com/de/blog/what-is-additive-rgb-color-mixing,
  []
 
+
+Underfull \hbox (badness 2435) in paragraph at lines 112--115
+[]\OT1/ptm/m/n/8 ``Portable net-work graph-ics (png) spec-i-fi-ca-tion (sec-ond edi-tion),''
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 112--115
+\OT1/ptm/m/n/8 https://www.w3.org/TR/2003/REC-PNG-20031110/, 2003, iSO/IEC
+ []
+
 )
 
 ** Conference Paper **
@@ -509,24 +541,24 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-[6 <./images/Images.png>] [7] (paper.aux)
+[8] (paper.aux)
  ***********
 LaTeX2e <2023-11-01>
 L3 programming layer <2023-11-09>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 9013 strings out of 474587
- 202014 string characters out of 5746174
- 1951558 words of memory out of 5000000
- 31093 multiletter control sequences out of 15000+600000
+ 9018 strings out of 474587
+ 202095 string characters out of 5746174
+ 1956558 words of memory out of 5000000
+ 31098 multiletter control sequences out of 15000+600000
  600929 words of font info for 118 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  73i,11n,80p,286b,529s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/Nick/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Nick/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Nick/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/Nick/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Nick/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/Nick/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Nick/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/Nick/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/Nick/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmbi8a.pfb><C:/Users/Nick/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/Nick/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on paper.pdf (7 pages, 4046072 bytes).
+Output written on paper.pdf (8 pages, 4055927 bytes).
 PDF statistics:
- 87 PDF objects out of 1000 (max. 8388607)
+ 90 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  11 words of extra memory for PDF output out of 10000 (max. 10000000)
 
