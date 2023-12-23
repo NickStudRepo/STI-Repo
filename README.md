@@ -1,19 +1,20 @@
 # Seminar Theoretische Informatik - STI
+# Thema: Vergleich verlustfreier Datenkompressionsverfahren auf Bilddaten
 
-Das Repository ist nicht aufgeräumt!
-Es ist ein MVP und dient nur dazu die erzielten Ergebnisse transparent zu machen.
+Das Repository ist nicht bereinigt! 
+Es ist ein MVP und dient nur dazu, die erzielten Ergebnisse transparent zu machen.
 
 
+Das Repository ist Teil der Seminararbeit für das Masterfach STI. 
 
-Das Repo ist das zugehörige Repo zum Master Fach STI.
-Teile des Repos sind: 
-- Brainstorming: Eine Sammlung von Gedanken und Ideen zur Themenfindung und Ausarbeitung
-- CodeCompression: Code, mit dem alle praktischen Messergebnisse erziehlt wurden.
-- Seminararbeit: Enthält den Latex Code des Paper
+Bestandteile des Repos sind: 
+- Brainstorming: Eine Sammlung von Gedanken und Ideen zur Themenfindung und Ausarbeitung.
+- CodeCompression: Code, mit dem alle praktischen Messergebnisse erzielt wurden.
+- Seminararbeit: Enthält den Latex Code der Seminararbeit und die Seminararbeit selbst.
 
 Anmerkungen, interessante Dateien:
-- Alle Messergebnisse: Brainstorming/Ergebnisse.xlsx
-- Zwischenpräsentation: Brainstorming/Zwischenpräsentation/Zwischenpräsentation_final.pptx
+- Alle Messergebnisse: Ergebnisse/Ergebnisse.xlsx
+- Zwischenpräsentation: Ergebnisse/Zwischenpräsentation/Zwischenpräsentation_final.pptx
 - Paper: Seminararbeit/paper/paper.pdf
 
-# Vergleich verlustfreier Datenkompressionsverfahren auf Bilddaten
+
