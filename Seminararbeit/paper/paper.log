@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10.12) (preloaded format=pdflatex 2023.12.7)  21 DEC 2023 01:16
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10.12) (preloaded format=pdflatex 2023.12.7)  23 DEC 2023 02:37
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -394,110 +394,129 @@ File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 File: translations-basic-dictionary-english.trsl (english translation file `translations-basic-dictionary')
 )
 Package translations Info: loading dictionary `translations-basic-dictionary' for `english'. on input line 27.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 41.
- (C:\Users\Nick\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Trying to load font information for U+msb on input line 41.
- (C:\Users\Nick\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-Underfull \hbox (badness 1622) in paragraph at lines 53--60
+
+Underfull \hbox (badness 1622) in paragraph at lines 66--73
 \OT1/ptm/m/n/10 angewen-det wird. Da-her wird Datenkom-pres-sion oft als
  []
 
 
-Underfull \hbox (badness 1478) in paragraph at lines 111--119
+Underfull \hbox (badness 1478) in paragraph at lines 124--132
 []\OT1/ptm/m/n/10 Claude Shan-non, der Erfinder der In-for-ma-tion-s-the-o-rie,
  []
 
 [1{C:/Users/Nick/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/Nick/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}
 
 
-] [2]
-Underfull \hbox (badness 2582) in paragraph at lines 271--286
+]
+LaTeX Font Info:    Trying to load font information for U+msa on input line 135.
+ (C:\Users\Nick\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 135.
+ (C:\Users\Nick\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+) [2]
+Underfull \hbox (badness 2582) in paragraph at lines 284--299
 \OT1/ptm/m/n/10 Ob-jekt als Aus-gabe erzeugt. Hier ein Beispiel f[]ur so
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 320--324
+Underfull \hbox (badness 10000) in paragraph at lines 333--337
 []\OT1/ptm/m/n/10 Unstrukturierte Daten sind Daten, in de-nen keine
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 320--324
+Underfull \hbox (badness 10000) in paragraph at lines 333--337
 \OT1/ptm/m/n/10 wiederkehrende oder vorher-sag-bare Muster en-thal-ten
  []
 
-
-Underfull \hbox (badness 2401) in paragraph at lines 385--392
+[3]
+Underfull \hbox (badness 2401) in paragraph at lines 398--405
 []\OT1/ptm/m/n/10 Dieser Ab-schnitt besch[]aftigt sich mit der dem Auf-
  []
 
-[3]
-Underfull \hbox (badness 1960) in paragraph at lines 438--441
+
+Underfull \hbox (badness 1960) in paragraph at lines 451--454
 \OT1/ptm/m/n/10 notwendig, um Datenkom-pres-sion-sal-go-rith-men und deren
  []
 
 [4]
-Underfull \hbox (badness 2564) in paragraph at lines 525--532
+Underfull \hbox (badness 2564) in paragraph at lines 538--545
 \OT1/ptm/m/n/10 ein Al-go-rith-mus ben[]otigt um die ur-spr[]unglichen Daten
  []
 
 
-Underfull \hbox (badness 1377) in paragraph at lines 542--550
+Underfull \hbox (badness 1377) in paragraph at lines 555--563
 \OT1/ptm/m/n/10 der Empf[]angerseite m[]ussen die Daten m[]oglichst schnell
  []
 
 
-Underfull \hbox (badness 2961) in paragraph at lines 576--581
+Underfull \hbox (badness 2961) in paragraph at lines 589--594
 []\OT1/ptm/m/n/10 Das Ziel des prak-tis-chen Ver-suches ist ver-schiedene
  []
 
 <./images/Idea.png, id=25, 840.522pt x 349.962pt>
 File: ./images/Idea.png Graphic file (type png)
 <use ./images/Idea.png>
-Package pdftex.def Info: ./images/Idea.png  used on input line 584.
+Package pdftex.def Info: ./images/Idea.png  used on input line 597.
 (pdftex.def)             Requested size: 252.0pt x 104.91998pt.
 [5 <./images/Idea.png>]
-Underfull \hbox (badness 1540) in paragraph at lines 642--656
+Underfull \hbox (badness 1540) in paragraph at lines 655--669
 \OT1/ptm/m/n/10 pres-sion-sal-go-rith-men mit ihren jew-eili-gen Spez-i-fika-tio-nen
  []
 
 
-Underfull \hbox (badness 7540) in paragraph at lines 711--716
+Underfull \hbox (badness 7540) in paragraph at lines 724--729
 []\OT1/ptm/m/n/10 Die Datenkom-pres-sion er-folgt durch Re-dun-danzmin-
  []
 
 
-Underfull \hbox (badness 5817) in paragraph at lines 711--716
+Underfull \hbox (badness 5817) in paragraph at lines 724--729
 \OT1/ptm/m/n/10 imierung mit-tels Anal-yse der Ze-ichenh[]aufigkeiten und
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 725--733
+Underfull \hbox (badness 10000) in paragraph at lines 738--746
 []\OT1/ptm/m/n/10 Die Idee des LZ77 Al-go-rith-mus besteht darin,
  []
 
 
-Underfull \hbox (badness 4886) in paragraph at lines 725--733
+Underfull \hbox (badness 4886) in paragraph at lines 738--746
 \OT1/ptm/m/n/10 dieses Fen-sters wird nach wiederkehren-den Se-quen-zen
  []
 
 [6]
-Underfull \hbox (badness 2057) in paragraph at lines 801--803
+Underfull \hbox (badness 1629) in paragraph at lines 792--798
+ \OT1/ptm/m/it/10 1) Vorver-ar-beitung der Bilder: Fil-tern: [][] \OT1/ptm/m/n/10 Der Vorver-ar-
+ []
+
+
+Underfull \hbox (badness 2057) in paragraph at lines 815--817
 []\OT1/ptm/m/n/10 Der Av-er-age Fil-ter berech-net die durch-schnit-tliche
  []
 
-<./images/Images.png, id=34, 545.529pt x 297.402pt>
+[7]
+<./images/Images.png, id=38, 545.529pt x 297.402pt>
 File: ./images/Images.png Graphic file (type png)
 <use ./images/Images.png>
-Package pdftex.def Info: ./images/Images.png  used on input line 866.
+Package pdftex.def Info: ./images/Images.png  used on input line 882.
 (pdftex.def)             Requested size: 252.0pt x 137.38289pt.
+ [8 <./images/Images.png>]
+Underfull \hbox (badness 2103) in paragraph at lines 1020--1027
+[]\OT1/ptm/m/n/10 Der Daten-vorver-ar-beitungss-chritt (Fil-terung) erzeugt in
+ []
 
-LaTeX Warning: `h' float specifier changed to `ht'.
+[9]
+Underfull \hbox (badness 1603) in paragraph at lines 1179--1183
+[]\OT1/ptm/m/n/10 Das Ver-fahren Fil-ter + LZ77 ist et-was schneller als
+ []
 
-[7] (paper.bbl
+
+Underfull \hbox (badness 5008) in paragraph at lines 1253--1261
+[]\OT1/ptm/m/n/10 Aus der Abw[]agung zwis-chen Kom-pres-sion-srate und
+ []
+
+[10] (paper.bbl
 Underfull \hbox (badness 3291) in paragraph at lines 55--59
 \OT1/ptm/m/n/8 zwischen-daten-informationen-und-wissen/, 2017, [On-line; ac-cessed
  []
@@ -544,24 +563,24 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-[8 <./images/Images.png>] [9] (paper.aux)
+[11] (paper.aux)
  ***********
 LaTeX2e <2023-11-01>
 L3 programming layer <2023-11-09>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 9019 strings out of 474587
- 202104 string characters out of 5746174
- 1955558 words of memory out of 5000000
- 31099 multiletter control sequences out of 15000+600000
- 600929 words of font info for 118 fonts, out of 8000000 for 9000
+ 9009 strings out of 474587
+ 202057 string characters out of 5746174
+ 1952558 words of memory out of 5000000
+ 31094 multiletter control sequences out of 15000+600000
+ 597758 words of font info for 110 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  73i,11n,80p,286b,529s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/Nick/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Nick/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Nick/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/Nick/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Nick/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/Nick/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Nick/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/Nick/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/Nick/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmbi8a.pfb><C:/Users/Nick/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/Nick/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on paper.pdf (9 pages, 4060280 bytes).
+Output written on paper.pdf (11 pages, 4075110 bytes).
 PDF statistics:
- 93 PDF objects out of 1000 (max. 8388607)
+ 99 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  11 words of extra memory for PDF output out of 10000 (max. 10000000)
 

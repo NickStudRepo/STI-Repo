@@ -38,15 +38,28 @@
 \maketitle
 
 \begin{abstract}
-  This document is a model and instructions for \LaTeX.
-  This and the IEEEtran.cls file define the components of your paper [title, text, heads, etc.]. *CRITICAL: Do Not Use Symbols, Special Characters, Footnotes,
-  or Math in Paper Title or Abstract.
+
+  Die Arbeit vergleicht verlustfreie Datenkompressionsverfahren für Bilddaten.
+  Ziel der Arbeit ist es zu untersuchen, ob und warum bestimmte verlustfreie 
+  Datenkompressionsverfahren für Bilddaten besser geeignet sind als andere.
+  Dazu wird auf die Informationstheorie eingegangen und die theoretischen 
+  Grundlagen verschiedener Kompressionsalgorithmen untersucht.
+  Ein wichtiger Teil ist der Aufbau und die Besonderheiten von Bildern als 
+  Datengrundlage für Kompressionsverfahren.
+  Die Arbeit besteht aus einem praktischen Teil, in dem verschiedene Algorithmen 
+  zur verlustfreien Datenkompression manuell implementiert und ihre Kompressionsfähigkeit 
+  anhand verschiedener Bilder getestet wird.
+  Die verglichenen Algorithmen sind Run Length Encoding, Huffman Encoding,
+  Lempel-Ziv 1977, Portable Network Graphics und verschiedene Kombinationen der Algorithmen.
+  Die Algorithmen werden anhand der Kompressionsrate, der Kompressionszeit und der 
+  Dekompressionszeit bewertet.
+
 \end{abstract}
 
 
-% \begin{IEEEkeywords}
-% component, formatting, style, styling, insert
-% \end{IEEEkeywords}
+\begin{IEEEkeywords}
+  Lossless Image Compression, Information Theory, Compression Algorithms
+\end{IEEEkeywords}
 
 \section{Einleitung}
 
@@ -83,7 +96,6 @@ Dadurch wird die Übertragungszeit verkürzt und das Bild kann schneller bereitg
 Dies führt zu einer höheren Übertragungsrate und einer reduzierten Bandbreitennutzung.
 
 
-
 \section{Zielsetzung der Arbeit}
 
 Ziel der Arbeit ist es zu untersuchen, ob und warum bestimmte verlustfreie
@@ -96,7 +108,8 @@ Verschiedene Algorithmen zur verlustfreien Datenkompression wurden manuell
 implementiert und an unterschiedlichen Bilddaten getestet.
 So konnten konkrete Ergebnisse über die Leistungsfähigkeit der Algorithmen gewonnen werden.
 Die verglichenen Algorithmen sind Run Length Encoding (RLE), Huffman Encoding,
-Lempel-Ziv 1977 (LZ77), PNG Algorithmus und verschiedene Kombinationen der Algorithmen.
+Lempel-Ziv 1977 (LZ77), Portable Network Graphics (PNG) und verschiedene 
+Kombinationen der Algorithmen.
 Die Ergebnisse werden interpretiert und mit den theoretischen Erwartungswerten verglichen.
 
 % Todo ab hier nochmal verbessern!
@@ -774,7 +787,7 @@ Die Daten werden mit Hilfe des Deflate Algorithmus komprimiert.
 Schritt 3 ist ein Cyclic Redundancy Check zur Integritätsüberprüfung.
 
 
-\subsubsection{Vorverarbeitung der Bilder mit Filtern}
+\subsubsection{Vorverarbeitung der Bilder: Filtern}
 
 Der Vorverarbeitungsschritt, bzw. das Filtern, dient dazu, lokale Korrelationen und
 Muster in den Bilddaten zu erzeugen.
@@ -790,8 +803,9 @@ Ein Filter wird auf jedem Pixel einer Zeile angewendet.
 Für jede Zeile kann genau ein Filtertyp gewählt werden.
 Es gibt fünf verschiedene Filtertypen, die auf jeder Zeile
 des Bildes angewendet werden können: None, Sub, Up, Average und Paeth.
-Jeder dieser Filter transformiert die Werte in einer Reihe Pixelweise nach einer spezifischen
+Jeder dieser Filtertypen transformiert die Werte in einer Reihe Pixelweise nach einer spezifischen
 Funktion.
+Die verwendeten Funktionen beschreiben die Pixelwerte meist in Relation zu benachbarten Pixel.
 
 \begin{enumerate}
   \item Der None Filter verändert den Inhalt einer Zeile nicht.
@@ -821,6 +835,8 @@ Das ist allerdings nicht möglich, da die Anzahl an Kombinationen die Filter
 anzuordnen exponentiell mit der Zeilenanzahl steigt.
 Mit der Heuristik wird das Problem umgangen.
 
+Damit die umkehrung der Filteroperation möglich ist, wird für jede Reihe gespeichert welcher
+Filtertyp verwendet wurde.
 Die Laufzeitkomplexität des Filterns eines Bildes beträgt $O(5n) = O(n)$.
 Die Laufzeitkomplexität um das Filtern rückgängig zu machen beträgt $O(n)$.
 \cite{nick}
@@ -907,9 +923,11 @@ während der RLE Algorithmus schlecht abschneidet.
 
 \section{Ergebnisse und Interpretation}
 
-Tabelle \ref{tab:komprate} zeigt die auf den Testbildern erzielten
-Kompressionsraten der Algorithmen.
-Alle Angaben sind in Prozent und wurden mit der Formel \ref{eq:komprate} berechnet.
+\subsection{Kompressionsrate}
+
+Die Tabelle \ref{tab:komprate} zeigt die Kompressionsraten der Algorithmen
+anhand der Testbilder.
+Alle Angaben sind in Prozent und wurden nach der Formel \ref{eq:komprate} berechnet.
 
 \begin{table*}
   \renewcommand*{\arraystretch}{1.1}
@@ -918,16 +936,16 @@ Alle Angaben sind in Prozent und wurden mit der Formel \ref{eq:komprate} berechn
     \caption{Kompressionsraten}
     \begin{tabular}{c *9{c} S[table-format=5.9]}
       \toprule
-      Name   & Auflösung   & RLE    & Huffman & LZ77   & Deflate & Filter + Huffman & Filter + LZ77 & PNG   \\
+      Name         & Auflösung   & RLE    & Huffman & LZ77   & Deflate & Filter + Huffman & Filter + LZ77 & PNG   \\
       \midrule
-      Flagge & (290, 174)  & 99,98  & 77,85   & 78,85  & 91,70   & 87,38            & 84,69         & 91,80 \\
-      Fade 1 & (318, 159)  & 45,73  & 14,30   & 25,87  & 31,90   & 84,94            & 78,13         & 80,69 \\
-      Frau   & (512, 512)  & -39,19 & 2,74    & -10,96 & -9,51   & 38,22            & -7,41         & 3,38  \\
-      Folie  & (945, 718)  & 84,57  & 56,87   & 73,48  & 76,62   & 84,90            & 81,66         & 87,03 \\
-      Katzen & (1289, 720) & -42,85 & 2,11    & -11,39 & -9,31   & 25,49            & -10,42        & -2,45 \\
-      Fade 2 & (1670, 954) & 78,95  & 10,95   & 62,13  & 66,95   & 85,74            & 80,59         & 83,74 \\
+      Flagge       & (290, 174)  & 99,98  & 77,85   & 78,85  & 91,70   & 87,38            & 84,69         & 91,80 \\
+      Fade 1       & (318, 159)  & 45,73  & 14,30   & 25,87  & 31,90   & 84,94            & 78,13         & 80,69 \\
+      Frau         & (512, 512)  & -39,19 & 2,74    & -10,96 & -9,51   & 38,22            & -7,41         & 3,38  \\
+      Folie        & (945, 718)  & 84,57  & 56,87   & 73,48  & 76,62   & 84,90            & 81,66         & 87,03 \\
+      Katzen       & (1289, 720) & -42,85 & 2,11    & -11,39 & -9,31   & 25,49            & -10,42        & -2,45 \\
+      Fade 2       & (1670, 954) & 78,95  & 10,95   & 62,13  & 66,95   & 85,74            & 80,59         & 83,74 \\
       \bottomrule
-      Durchschnitt &       & 37,87  & 27,47   & 36,33  & 41,40   & 67,78            & 51,21         & 57,37 \\
+      Durchschnitt &             & 37,87  & 27,47   & 36,33  & 41,40   & 67,78            & 51,21         & 57,37 \\
     \end{tabular}
     \par\tnote{1} Angaben in Prozent, gerundet auf zwei Nachkommastellen
     \par\tnote{2} Bilder nach Größe aufsteigend sortiert
@@ -935,26 +953,176 @@ Alle Angaben sind in Prozent und wurden mit der Formel \ref{eq:komprate} berechn
   \end{threeparttable}
 \end{table*}
 
-Generelle Aussage:
-- Average 
-
-Auffälligkeiten
-- RLE Datenkomp. Größe, Größe -> wie erwartet, gut. Bilddaten Flagge
-aus wiederholungen. Redundanz sehr effizient entfernt werden
-
-- Huffman schlecht bei Fade, Filter + Huffman krank gut -> Datenvorverarbeitungsschritt
-Filtern, bringt deutliche verbesserung und Erzeugt Redundanz, die vom
-Huffman Algorithmus entfernt werden kann.
-- vlt neg werte
+Es können einige generelle Aussagen anhand der Durchschnittswerte gemacht werden.
+Alle Kompressionsalgorithmen erreichen im Schnitt eine positive Kompressionsrate von über 20 \%.
+Der im Schnitt schlechteste Algorithmus ist Huffman, mit nur 27 \%.
+Der im Schnitt beste Kompressionsalgorithmus ist die Kombination aus dem Filtern der Bilddaten
+und dem Huffman Algorithmus.
+Er erreicht eine Kompressionsrate von 67 \%.
 
 
-Jeden Alg. einzeln was sagen kurz:
-Huffman alleine keine guten Ergebnisse, da viele Zeichen häufig vorkommen.
-Huffman kein als einziges kein negatives Ergebnis. -> keine Vergrößerung der Daten
+% Auffälligkeiten
+% - Huffman schlecht bei Fade, Filter + Huffman krank gut -> Datenvorverarbeitungsschritt
+% Filtern, bringt deutliche verbesserung und Erzeugt Redundanz, die vom
+% Huffman Algorithmus entfernt werden kann.
+% - vlt neg werte
 
-Fazit:
-- Filtern heftig
+\subsubsection{RLE}
 
+RLE erreicht hohe Kompressionsraten bei computergenerierten Bildern, während natürliche
+Bilder kaum oder gar nicht komprimiert werden können.
+In der Tabelle ist RLE für die höchste erreichte Kompressionsrate verantwortlich.
+Das Bild mit der Flagge kann um 99,98 \% komprimiert werden.
+Das Originalbild kann von 151.380 Bytes auf nur 32 Bytes komprimiert werden.
+Das Bild besteht aus langen Sequenzen identischer Zeichen. Redundanz in Form von
+Wiederholungen wird durch RLE optimal entfernt.
+
+Entgegen den theoretischen Erwartungen ist der Algorithmus auch in der Lage,
+Gradientenbilder zu komprimieren. Der Grund dafür liegt in der Struktur der Bilder.
+Fade 1 und Fade 2 enthalten Farbkanäle, in denen einige Bereiche viele Wiederholungen aufweisen.
+Teilweise bestehen die Farbverläufe nur aus Mischungen von zwei Grundfarben, während der
+andere Farbkanal Nullwerte enthält.
+Aus diesem Grund kann RLE auch die beiden Bilder mit kontinuierlich wechselnden Farben komprimieren.
+
+Der RLE Algorithmus scheitert an den Testbildern (Frau, Katzen) und erreicht keine
+Kompression.
+Dies ist daran zu erkennen, dass die Kompressionsraten bei ca. -40 \% liegen, was
+bedeutet, dass die kodierten Daten um 40 \% größer sind als die Ausgangsdaten.
+RLE scheitert an den Bildern, da es keine offensichtliche Redundanz in Form von Wiederholungen gibt.
+Daher nimmt die Kodierung mehr Platz in Anspruch, als sie einspart.
+
+
+\subsubsection{Huffman}
+
+Der Huffman Algorithmus erreicht im Vergleich zu den anderen Algorithmen keine
+hohen Kompressionsraten.
+Natürliche Bilder können leicht komprimiert werden, zwischen 2 und 3 \%.
+Bilder mit Farbverläufen werden um 10 bis 15 \% komprimiert.
+Der Huffman Algorithmus erreicht bei Bildern mit Redundanz in Form von
+Wiederholungen Kompressionsraten von über 50 \%.
+
+Eine Schwäche des Algorithmus sind Daten, die viele verschiedene Werte enthalten,
+die alle ähnlich häufig vorkommen.
+Eine Stärke des Algorithmus ist, dass er stabil ist und positive Kompressionsraten liefert.
+Die anderen Algorithmen sind nicht in der Lage, alle Testbilder zu komprimieren.
+In der Tabelle ist dies daran zu erkennen, dass keine negativen Werte auftreten.
+
+\subsubsection{Filter + Huffman}
+
+Die Kombination aus Bilddatenfilterung und Huffman Algorithmus erzielt die
+beste durchschnittliche Kompressionsrate.
+Das Katzenbild wird durch das Verfahren um 25,49 \% komprimiert.
+Die erreichte Rate ist mit Abstand die beste aller Algorithmen.
+Das Bild der Frau wird durch das Verfahren ebenfalls am besten komprimiert.
+Die Kompressionsrate ist um 35 \% besser als die des nächstbesten Algorithmus.
+Auch bei den anderen Testbildern erreicht das Verfahren hohe Kompressionsraten von über 84 \%.
+
+Der Datenvorverarbeitungsschritt (Filterung) erzeugt in allen Testbildern Redundanz, die
+durch den Huffman Algorithmus effektiv entfernt werden kann.
+Der Filter erzeugt Redundanz in Form von Strukturen, wodurch die Anzahl unterschiedlicher
+Werte in den Daten reduziert wird.
+Das Verfahren ist für alle Arten von Bilddaten geeignet.
+Insbesondere natürliche Bilder können mit diesem Verfahren komprimiert werden, während
+die anderen Algorithmen versagen.
+
+
+\subsubsection{LZ77}
+
+Der LZ77 Algorithmus komprimiert die Testbilder Flagge und Folie um 73 \%.
+Der Algorithmus ist auch in der Lage, einen Teil der Redundanz in den Gradientenbildern
+zu entfernen.
+Natürliche Bilder (Frau, Katzen) lassen sich mit LZ77 nicht komprimieren.
+Die Kompressionsraten der Bilder liegen bei ca. -11 \%.
+Das bedeutet, dass der Algorithmus keine Redundanz entfernen kann und daher die Daten
+nicht komprimiert.
+Im Gegenteil, der Algorithmus erhöht die Datengröße um 10 \%.
+Der LZ77 Algorithmus kann Bilder mit Struktur und Wiederholungen komprimieren.
+Er ist jedoch nicht in der Lage, natürliche Bilder zu komprimieren.
+
+\subsubsection{Filter + LZ77}
+
+Die Kombination von Bilddatenfilterung und LZ77 Algorithmus führt zu besseren
+Ergebnissen als LZ77 ohne Vorverarbeitungsschritt.
+Die Filterung wirkt sich positiv auf die Kompressionsfähigkeit des Algorithmus aus.
+Insbesondere beim Testbild Fade 1 entstehen durch die Filterung neue Strukturen,
+die durch den LZ77 Algorithmus entfernt werden können.
+Die Kompressionsrate verbessert sich durch den Vorverarbeitungsschritt um 52 \%.
+Durch die Filterung entstehen Strukturen, da die Filter die Daten in
+Relativwerte zu den Nachbarwerten umwandeln.
+In ungefilterten Bildern sind die Strukturen Absolutwerte der Pixel.
+Die Filterung erzeugt durch Relativwerte wiederkehrende Muster aus einem Farbverlauf.
+Bei natürlichen Bildern versagt der Algorithmus und es wird eine
+Kompressionsrate von -9 \% erreicht.
+
+
+\subsubsection{Deflate (LZ77 + Huffman)}
+
+Der Deflate Algorithmus schneidet bei den gleichen Testbildern gut ab, bei
+denen RLE gut ist.
+Das bedeutet, dass der Deflate Algorithmus Wiederholungen effektiv entfernt.
+Der Deflate Algorithmus ist für jedes Bild besser als der LZ77 Algorithmus.
+Daraus folgt, dass LZ77 nicht die gleiche Redundanz erkennt wie Huffman.
+Die Daten enthalten nach der Kodierung mit dem LZ77 Algorithmus weitere
+Redundanz, die mit dem Huffman Algorithmus entfernt werden kann.
+
+Der Deflate Algorithmus hat die gleichen Stärken und Schwächen wie der LZ77 Algorithmus.
+Für natürliche Bilder (Frau, Katzen) erreicht das Verfahren eine negative
+Kompressionsrate von -9 \%.
+
+\subsubsection{PNG (Filter + Deflate)}
+
+Die Vorverarbeitung der Daten mit den Filtern führt bei allen Bilddaten zu einer
+Verbesserung gegenüber dem Deflate-Algorithmus.
+Insbesondere das Testbild Fade 1 erreicht durch die zusätzliche Filterung
+eine deutlich höhere Kompressionsrate.
+Der Grund dafür ist, dass durch das Filtern absolute Pixelwerte in relative Werte
+umgewandelt werden.
+Dadurch werden Strukturen im Gradientenbild sichtbar.
+
+Das Bild der Frau erreicht eine Kompressionsrate von etwas über 3 \%.
+Dies ist eine deutliche Verbesserung gegenüber den -9 \% des Deflate Algorithmus.
+Für strukturierte Daten und Daten mit Wiederholungen funktioniert der
+PNG Algorithmus gut und erreicht Kompressionsraten von über 80 \%.
+Lediglich das Katzenbild kann nicht komprimiert werden.
+
+
+\subsubsection{Fazit Kompressionsraten}
+
+Aus dem Vergleich der Kompressionsraten wurden einige Erkenntnisse gewonnen werden.
+Der Datenvorverarbeitungsschritt mit den Filter liefert für alle getesteten
+Algorithmen eine Verbesserung in der Kompressionsrate.
+Das beweist, dass das Filtern Redundanz erzeugt, die im nächsten Schritt
+entfernt werden kann.
+Das Filtern von Bilddaten ist als Vorverarbeitungsschritt effektiv.
+
+
+Der PNG Algorithmus ist in der Praxis schlechter als theoretisch angenommen.
+Das Verfahren schafft es nicht alle Testbilder erfolgreich zu komprimieren.
+Ein Grund für die Ergebnisse können mit der Implementierung des
+LZ77 Algorithmus Zusammenhängen.
+Bei der Implementierung wurde die Größe des Sliding Window auf 100 festgelegt.
+Das ist deutlich kleiner als die in der Spezifikation maximal angegebene Größe.
+Sie ist 32768. \cite{w3c}
+
+Bei strukturierten Daten mit vielen Wiederholungen ist RLE eine valide
+Option und erreicht Teilweise sogar die besten Kompressionsraten.
+Das allgemein beste getestete Kompressionsverfahren für Bilder ist die Kombination
+aus Filtern der Daten gefolgt von dem Huffman Algorithmus.
+
+Zusammenfassend kann festgehalten werden, dass die Kompressionsraten
+stark von den Bilder selbst abhängen.
+Sturkturierte Bilder können stark komprimiert werden wo hingegen natürlichen Bilder
+zu einem kleineren Teil komprimiertbar sind.
+Kein Kompressionsverfahren ist für alle Bilder am besten und es macht Sinn
+mehrere zu vergleichen, welches für ein konkretes Bild am effektivsten ist.
+
+
+\subsection{Kompressionszeit und Dekompressionszeit}
+
+Die Ergebnisse der Kompressions- und Dekompressionszeiten sind stark
+hardware- und implementierungsabhängig.
+Daher wird nicht explizit auf die absoluten Zeiten eingegangen.
+Es geht darum, Tendenzen aufzuzeigen und die Algorithmen miteinander zu vergleichen.
 
 \begin{table*}
   \renewcommand*{\arraystretch}{1.1}
@@ -978,6 +1146,48 @@ Fazit:
     \label{tab:kompzeiten}
   \end{threeparttable}
 \end{table*}
+
+Die Kompressionszeiten der Algorithmen sind in der
+Tabelle \ref{tab:kompzeiten} aufgelistet.
+Die Tabelle ist aufsteigend nach Auflösung bzw. Datengröße sortiert.
+Aus den Ergebnissen können einige Schlussfolgerungen gezogen werden.
+
+RLE hat eine lineare Laufzeitkomplexität, was durch die Ergebnisse
+praktisch bestätigt wird.
+Jedes Bild kann in weniger als 1 Sekunde komprimiert werden.
+Der Huffman Algorithmus hat ebenfalls eine lineare Laufzeitkomplexität
+und ist in der Praxis etwas schneller.
+
+
+LZ77 hat eine Laufzeitkomplexität von $O(n * s)$.
+Die Messungen zeigen, dass die Implementierung von LZ77 deutlich
+langsamer komprimiert als RLE oder Huffman.
+Ebenso können Ausreißer wie im Bild mit den Katzen beobachtet werden.
+
+Die Laufzeit hängt direkt damit zusammen, wie weit LZ77 durch das
+Sliding Window iterieren muss, um einen Treffer zu finden.
+Das Katzenbild enthält deutlich unstrukturiertere Daten als das Bild
+Fade 2.
+Beim Katzenbild wird deutlich länger im Sliding Window gesucht um
+einen Treffer zu finden oder es wird kein Treffer gefunden.
+
+Das Filtern eines Bildes benötigt lineare Zeit und ist unabhängig
+von der Struktur des Bildes.
+D.h. egal wie das Bild aufgebaut ist, die Laufzeit für das Filtern
+hängt nur von der Größe des Bildes ab.
+
+Das Verfahren Filter + LZ77 ist etwas schneller als LZ77 ohne Vorverarbeitung.
+Dies liegt daran, dass die Daten nun stärker komprimiert werden können und
+weniger weit durch das Sliding Window iteriert werden muss, um eine
+Übereinstimmung zu finden.
+
+Die Laufzeit von Filter + Huffman ist fast identisch mit der Laufzeit
+für das Filtern.
+Der Grund dafür ist, dass der Huffman-Algorithmus die Daten sehr
+schnell komprimiert.
+Die Kompressionszeit des Deflate- und PNG Algorithmus entspricht
+weitgehend der Laufzeit des LZ77 Algorithmus.
+LZ77 ist für die langen Kompressionszeiten verantwortlich.
 
 
 \begin{table*}
@@ -1004,12 +1214,76 @@ Fazit:
 
 \end{table*}
 
+Die Dekompressionszeiten der Algorithmen sind in der Tabelle
+\ref{tab:kompzeiten} aufgelistet.
+Das Rückgängigmachen der Filteroperation (Revert Filter) ist
+schneller als das Filtern.
+Revert Filter hat eine Laufzeitkomplexität von $O(n)$, während das Filtern
+$O(5n)$ benötigt.
+In der Theorie ist $O(n) = O(5n)$, aber in der Praxis spielt der
+Vorfaktor eine Rolle.
+In der Praxis ist das Filtern sogar um den Faktor 9 schneller.
+Dies ermöglicht eine schnellere Dekompression als Kompression.
+
+Die Laufzeit der RLE-Dekompression hängt stark von den Daten ab.
+Wenn die Daten stark komprimiert sind, ist der Dekompressionsschritt
+schnell, da die Rekonstruktion von Wiederholungen schnell ist.
+Die Dekompression des Huffman Algorithmus ist etwas langsamer
+als die Kompression.
+Die Dekompressionszeit des LZ77 Algorithmus variiert und hängt
+stark von den Daten ab.
+Je besser die Bilder komprimiert werden können, desto schneller
+ist die Dekompression im Verhältnis zur Bildgröße.
+Die Dekompressionszeit des Deflate- und des PNG Algorithmus entspricht
+weitgehend der des LZ77 Algorithmus.
+LZ77 ist für die langen Dekompressionszeiten verantwortlich.
+
+Aus den Tabellen können einige Schlüsse gezogen werden.
+Der Huffman- und der RLE Algorithmus sind schnell in Bezug auf die
+Kompressions- und Dekompressionszeit.
+Das Filtern eines Bildes erfolgt in linearer Laufzeit.
+Das Rückgängigmachen des Filterns während der Dekompression ist um
+den Faktor 9 schneller als das Filtern selbst.
+RLE, Huffman und Filter sind auch ohne Optimierung der Implementierung
+geeignet, Bilder in akzeptabler Zeit zu komprimieren und zu dekomprimieren.
+Jedes Verfahren, das den LZ77 Algorithmus verwendet, ist ohne Optimierung
+nicht geeignet, da die Laufzeit deutlich länger ist als bei anderen Verfahren.
+Ebenso ist LZ77 für hochaufgelöste Bilddaten langsam.
+
+Aus der Abwägung zwischen Kompressionsrate und Laufzeit ergibt sich, dass
+Filter + Huffman das beste Verfahren ist.
+Abhängig von der Struktur der zu komprimierenden Bilder kann der RLE
+Algorithmus eine Alternative sein.
+LZ77, Deflate und PNG sind aufgrund der vergleichsweise schlechten Performance
+des LZ77 Algorithmus in Bezug auf Kompressionsrate und Laufzeit nicht geeignet.
+Um mit diesen Verfahren bessere Ergebnisse zu erzielen, muss das Sliding Window
+deutlich vergrößert und eine effizientere Implementierung verwendet werden.
 
 
+\section{Fazit}
 
+Die Ergebnisse des praktischen Versuchs entsprachen nicht den Erwartungen.
+Nicht der PNG Algorithmus, sondern das Filtern mit anschließendem
+Huffman Algorithmus erzielt die besten Kompressionsraten.
+Insbesondere die Vorverarbeitung der Bilder mit den Filtern führt
+bei allen Kompressionsalgorithmen zu einer deutlichen Verbesserung
+der Kompressionsrate.
+Auch bei den Laufzeiten für Kompression und Dekompression schneiden
+Huffman, RLE und der Vorverarbeitungsschritt gut ab.
+Die Verfahren ermöglichen auch ohne optimierte Implementierung der
+Algorithmen eine effektive Bildkompression und -dekompression bei
+geringer Laufzeit.
+Der PNG-, der Deflate- und der LZ77 Algorithmus sind in ihrer Laufzeit und
+Kompressionsfähigkeit eingeschränkt.
+Die Gründe hierfür liegen in der Implementierung des LZ77 Algorithmus und
+wurden in den vorherigen Kapiteln beschrieben.
 
-\section{Evaluation}
-
+Bei komplexen Bildern ohne erkennbare Struktur versagen einige Algorithmen.
+Nur der Filter + Huffman Algorithmus kann alle getesteten Bilder erheblich
+komprimieren.
+Die Komprimierbarkeit von Bildern hängt stark vom Bild selbst ab.
+Außerdem gibt es nicht ein Verfahren, das jedes Bild am besten komprimiert.
+Jedes Verfahren entfernt verschiedene Redundanzen unterschiedlich gut.
 
 \bibliographystyle{IEEEtran}
 \bibliography{mybib}

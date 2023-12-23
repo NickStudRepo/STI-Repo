@@ -152,7 +152,7 @@ def revert_filter(channel_matrix, x, y, filter_type):
 
 if __name__ == "__main__":
     
-    image_name = "Katzen"
+    image_name = "Lenna"
     image_type = ".png"
     file_name = image_name + image_type
 
