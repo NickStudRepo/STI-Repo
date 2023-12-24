@@ -150,7 +150,6 @@ $P(x_i)$ steht für die Wahrscheinlichkeit des
 Eintretens des Ereignisses $x_i$.
 Die Summe wird über alle möglichen Ereignisse
 $x_i$ in $X$ gebildet.
-
 Diese Formel beschreibt die durchschnittliche Anzahl von Bits, die 
 benötigt werden, um eine Nachricht X zu kodieren.
 Wenn die Entropie hoch ist, ist die Unsicherheit groß und es werden mehr 
@@ -169,7 +168,6 @@ enthalten. Niedrige Entropie bedeutet, dass die Daten komprimiert werden können
 Redundanz beschreibt Informationen die in Daten mehrfach vorhanden sind \cite{friedrichs}. 
 Vereinfacht kann Redundanz als überflüssige Information betrachtet werden.
 Eine hohe Redundanz deutet auf sich wiederholende oder vorhersehbare Muster in den Daten hin.
-
 Um eine Formel für die Redundanz aufzustellen benötigt man die mittlere Codewortlänge.
 Die mittlere Codewortlänge gibt den durchschnittlichen Bedarf an Bits pro Symbol in einer
 Nachricht an.
@@ -206,14 +204,12 @@ Sie misst, inwieweit die Kenntnis der einen Variablen die Unsicherheit über die
 andere Variable verringert.
 Dieses Konzept ist wichtig, um die Struktur der Daten zu verstehen und voneinander 
 abhängige Informationen zu erkennen. 
-
 Wenn die Mutual Information zwischen zwei Variablen hoch ist, bedeutet dies, dass die 
 Kenntnis der einen Variable wichtige Informationen über die andere Variable liefert.
 Hohe Mutual Information bedeutet also, dass zwei Variablen stark voneinander 
 abhängig sind.
 Das Wissen über den Wert einer Variable trägt bereits wesentlich zur Vorhersage
 oder zum Verständnis der anderen Variable bei.
-
 Geringe Mutual Information bedeutet, dass die beiden Variablen weniger überschneidende 
 Information teilen.
 Das Wissen über den Wert einer Variable trägt nicht zur
@@ -234,7 +230,6 @@ Ein wichtiger Punkt in der Informationstheorie ist die Unterscheidung zwischen
 Daten und Information. 
 Daten und Information werden umgangssprachlich oft synonym verwendet, was 
 nicht korrekt ist. 
-
 Daten sind rohe Fakten oder Symbole, die an sich keine spezifische Bedeutung haben.
 Information entsteht durch die Interpretation, Organisation und Strukturierung von Daten, 
 wodurch ein sinnvoller Kontext geschaffen wird \cite{pieper}. 
@@ -364,7 +359,6 @@ ein Programm zu schreiben, das die Originaldatei erzeugt.
 Die größe des Programms muss kleiner sein, als die zu komprimierende Datei.
 Das Programm muss kleiner sein als die zu komprimierende Datei. Es muss gezeigt werden, 
 dass die Kolmogorov Komplexität kleiner ist als die Größe der Datei selbst.
-
 Die andere Möglichkeit besteht darin, ein System zu entwickeln, das in der Lage 
 ist, Dateien mit normalverteilten Zufallszahlen zu komprimieren und die komprimierte 
 Datei vollständig zu dekomprimieren. 
@@ -429,7 +423,6 @@ Eine weitere Struktur, die in den meisten Bildern vorkommt, ist, dass benachbart
 Pixel meist ähnliche oder die gleiche Farbe haben. 
 Dies hängt damit zusammen, dass es in Bildern häufig Regionen gibt, die zu einem 
 Objekt oder Bildteil gehören und eine homogene Farbe besitzen.
-
 Diese Strukturen und Wiederholungen in den Bilddaten können ausgenutzt werden um die
 Daten zu komprimieren.
 Bei der Datenkompression ist es entscheidend, welche Algorithmen diese Redundanzen, 
@@ -561,7 +554,6 @@ um möglichst viele Daten speichern zu können.
 Für diesen Anwendungsfall ist das Messkriterium Kompressionsrate wichtig.
 Die Zeit für die Kompression und Dekompression der Daten spielt aufgrund der 
 seltenen und nicht zeitkritischen Datenzugriffe keine Rolle.
-
 Die Beispiele zeigen, dass es sinnvoll ist, die Datenkompressionsalgorithmen 
 anhand der drei Kriterien zu vergleichen, da diese je nach Anforderung unterschiedlich 
 wichtig sind.
@@ -595,7 +587,6 @@ die für jeden Pixel den Wert der entsprechenden Farbe angibt.
 Im nächsten Schritt wird die Matrix in eine flache Liste umgewandelt.
 Dazu werden alle Werte der Farbkanäle aneinandergereiht.
 Zuerst alle Werte des Farbkanals für Rot, dann für Grün, dann für Blau.
-
 Einige der verglichenen Kompressionsalgorithmen sind für Textdaten konzipiert.
 Textdaten sind eindimensionale Daten, während Bilddaten je nach Darstellung
 zweidimensional sind.
@@ -622,198 +613,190 @@ Die Zeit für die Dekompression wird als Dekompressionszeit gespeichert.
 % - 8-Bit Farbinformationen,
 
 
-% Todo ab hier!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
 \section{Vorstellung der Kompressionsalgorithmen}
 
 In diesem Abschnitt werden die verglichenen Datenkompressionsalgorithmen
 mit ihren jeweiligen Spezifikationen vorgestellt.
-Für den praktischen Teil der Arbeit wurden alle
-Algorithmen in der Programmiersprache Python manuell implementiert
-(GitHub Repo \cite{nick}).
+ür den praktischen Teil der Arbeit wurden alle Algorithmen manuell in der 
+Programmiersprache Python implementiert (GitHub Repo \cite{nick}).
 Python ist eine Hochsprachen-Programmiersprache, die es ermöglicht,
 die verschiedenen Algorithmen entsprechend ihrer Spezifikationen zu implementieren.
 Die Sprache Python wurde gewählt, da sie eine schnelle Implementierung ermöglicht.
 Python ist eine interpretierte Sprache und nicht auf die Laufzeit von Programmen
-optimiert. \cite{nadav}
-In den Implementierungen der Algorithmen wurden keine Laufzeitoptimierungen der
-Algorithmen vorgenommen.
-Es geht in dem Versuch darum die Kompressionsalgorithmen untereinander zu
-vergleichen und nicht eine jeweils beste Lösung zu implementieren.
+optimiert \cite{nadav}. 
+Bei der Implementierung der Algorithmen wurde keine Laufzeitoptimierung der 
+Algorithmen vorgenommen. 
+Ziel ist es, die Kompressionsalgorithmen miteinander zu vergleichen und nicht die 
+jeweils beste Lösung zu implementieren. 
 
 
 \subsection{Run Length Encoding - RLE}
 
-RLE, auf deutsch Lauflängenkodierung, ist eine der einfachsten Kompressionsalgorithmen.
-Die Grundidee besteht darin, aufeinanderfolgende gleiche Elemente durch
-eine einzige Instanz des Elements und die Anzahl der Wiederholungen zu ersetzen.
-RLE ist besonders effektiv, wenn in den Daten viele aufeinanderfolgende
-gleiche Zeichen vorhanden sind.
-RLE ist eine Encoding Algorithmus und versucht die Kompression der Daten
-durch eine andere Struktur der Daten zu erreichen.
-RLE ist besonders effektiv, wenn in den Daten viele aufeinanderfolgende
-gleiche Zeichen vorhanden sind, da diese Redundanz durch das Zeichen und die
-Anzahl an wiederholungen repräsentiert werden kann.
-
-Die Daten die komprimiert werden sollen sind Ganzzahlwerten zwischen 0 und 255.
-Ein Ganzzahlwert ist ein Element und benötigt ein Byte Speicher.
-Die Anzahl der gleichen hintereinanderfolgenden Elemente ist die Lauflänge.
-Die RLE Darstellung der Daten ist: (Element, Lauflänge)*.
-Über dieses Encoding versucht RLE Daten zu komprimieren.
+RLE, zu Deutsch Lauflängenkodierung, ist einer der einfachsten Kompressionsalgorithmen. 
+Die Grundidee besteht darin, aufeinanderfolgende gleiche Elemente durch eine einzige 
+Instanz des Elements und die Anzahl der Wiederholungen zu ersetzen. 
+RLE ist besonders effektiv, wenn die Daten viele aufeinanderfolgende gleiche Zeichen 
+enthalten. 
+RLE ist ein Kodierungsalgorithmus, der versucht, die Kompression der Daten durch eine 
+andere Struktur der Daten zu erreichen. 
+RLE ist besonders effektiv, wenn viele aufeinanderfolgende gleiche Zeichen in den Daten 
+vorhanden sind, da die Zeichenfolge durch das Zeichen und die Anzahl der Wiederholungen 
+dargestellt werden kann. 
+Die zu komprimierenden Daten sind Ganzzahlen zwischen 0 und 255. 
+Eine Ganzzahl ist ein Element und benötigt ein Byte Speicherplatz. 
+Die Anzahl der gleichen aufeinanderfolgenden Elemente ist die Lauflänge. 
+Die RLE-Darstellung der Daten ist: (Element, Lauflänge)*. 
+Mit dieser Kodierung versucht RLE die Daten zu komprimieren.
 
 Es gibt viele leicht abweichende Spezifikationen um eine Lauflänge
 von einem Elementen abgrenzbar zu machen.
-Es gibt die Möglichkeit bestimmte Trennsymbole zu verwenden.
-Die Spezifikation die für den Versuch gewählt wurde, ist,
-dass die Lauflänge immer eine bestimmte Anzahl an Bits verwendet.
-Die Anzahl an Bits entspricht genau der minimalen Anzahl an Bits,
-mit der die maximale Lauflänge repräsentiert werden kann.
-Diese Bitanzahl wird benötigt um die Encodierten Daten zu Decodieren.
+Es ist möglich, bestimmte Trennzeichen zu verwenden.
+Die für den Versuch gewählte Spezifikation ist, dass die Lauflänge immer 
+eine bestimmte Anzahl von Bits verwendet.
+Die Anzahl der Bits entspricht genau der minimalen Anzahl der Bits, mit 
+der die maximale Lauflänge dargestellt werden kann.
+Diese Bitanzahl wird benötigt um die kodierten Daten zu dekodieren.
 Sie wird als ein Byte Metadaten mitgespeichert.
 Weitere Metadaten sind die
 Auflösung des Bildes um aus den eindimensionalen Daten das Originalbild
 zu rekonstruieren.
 
-Nach der gewählten Implementierung hat
-RLE für das Encoding, bzw. den Kompressionsschritt, eine
-Laufzeitkomplexität von $O(n)$, n entspricht der Länge der Ausgangsdaten.
-Für das Decoding, bzw. den Dekompressionsschritt hat RLE eine
-Laufzeitkomplexität von $O(m)$, m ientspricht der Länge der encodierten Daten. \cite{nick}
-% todo repo vorbereiten
+In der gewählten Implementierung hat RLE für das Encoding, bzw. den Kompressionsschritt, 
+eine Laufzeitkomplexität von $O(n)$, wobei n der Länge der Ausgangsdaten entspricht.
+Für den Dekodierungsschritt hat RLE eine Laufzeitkomplexität von $O(m)$, wobei 
+m die Länge der kodierten Daten ist \cite{nick}. 
+
 
 \subsection{Huffman Codierung}
 
-Die Huffman Codierung beruht auf der Idee, häufig vorkommende Zeichen in einem Datenstrom
-mit kürzeren Binärcodes zu repräsentieren, während seltener vorkommende Zeichen längere Codes
-erhalten.
+Die Huffman Codierung basiert auf der Idee, häufig vorkommende Zeichen 
+in einem Datenstrom durch kürzere Binärcodes darzustellen, während seltener 
+vorkommende Zeichen längere Codes erhalten.
 Der Algorithmus beginnt mit einer Analyse der Häufigkeit jedes Zeichens in den Daten.
 Anschließend wird ein Huffman Baum erstellt, wobei jedem Zeichen ein Blatt zugeordnet wird.
-Die Erstellung des Baums erfolgt so, dass häufige Zeichen kürzere Pfade im Baum haben.
-Jedes Zeichen erhält einen eindeutigen Binärcode.
-Die Zuordnung der Binärcodes erfolgt durch das durchschreiten des Huffman Baums.
-Eine Linksabzweigung im Baum entspricht einem Binärwert "0", rechts entspricht "1".
-Für die Decodierung der Encodierten Daten wird der Huffman Baum benötigt.
-Dieser muss als Metadaten mitgespeichert werden.
+Der Baum wird so erstellt, dass häufig vorkommende Zeichen kürzere Pfade im Baum haben. 
+Jedem Zeichen wird ein eindeutiger Binärcode zugeordnet. 
+Die Zuordnung der Binärcodes erfolgt durch das Durchlaufen des Huffman Baums. 
+Ein linker Ast im Baum entspricht dem Binärwert "0", ein rechter Ast dem 
+Binärwert "1". Der Huffman Baum wird für die Decodierung der codierten Daten benötigt. 
+Er muss als Metadaten mitgespeichert werden.
 
 Die Datenkompression erfolgt durch Redundanzminimierung mittels Analyse
 der Zeichenhäufigkeiten und entsprechender Kodierung.
 Die Huffman Codierung ist besonders effektiv auf Daten, in denen die
-Wahrscheinlichkeiten der auftretenden Zeichen stark variieren.
-\cite{moffat}
+Wahrscheinlichkeiten der auftretenden Zeichen stark variieren \cite{moffat}.
 
 Nach der gewählten Implementierung hat
 die Huffman Codierung für das Encoding, bzw. den Kompressionsschritt, eine
-Laufzeitkomplexität von $O(n log n)$, n entspricht Länge der Ausgangsdaten.
+Laufzeitkomplexität von $O(n log n)$, wobei n der Länge der Ausgangsdaten entspricht.
 Für das Decoding, bzw. den Dekompressionsschritt hat die Huffman Codierung eine
-Laufzeitkomplexität von $O(m)$, m entspricht der Länge der encodierten Daten. \cite{moffat}
+Laufzeitkomplexität von $O(m)$, wobei m der Länge der kodierten Daten entspricht \cite{moffat}. 
+
 
 \subsection{Lempel-Ziv 1977 - LZ77}
 
 Die Idee des LZ77 Algorithmus besteht darin, wiederkehrende Muster
-in einem Datenstrom zu erkennen und durch Verweise auf bereits übertragene Daten zu ersetzen.
-Der Algorithmus funktioniert, indem er eine sogenannte "Sliding Window" über den
-Datenstrom bewegt.
-nnerhalb dieses Fensters wird nach wiederkehrenden Sequenzen gesucht.
-Wenn eine solche Sequenz gefunden wird, wird sie durch einen Verweis auf die
-vorherige Instanz der Sequenz ersetzt, wobei die Position und Länge der vorherigen Instanz
-angegeben werden.
-
-Die Datenkompression erfolgt durch das entfernen von Redundanz durch das verweisen auf bereits
+in einem Datenstrom zu erkennen und diese durch Verweise auf bereits übertragene 
+Daten zu ersetzen.
+Der Algorithmus funktioniert, indem ein sogenanntes "Sliding Window" über den Datenstrom 
+bewegt wird, innerhalb dessen nach wiederkehrenden Sequenzen gesucht wird.
+Wird eine solche Sequenz gefunden, wird sie durch einen Verweis auf die vorherige Instanz 
+der Sequenz ersetzt, wobei die Position und die Länge der vorherigen Instanz angegeben werden. 
+Die Datenkompression erfolgt durch das entfernen von Redundanz durch Verweise auf bereits
 bekannte Zeichensequenzen.
 Der Algorithmus ist besonders effektiv für Daten mit wiederkehrenden Mustern.
 
 Nach der gewählten Implementierung hat
 LZ77 für den Kompressionsschritt eine Laufzeitkomplexität von
-$O(n * s)$, n entspricht der Länge der Ausgangsdaten und s entspricht der
-Größe des Sliding Window.
+$O(n * s)$, wobei n der Länge der Ausgangsdaten und s der Größe des Sliding 
+Window entspricht.
 Für den Dekompressionsschritt hat LZ77 eine
-Laufzeitkomplexität von $O(m * s)$, m entspricht der Länge der encodierten Daten, s entspricht der
-Größe des Sliding Window. \cite{nick}
+Laufzeitkomplexität von $O(m * s)$, wobei m der Länge der kodierten Daten und 
+s der Größe des Sliding Window entspricht \cite{nick}. 
 
-Eine Spezifikation die für LZ77 bei der Implementierung getroffen wurde ist,
-dass die Größe des "Sliding Window" auf 100 Zeichen gesetzt wurde.
-Eine größere Größe des Sliding Window ist mit Python ohne
-weitere optimierungen nicht für große Datenmengen geeignet, da die Laufzeit
-sonst übermäßig ansteigt.
+Eine Spezifikation, die für LZ77 bei der Implementierung getroffen wurde, 
+ist, dass die Größe des Sliding Window auf 100 Zeichen gesetzt wurde. 
+Eine größere Größe des Sliding Window ist für große Datenmengen mit Python 
+ohne weitere Optimierung nicht geeignet, da sonst die Laufzeit zu lang wird.
+
 
 \subsection{Deflate Algorithmus}
 \label{deflate}
 
 Der Deflate Algorithmus kombiniert LZ77 und Huffman Codierung.
-Die Daten werden im ersten Schritt mit LZ77 codiert.
-Die Codierten Daten werden im nächsten Schritt mit Huffman weiter codiert.
-Zum Decodierung der komprimierten Daten werden die Decodierungsschritte von Huffman
+Im ersten Schritt werden die Daten mit LZ77 codiert.
+Die bereits codierten Daten werden im nächsten Schritt mit Huffman weiter codiert.
+Für die Decodierung der komprimierten Daten werden die Decodierungsschritte Huffman 
 und LZ77 benötigt.
-Die Laufzeitkomplexität der Kompression und Dekompression entsprechen der von
+Die Laufzeitkomplexität der Kompression und Dekompression entspricht der von 
 LZ77, da $O(n + n * s) = O(n * s)$.
+
 
 \subsection{Portable Network Graphics Algorithmus - PNG}
 
-PNG ist ein Format um Bilder zu speichern.
-Der PNG Algorithmus ist ein verlustfreies Bildkompressionsformat.
-PNG und alle Spezifikationen sind im Standard von W3C definiert. \cite{w3c}
+PNG ist ein Format zum Speichern von Bildern. 
+Der PNG Algorithmus ist ein verlustfreies Bildkompressionsformat. 
+PNG und alle Spezifikationen sind im W3C-Standard \cite{w3c} definiert. 
 
-Der PNG Algorithmus kann in drei großen Schritten zusammengefasst werden.
-Schritt 1 ist ein Vorverarbeitungsschritt der Bilddaten die mit Hilfe von
+Der PNG Algorithmus lässt sich in drei Schritten zusammenfassen.
+Schritt 1 ist ein Vorverarbeitungsschritt der Bilddaten, die mit Hilfe von
 Filtern für den Kompressionsschritt vorbereitet werden.
 Schritt 2 ist der Kompressionsschritt.
 Die Daten werden mit Hilfe des Deflate Algorithmus komprimiert.
-Schritt 3 ist ein Cyclic Redundancy Check zur Integritätsüberprüfung.
+Schritt 3 ist ein Cyclic Redundancy Check zur Integritätsprüfung.
 
 
 \subsubsection{Vorverarbeitung der Bilder: Filtern}
 
 Der Vorverarbeitungsschritt, bzw. das Filtern, dient dazu, lokale Korrelationen und
 Muster in den Bilddaten zu erzeugen.
-Die Idee dabei ist es, dass der nachfolgende Kompressionsschritt
-auf den gefilterten Daten besser funktioniert als auf den ungefilterten.
-Der Vorverarbeitungsschritt versucht Redundanz in den Daten zu erzeugen, welche
-von dem Deflate Algorithmus entfernt werden kann.
+Die Idee dahinter ist, dass der nachfolgende Kompressionsschritt auf den gefilterten 
+Daten besser funktioniert als auf den ungefilterten Daten. 
+Der Vorverarbeitungsschritt versucht, Redundanz in den Daten zu erzeugen, die 
+vom Deflate Algorithmus entfernt werden kann. 
 
 Beim Filtern wird jeder Farbkanal eines Bildes einzeln betrachtet.
 Das Filtern erfolgt zeilenweise.
 Ein Filter wird auf jedem Pixel einer Zeile angewendet.
-
-Für jede Zeile kann genau ein Filtertyp gewählt werden.
+Für jede Zeile kann genau ein Filtertyp ausgewählt werden.
 Es gibt fünf verschiedene Filtertypen, die auf jeder Zeile
 des Bildes angewendet werden können: None, Sub, Up, Average und Paeth.
-Jeder dieser Filtertypen transformiert die Werte in einer Reihe Pixelweise nach einer spezifischen
-Funktion.
-Die verwendeten Funktionen beschreiben die Pixelwerte meist in Relation zu benachbarten Pixel.
+Jeder dieser Filtertypen transformiert die Werte in einer Zeile pixelweise nach einer 
+bestimmten Funktion.
+Die verwendeten Funktionen beschreiben die Pixelwerte meist in Relation zu benachbarten 
+Pixeln.
 
 \begin{enumerate}
   \item Der None Filter verändert den Inhalt einer Zeile nicht.
-  \item Der Sub Filter berechnet die Differenzen der in einer Zeile aufeinanderfolgenden Pixel.
-  \item Der Up Filter berechnet die Differenze des Pixelwertes in der aktuellen Zeile mit
-        dem Pixelwert der Zeile darüber.
+  \item Der Sub Filter berechnet die Differenz zwischen aufeinanderfolgenden Pixeln 
+  in einer Zeile.
+  \item Der Up Filter berechnet die Differenz zwischen dem Pixelwert in der aktuellen Zeile 
+  und dem Pixelwert in der Zeile darüber.
   \item Der Average Filter berechnet die durchschnittliche Differenz eines Pixelwertes zum
-        Pixelwert links und darüber.
-  \item Der Paeth Filter berechnet die Differenzen zum Pixelwert links, darüber, darüber links und nimmt den
-        minimalen Wert der Differenzen der drei Pixelnachbarn.
+  Pixelwert links und darüber.
+  \item Der Paeth Filter berechnet die Differenzen zum Pixelwert links, darüber, darüber 
+  links und nimmt den minimalen Wert der Differenzen der drei Pixelnachbarn.
 \end{enumerate}
 
-Die ausführlichen Spezifikationen der Filter finden sich in den W3C Spezifikationen \cite{w3c} unter
-Abschnitt 9.
+Detaillierte Spezifikationen der Filter sind in den W3C-Spezifikationen \cite{w3c} in 
+Abschnitt 9 zu finden. 
 
-Da für jede Zeile nur ein Filtertyp angewendet werden kann, muss für die jeweilige
-Reihe der best passende Filtertyp gewählt werden, um die erzeugte Redundanz zu maximieren.
-Die Auswahl erfolgt auf Basis einer Heuristik.
-Die Heuristik zielt darauf ab den Filtertyp zu wählen, der am meisten Redundanz erzeugt.
-Die Heuristik wählt den Filtertyp für den die Summe aller Werte in einer Reihe
-am geringsten ist.
-Es gibt keine Garantie, dass der gewählte Filtertyp zu der besten Datenkompression
-führt.
-Um die tatsächlich beste Kombination an Filtertyp pro Zeile zu finden müssten alle
-Kombinationen ausprobiert werden.
-Das ist allerdings nicht möglich, da die Anzahl an Kombinationen die Filter
-anzuordnen exponentiell mit der Zeilenanzahl steigt.
-Mit der Heuristik wird das Problem umgangen.
+Da für jede Zeile nur ein Filtertyp verwendet werden kann, muss für jede Zeile der am 
+besten geeignete Filtertyp ausgewählt werden, um die erzeugte Redundanz zu maximieren. 
+Die Auswahl erfolgt mit Hilfe einer Heuristik. 
+Die Heuristik zielt darauf ab, den Filtertyp auszuwählen, der die meiste Redundanz erzeugt. 
+Die Heuristik wählt den Filtertyp, für den die Summe aller Werte in einer Reihe am 
+kleinsten ist. 
+Es gibt keine Garantie, dass der gewählte Filtertyp zur besten Datenkompression führt. 
+Um die tatsächlich beste Kombination von Filtertypen pro Zeile zu finden, müssten alle 
+Kombinationen ausprobiert werden. 
+Dies ist jedoch nicht möglich, da die Anzahl der Filterkombinationen exponentiell mit 
+der Anzahl der Zeilen steigt. Die Heuristik umgeht dieses Problem. 
 
-Damit die umkehrung der Filteroperation möglich ist, wird für jede Reihe gespeichert welcher
-Filtertyp verwendet wurde.
-Die Laufzeitkomplexität des Filterns eines Bildes beträgt $O(5n) = O(n)$.
-Die Laufzeitkomplexität um das Filtern rückgängig zu machen beträgt $O(n)$.
-\cite{nick}
+Um die Umkehrung der Filteroperation zu ermöglichen, wird für jede Zeile gespeichert, 
+welcher Filtertyp verwendet wurde. 
+Die Laufzeitkomplexität für das Filtern eines Bildes beträgt $O(5n) = O(n)$. 
+Die Laufzeitkomplexität, um die Filterung rückgängig zu machen, beträgt $O(n)$ \cite{nick}. 
 
 
 \subsubsection{Implementierungsdetails}
@@ -823,33 +806,33 @@ Schritt 3, der Cyclic Redundancy Check, wird nicht implementiert, da
 er für die Datenkompression irrelevant ist.
 Für den Kompressionsschritt in Schritt 2 des PNG Algorithmus wird der Deflate
 Algorithmus, wie in Abschnitt \ref{deflate} beschrieben, verwendet.
-Der LZ77 Algorithmus verwendet abei ein Sliding Window der Größe 100.
-Der in W3C spezierte Deflate, bzw. LZ77 Algorithmus, verwendet ein Sliding Window
-mit einer maximalen Größe von 32768. \cite{w3c}
-Die deutlich geringere Sliding Window Größe wird bei der Auswertung berücksichtigt
-und hat möglicherweise einen negativen Einfluss auf die Kompressionsfähigkeit
-des PNG Algorithmus.
+Der LZ77 Algorithmus verwendet dabei ein Sliding Window der Größe 100.
+Der im W3C spezifizierte Deflate bzw. LZ77 Algorithmus verwendet ein Sliding 
+Window mit einer maximalen Größe von 32768 \cite{w3c}.
+Die deutlich geringere Größe des Sliding Windows wird bei der Auswertung 
+berücksichtigt und kann sich negativ auf die Kompressionsfähigkeit des 
+PNG Algorithmus auswirken.
 
 \subsection{Filter + Huffman Algorithmus}
 
-Ein weiterer Algorithmus der verglichen wird ist eine Kombination des PNG
-Vorverarbeitungsschritt mit den Filtern, gefolgt von dem Huffman Algorithmus.
+Ein weiterer Algorithmus, der verglichen wird, ist eine Kombination des 
+PNG Vorverarbeitungsschrittes (Filtern) gefolgt vom Huffman Algorithmus. 
 Die Laufzeitkomplexität für die Kompression und Dekompression beträgt
 $O(n)$.
 
 \subsection{Filter + LZ77 Algorithmus}
 
-Der letzte Algorithmus der verglichen wird ist eine Kombination des PNG
-Vorverarbeitungsschritt mit den Filtern, gefolgt von dem LZ77 Algorithmus.
+Der letzte Algorithmus, der verglichen wird, ist eine Kombination des 
+PNG Vorverarbeitungsschrittes (Filtern) gefolgt vom LZ77 Algorithmus.
 Die Laufzeitkomplexität für die Kompression und Dekompression beträgt
 $O(n * s)$.
 
 \section{Wahl der Testbilder}
 
-Um die verschiedenen Kompressionsalgorithmen untereinander zu vergleichen wurden
-verschiedene Testbilder ausgewählt.
-Die Testbilder mit der jeweiligen Auflösung sind in Abbildung
-\ref{fig:testbilder} zu sehen.
+Um die verschiedenen Kompressionsalgorithmen miteinander vergleichen 
+zu können, wurden verschiedene Testbilder ausgewählt. 
+Die Testbilder mit ihrer jeweiligen Auflösung sind in 
+Abbildung \ref{fig:testbilder} dargestellt.
 
 \begin{figure}[h]
   \centering
@@ -858,41 +841,36 @@ Die Testbilder mit der jeweiligen Auflösung sind in Abbildung
   \label{fig:testbilder}
 \end{figure}
 
-Es wurden sehr unterschiedliche Bilder gewählt.
-Sie unterscheiden sich sowohl im Motiv als auch in der Bildauflösung.
-Die verschiedenen Bildauflösungen wurden gewählt, um die Laufzeit der
-Algorithmen auf unterschiedlich großen Eingangsdaten zu vergleichen.
-Die Motive sind unterschiedlich aber nicht zufällig gewählt.
-Das Bild der Deutschlandflagge und das Bild der Folie haben
-viele Bildpunkte mit identischer Farbe.
-In den Daten ist viel Redundanz enthalten.
-Die Bilder wurden gewählt, da sie aus monotonen Teilbereichen bestehen
+Die ausgewählten Bilder sind sehr unterschiedlich. 
+Sie unterscheiden sich sowohl im Motiv als auch in der Bildauflösung. 
+Die unterschiedlichen Bildauflösungen wurden gewählt, um die Laufzeiten 
+der Algorithmen bei unterschiedlich großen Eingabedaten zu vergleichen. 
+Die Motive sind unterschiedlich, aber nicht zufällig gewählt. 
+Das Bild der Deutschlandflagge und das Bild der Folie haben viele Bildpunkte 
+mit identischer Farbe. Die Daten enthalten viel Redundanz. 
+Die Bilder wurden ausgewählt, da sie aus monotonen Teilbereichen bestehen 
 und viele Wiederholungen in den Daten vorhanden sind.
-
-Das Bild Fade 1 und Fade 2 zeigen einen Farbverlauf.
-Die Daten enthatlten eine große Anzahl an Farbwechsel.
-Die Farbwechsel sind nicht zufällig sonder nach einem Farbverlauf Muster.
-Fade 1 hat im Großteil des Bildes kaum Rotanteile, während
-Fade 2 einen Farbverlauf mit den Grundfarben rot, grün und blau hat.
-
-Das Bild der Frau und das Bild mit den Katzen sind reale Bilder.
-Sie zeigen echte Sachverhalte und beschreiben die Struktur
-von natürlichen Bilder.
+Die Bilder Fade 1 und Fade 2 zeigen einen Farbverlauf. 
+Die Daten enthalten eine große Anzahl von Farbwechseln. 
+Die Farbwechsel sind nicht zufällig, sondern folgen einem Verlaufsmuster. 
+Fade 1 zeigt im größten Teil des Bildes kaum Rotanteile, während Fade 2 
+einen Farbverlauf mit den Grundfarben Rot, Grün und Blau zeigt.
+Das Bild der Frau und das Bild mit den Katzen sind reale Bilder. 
+Sie zeigen reale Sachverhalte und beschreiben die Struktur natürlicher Bilder.
 
 
 \subsubsection{Erwartungen}
 
 Nach der theoretischen Betrachtung der Algorithmen und der
-Datenkompressionsverfahren können einige Erwartungen aufgestellt werden.
-Der RLE Algorithmus sollte vor allem bei den Bildern der Flagge und Folie
-gut sein, da er Redundanz in Form von Wiederholungen entfernt.
-Alle anderen Algorithmen sollten ebenfalls die Redundanz entfernen können.
-Die Erwartungen für die Bilder Fade 1 und Fade 2 sind, dass sie standardmäßig
-schlecht komprimiert werden könne.
-Der Datenvorverarbeitungsschritt mit den Filter sollte zu einer Verbesserung führen.
-Bei den natürlichen Bildern sollte vor allem PNG gut funktionieren,
+Datenkompressionsverfahren können einige Erwartungen formuliert werden.
+Der RLE Algorithmus sollte vor allem bei Flaggen- und Folienbildern gut sein, da 
+er Redundanz in Form von Wiederholungen entfernt.
+Alle anderen Algorithmen sollten ebenfalls in der Lage sein diese Redundanz zu entfernen.
+Für die Bilder Fade 1 und Fade 2 wird erwartet, dass sie standardmäßig 
+schlecht komprimiert werden können.
+Der Datenvorverarbeitungsschritt mit den Filtern sollte zu einer Verbesserung führen.
+Bei den natürlichen Bildern sollte vor allem der PNG Algorithmus gut funktionieren, 
 während der RLE Algorithmus schlecht abschneidet.
-
 
 
 \section{Ergebnisse und Interpretation}
@@ -903,7 +881,7 @@ Die Tabelle \ref{tab:komprate} zeigt die Kompressionsraten der Algorithmen
 anhand der Testbilder.
 Alle Angaben sind in Prozent und wurden nach der Formel \ref{eq:komprate} berechnet.
 
-\begin{table*}
+\begin{table*}[ht]
   \renewcommand*{\arraystretch}{1.1}
   \centering
   \begin{threeparttable}
@@ -927,13 +905,13 @@ Alle Angaben sind in Prozent und wurden nach der Formel \ref{eq:komprate} berech
   \end{threeparttable}
 \end{table*}
 
-Es können einige generelle Aussagen anhand der Durchschnittswerte gemacht werden.
-Alle Kompressionsalgorithmen erreichen im Schnitt eine positive Kompressionsrate von über 20 \%.
-Der im Schnitt schlechteste Algorithmus ist Huffman, mit nur 27 \%.
-Der im Schnitt beste Kompressionsalgorithmus ist die Kombination aus dem Filtern der Bilddaten
-und dem Huffman Algorithmus.
+Aus den Durchschnittswerten lassen sich einige allgemeine Aussagen ableiten. 
+Alle Kompressionsalgorithmen erreichen im Durchschnitt eine positive Kompressionsrate 
+von über 20 \%. 
+Der durchschnittlich schlechteste Algorithmus ist Huffman mit nur 27 \%. 
+Der im Durchschnitt beste Kompressionsalgorithmus ist die Kombination aus Filtern 
+der Bilddaten und dem Huffman Algorithmus. 
 Er erreicht eine Kompressionsrate von 67 \%.
-
 
 % Auffälligkeiten
 % - Huffman schlecht bei Fade, Filter + Huffman krank gut -> Datenvorverarbeitungsschritt
@@ -950,14 +928,13 @@ Das Bild mit der Flagge kann um 99,98 \% komprimiert werden.
 Das Originalbild kann von 151.380 Bytes auf nur 32 Bytes komprimiert werden.
 Das Bild besteht aus langen Sequenzen identischer Zeichen. Redundanz in Form von
 Wiederholungen wird durch RLE optimal entfernt.
-
 Entgegen den theoretischen Erwartungen ist der Algorithmus auch in der Lage,
 Gradientenbilder zu komprimieren. Der Grund dafür liegt in der Struktur der Bilder.
 Fade 1 und Fade 2 enthalten Farbkanäle, in denen einige Bereiche viele Wiederholungen aufweisen.
 Teilweise bestehen die Farbverläufe nur aus Mischungen von zwei Grundfarben, während der
 andere Farbkanal Nullwerte enthält.
-Aus diesem Grund kann RLE auch die beiden Bilder mit kontinuierlich wechselnden Farben komprimieren.
-
+Aus diesem Grund kann RLE auch die beiden Bilder mit kontinuierlich wechselnden Farben 
+komprimieren.
 Der RLE Algorithmus scheitert an den Testbildern (Frau, Katzen) und erreicht keine
 Kompression.
 Dies ist daran zu erkennen, dass die Kompressionsraten bei ca. -40 \% liegen, was
@@ -974,7 +951,6 @@ Natürliche Bilder können leicht komprimiert werden, zwischen 2 und 3 \%.
 Bilder mit Farbverläufen werden um 10 bis 15 \% komprimiert.
 Der Huffman Algorithmus erreicht bei Bildern mit Redundanz in Form von
 Wiederholungen Kompressionsraten von über 50 \%.
-
 Eine Schwäche des Algorithmus sind Daten, die viele verschiedene Werte enthalten,
 die alle ähnlich häufig vorkommen.
 Eine Stärke des Algorithmus ist, dass er stabil ist und positive Kompressionsraten liefert.
@@ -990,7 +966,6 @@ Die erreichte Rate ist mit Abstand die beste aller Algorithmen.
 Das Bild der Frau wird durch das Verfahren ebenfalls am besten komprimiert.
 Die Kompressionsrate ist um 35 \% besser als die des nächstbesten Algorithmus.
 Auch bei den anderen Testbildern erreicht das Verfahren hohe Kompressionsraten von über 84 \%.
-
 Der Datenvorverarbeitungsschritt (Filterung) erzeugt in allen Testbildern Redundanz, die
 durch den Huffman Algorithmus effektiv entfernt werden kann.
 Der Filter erzeugt Redundanz in Form von Strukturen, wodurch die Anzahl unterschiedlicher
@@ -1038,7 +1013,6 @@ Der Deflate Algorithmus ist für jedes Bild besser als der LZ77 Algorithmus.
 Daraus folgt, dass LZ77 nicht die gleiche Redundanz erkennt wie Huffman.
 Die Daten enthalten nach der Kodierung mit dem LZ77 Algorithmus weitere
 Redundanz, die mit dem Huffman Algorithmus entfernt werden kann.
-
 Der Deflate Algorithmus hat die gleichen Stärken und Schwächen wie der LZ77 Algorithmus.
 Für natürliche Bilder (Frau, Katzen) erreicht das Verfahren eine negative
 Kompressionsrate von -9 \%.
@@ -1052,7 +1026,6 @@ eine deutlich höhere Kompressionsrate.
 Der Grund dafür ist, dass durch das Filtern absolute Pixelwerte in relative Werte
 umgewandelt werden.
 Dadurch werden Strukturen im Gradientenbild sichtbar.
-
 Das Bild der Frau erreicht eine Kompressionsrate von etwas über 3 \%.
 Dies ist eine deutliche Verbesserung gegenüber den -9 \% des Deflate Algorithmus.
 Für strukturierte Daten und Daten mit Wiederholungen funktioniert der
@@ -1068,37 +1041,30 @@ Algorithmen eine Verbesserung in der Kompressionsrate.
 Das beweist, dass das Filtern Redundanz erzeugt, die im nächsten Schritt
 entfernt werden kann.
 Das Filtern von Bilddaten ist als Vorverarbeitungsschritt effektiv.
+Der PNG Algorithmus ist in der Praxis schlechter als theoretisch angenommen. 
+Das Verfahren kann nicht alle Testbilder erfolgreich komprimieren. 
+Ein Grund für die Ergebnisse kann in der Implementierung des LZ77 Algorithmus liegen. 
+Bei der Implementierung wurde die Größe des Sliding Window auf 100 gesetzt. 
+Dies ist deutlich kleiner als die in der Spezifikation angegebene maximale Größe. 
+Diese beträgt 32768. \cite{w3c} 
+Für strukturierte Daten mit vielen Wiederholungen ist RLE eine valide Option 
+und erreicht teilweise sogar die besten Kompressionsraten. 
+Die im Allgemeinen beste getestete Kompressionsmethode für Bilder ist eine 
+Kombination aus Filtern der Daten und anschließendem Einsatz des Huffman Algorithmus. 
+Zusammenfassend kann festgestellt werden, dass die Kompressionsraten stark von den 
+Bildern selbst abhängen. 
+Strukturierte Bilder können stark komprimiert werden, während natürliche Bilder 
+in geringerem Maße komprimierbar sind. 
+Kein Kompressionsverfahren ist für alle Bilder am besten und es ist sinnvoll, 
+mehrere Verfahren miteinander zu vergleichen, um herauszufinden, welches Verfahren 
+für ein bestimmtes Bild am effektivsten ist.
 
 
-Der PNG Algorithmus ist in der Praxis schlechter als theoretisch angenommen.
-Das Verfahren schafft es nicht alle Testbilder erfolgreich zu komprimieren.
-Ein Grund für die Ergebnisse können mit der Implementierung des
-LZ77 Algorithmus Zusammenhängen.
-Bei der Implementierung wurde die Größe des Sliding Window auf 100 festgelegt.
-Das ist deutlich kleiner als die in der Spezifikation maximal angegebene Größe.
-Sie ist 32768. \cite{w3c}
-
-Bei strukturierten Daten mit vielen Wiederholungen ist RLE eine valide
-Option und erreicht Teilweise sogar die besten Kompressionsraten.
-Das allgemein beste getestete Kompressionsverfahren für Bilder ist die Kombination
-aus Filtern der Daten gefolgt von dem Huffman Algorithmus.
-
-Zusammenfassend kann festgehalten werden, dass die Kompressionsraten
-stark von den Bilder selbst abhängen.
-Sturkturierte Bilder können stark komprimiert werden wo hingegen natürlichen Bilder
-zu einem kleineren Teil komprimiertbar sind.
-Kein Kompressionsverfahren ist für alle Bilder am besten und es macht Sinn
-mehrere zu vergleichen, welches für ein konkretes Bild am effektivsten ist.
-
+% Ab hier todo
 
 \subsection{Kompressionszeit und Dekompressionszeit}
 
-Die Ergebnisse der Kompressions- und Dekompressionszeiten sind stark
-hardware- und implementierungsabhängig.
-Daher wird nicht explizit auf die absoluten Zeiten eingegangen.
-Es geht darum, Tendenzen aufzuzeigen und die Algorithmen miteinander zu vergleichen.
-
-\begin{table*}
+\begin{table*}[ht]
   \renewcommand*{\arraystretch}{1.1}
   \centering
   \begin{threeparttable}
@@ -1121,50 +1087,7 @@ Es geht darum, Tendenzen aufzuzeigen und die Algorithmen miteinander zu vergleic
   \end{threeparttable}
 \end{table*}
 
-Die Kompressionszeiten der Algorithmen sind in der
-Tabelle \ref{tab:kompzeiten} aufgelistet.
-Die Tabelle ist aufsteigend nach Auflösung bzw. Datengröße sortiert.
-Aus den Ergebnissen können einige Schlussfolgerungen gezogen werden.
-
-RLE hat eine lineare Laufzeitkomplexität, was durch die Ergebnisse
-praktisch bestätigt wird.
-Jedes Bild kann in weniger als 1 Sekunde komprimiert werden.
-Der Huffman Algorithmus hat ebenfalls eine lineare Laufzeitkomplexität
-und ist in der Praxis etwas schneller.
-
-
-LZ77 hat eine Laufzeitkomplexität von $O(n * s)$.
-Die Messungen zeigen, dass die Implementierung von LZ77 deutlich
-langsamer komprimiert als RLE oder Huffman.
-Ebenso können Ausreißer wie im Bild mit den Katzen beobachtet werden.
-
-Die Laufzeit hängt direkt damit zusammen, wie weit LZ77 durch das
-Sliding Window iterieren muss, um einen Treffer zu finden.
-Das Katzenbild enthält deutlich unstrukturiertere Daten als das Bild
-Fade 2.
-Beim Katzenbild wird deutlich länger im Sliding Window gesucht um
-einen Treffer zu finden oder es wird kein Treffer gefunden.
-
-Das Filtern eines Bildes benötigt lineare Zeit und ist unabhängig
-von der Struktur des Bildes.
-D.h. egal wie das Bild aufgebaut ist, die Laufzeit für das Filtern
-hängt nur von der Größe des Bildes ab.
-
-Das Verfahren Filter + LZ77 ist etwas schneller als LZ77 ohne Vorverarbeitung.
-Dies liegt daran, dass die Daten nun stärker komprimiert werden können und
-weniger weit durch das Sliding Window iteriert werden muss, um eine
-Übereinstimmung zu finden.
-
-Die Laufzeit von Filter + Huffman ist fast identisch mit der Laufzeit
-für das Filtern.
-Der Grund dafür ist, dass der Huffman-Algorithmus die Daten sehr
-schnell komprimiert.
-Die Kompressionszeit des Deflate- und PNG Algorithmus entspricht
-weitgehend der Laufzeit des LZ77 Algorithmus.
-LZ77 ist für die langen Kompressionszeiten verantwortlich.
-
-
-\begin{table*}
+\begin{table*}[ht]
   \renewcommand*{\arraystretch}{1.1}
   \centering
   \begin{threeparttable}
@@ -1185,12 +1108,51 @@ LZ77 ist für die langen Kompressionszeiten verantwortlich.
     \par\tnote{3} Die Spalte Revert Filter gibt die Zeit an, in der die Filterung rückgängig gemacht wird
     \label{tab:dekompzeiten}
   \end{threeparttable}
-
 \end{table*}
+
+Die Ergebnisse der Kompressions- und Dekompressionszeiten sind stark
+hardware- und implementierungsabhängig.
+Daher wird nicht explizit auf die absoluten Zeiten eingegangen.
+Es geht darum, Tendenzen aufzuzeigen und die Algorithmen miteinander zu vergleichen.
+Die Kompressionszeiten der Algorithmen sind in der
+Tabelle \ref{tab:kompzeiten} aufgelistet.
+Die Tabelle ist aufsteigend nach Auflösung bzw. Datengröße sortiert.
+Aus den Ergebnissen können einige Schlussfolgerungen gezogen werden.
+
+RLE hat eine lineare Laufzeitkomplexität, was durch die Ergebnisse
+praktisch bestätigt wird.
+Jedes Bild kann in weniger als 1 Sekunde komprimiert werden.
+Der Huffman Algorithmus hat ebenfalls eine lineare Laufzeitkomplexität
+und ist in der Praxis etwas schneller.
+LZ77 hat eine Laufzeitkomplexität von $O(n * s)$.
+Die Messungen zeigen, dass die Implementierung von LZ77 deutlich
+langsamer komprimiert als RLE oder Huffman.
+Ebenso können Ausreißer wie im Bild mit den Katzen beobachtet werden.
+Die Laufzeit hängt direkt damit zusammen, wie weit LZ77 durch das
+Sliding Window iterieren muss, um einen Treffer zu finden.
+Das Katzenbild enthält deutlich unstrukturiertere Daten als das Bild
+Fade 2.
+Beim Katzenbild wird deutlich länger im Sliding Window gesucht um
+einen Treffer zu finden oder es wird kein Treffer gefunden.
+Das Filtern eines Bildes benötigt lineare Zeit und ist unabhängig
+von der Struktur des Bildes.
+D.h. egal wie das Bild aufgebaut ist, die Laufzeit für das Filtern
+hängt nur von der Größe des Bildes ab.
+Das Verfahren Filter + LZ77 ist etwas schneller als LZ77 ohne Vorverarbeitung.
+Dies liegt daran, dass die Daten nun stärker komprimiert werden können und
+weniger weit durch das Sliding Window iteriert werden muss, um eine
+Übereinstimmung zu finden.
+Die Laufzeit von Filter + Huffman ist fast identisch mit der Laufzeit
+für das Filtern.
+Der Grund dafür ist, dass der Huffman-Algorithmus die Daten sehr
+schnell komprimiert.
+Die Kompressionszeit des Deflate- und PNG Algorithmus entspricht
+weitgehend der Laufzeit des LZ77 Algorithmus.
+LZ77 ist für die langen Kompressionszeiten verantwortlich. \par
 
 Die Dekompressionszeiten der Algorithmen sind in der Tabelle
 \ref{tab:kompzeiten} aufgelistet.
-Das Rückgängigmachen der Filteroperation (Revert Filter) ist
+Die Umkehrung der Filteroperation (Revert Filter) ist
 schneller als das Filtern.
 Revert Filter hat eine Laufzeitkomplexität von $O(n)$, während das Filtern
 $O(5n)$ benötigt.
@@ -1198,7 +1160,6 @@ In der Theorie ist $O(n) = O(5n)$, aber in der Praxis spielt der
 Vorfaktor eine Rolle.
 In der Praxis ist das Filtern sogar um den Faktor 9 schneller.
 Dies ermöglicht eine schnellere Dekompression als Kompression.
-
 Die Laufzeit der RLE-Dekompression hängt stark von den Daten ab.
 Wenn die Daten stark komprimiert sind, ist der Dekompressionsschritt
 schnell, da die Rekonstruktion von Wiederholungen schnell ist.
@@ -1223,7 +1184,6 @@ geeignet, Bilder in akzeptabler Zeit zu komprimieren und zu dekomprimieren.
 Jedes Verfahren, das den LZ77 Algorithmus verwendet, ist ohne Optimierung
 nicht geeignet, da die Laufzeit deutlich länger ist als bei anderen Verfahren.
 Ebenso ist LZ77 für hochaufgelöste Bilddaten langsam.
-
 Aus der Abwägung zwischen Kompressionsrate und Laufzeit ergibt sich, dass
 Filter + Huffman das beste Verfahren ist.
 Abhängig von der Struktur der zu komprimierenden Bilder kann der RLE
@@ -1253,7 +1213,7 @@ Die Gründe hierfür liegen in der Implementierung des LZ77 Algorithmus und
 wurden in den vorherigen Kapiteln beschrieben.
 
 Bei komplexen Bildern ohne erkennbare Struktur versagen einige Algorithmen.
-Nur der Filter + Huffman Algorithmus kann alle getesteten Bilder erheblich
+Nur der Filter + Huffman Algorithmus kann alle getesteten Bilder signifikant
 komprimieren.
 Die Komprimierbarkeit von Bildern hängt stark vom Bild selbst ab.
 Außerdem gibt es nicht ein Verfahren, das jedes Bild am besten komprimiert.
