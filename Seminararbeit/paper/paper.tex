@@ -65,17 +65,17 @@
 
 Datenkompression beschreibt ein Verfahren, das zum Ziel hat, eine Nachricht
 ohne relevanten Informationsverlust zu verkleinern.
-Als Nachricht ist jede Art von digitalen Daten gemeint, z.B. Text, Bild, Audio, etc..
+Eine Nachricht ist jede Art von digitalen Daten, z.B. Text, Bild, Audio.
 Daten können komprimiert werden, indem Redundanz entfernt oder eine Kodierung angewendet wird.
 Daher wird Datenkompression oft als Kodierung bezeichnet.
 Kodierung ist ein allgemeiner Begriff, der jede spezielle Darstellung von Daten nach
-einem bestimmten Schema umfasst. \cite{Ingles}
+einem bestimmten Schema umfasst \cite{Ingles}. 
 
 Es gibt zwei Arten der Datenkompression: die verlustbehaftete und die verlustfreie Kompression.
 Bei der verlustbehafteten Datenkompression kann eine bestimmte Menge an Information durch die
 Kompression verloren gehen, was in Kauf genommen wird, da dadurch die Datenmenge erheblich
 reduziert werden kann oder weil die verlorene Informationen für die Anwendung kaum relevant sind.
-Das wird auch als Irrelevanzreduktion bezeichnet \cite[S. 5]{Maluck}.
+Das wird auch als Irrelevanzreduktion bezeichnet \cite{Maluck}.
 Ein Beispiel für Irrelevanzreduktion kann bei Audiosignalen beobachtet werden.
 Der menschliche Hörfrequenzbereich liegt zwischen 20 Hz und 20 kHz \cite{Burke}.
 Daher ist es nicht sinnvoll, Frequenzen, die weit außerhalb des hörbaren Bereichs liegen,
@@ -90,8 +90,8 @@ Die Datenkompression von Bildern wird aus verschiedenen Gründen eingesetzt.
 Speichernutzung: Unkomprimierte Bilddaten können beträchtlich mehr Speicherplatz beanspruchen.
 Übertragungseffizienz: Bei der Übertragung von Bildern über Netzwerke oder das Internet spielt
 die Übertragungseffizienz eine entscheidende Rolle.
-Wenn ein Bild über einen Kanal mit begrenzter Bandbreite gesendet wird, kann es effizienter
-sein, das Bild zu komprimieren, es zu übertragen und dann beim Empfänger zu dekomprimieren.
+Wird ein Bild über einen Kanal mit begrenzter Bandbreite übertragen, kann es effizienter sein, 
+das Bild zu komprimieren, zu übertragen und beim Empfänger wieder zu dekomprimieren.
 Dadurch wird die Übertragungszeit verkürzt und das Bild kann schneller bereitgestellt werden.
 Dies führt zu einer höheren Übertragungsrate und einer reduzierten Bandbreitennutzung.
 
@@ -112,29 +112,29 @@ Lempel-Ziv 1977 (LZ77), Portable Network Graphics (PNG) und verschiedene
 Kombinationen der Algorithmen.
 Die Ergebnisse werden interpretiert und mit den theoretischen Erwartungswerten verglichen.
 
-% Todo ab hier nochmal verbessern!
 \section{Grundlagen zur Datenkompression}
 
-In der Informatik gehört die Datenkompression zum Teilgebiet der Informationstheorie.
-Um zu verstehen, wie verlustfreie Datenkompression funktioniert, muss man einige theoretische
-Grundlagen kennen.
+In der Informatik ist die Datenkompression ein Teilgebiet der Informationstheorie. 
+Um zu verstehen, wie verlustfreie Datenkompression funktioniert, muss man einige 
+theoretische Grundlagen kennen.
 
 \subsection{Information}
 
-Claude Shannon, der Erfinder der Informationstheorie, definiert den Begriff Information
-als Maß für den Informationsgehlt.
-Information ist ein Maß der Unsicherheit, das durch das Eintreten eines bestimmten
-Ereignisses oder das Empfangen einer Nachricht verringert wird. \cite{shannon}
-Information ist die Mindestanzahl von Bits, die zur Codierung einer Nachricht verwendet
-werden müssen. \cite{shannon2}
-Die grundlegende Idee zu Information besteht darin, dass Informationen umso wertvoller sind,
-je unerwarteter oder unwahrscheinlicher sie sind.
+Claude Shannon, der Begründer der Informationstheorie, definiert Information 
+als ein Maß für den Informationsgehalt. 
+Information ist ein Maß für die Unsicherheit, die durch das Eintreten eines bestimmten 
+Ereignisses oder den Erhalt einer Nachricht verringert wird \cite{shannon}.  
+Information ist die Mindestanzahl von Bits, die zur Kodierung einer Nachricht verwendet 
+werden muss \cite{shannon2}.  
+Die Grundidee von Information ist, dass Informationen umso wertvoller sind, je 
+unerwarteter oder unwahrscheinlicher sie sind.
+
 
 \subsection{Entropie}
 
 Die Quantifizierung des Informationsgehalts erfolgt durch die Entropie ($H$).
 Formal drückt die Entropie die durchschnittliche Menge an Bits aus,
-die benötigt werden, um eine Information zu kodieren. \cite{shannon}
+die benötigt wird, um eine Information zu kodieren \cite{shannon}. 
 Die Entropie berücksichtigt die Wahrscheinlichkeiten verschiedener möglicher
 Ereignisse und erreicht ein Maximum, wenn alle Ereignisse gleich wahrscheinlich sind,
 was auf maximale Unsicherheit hinweist.
@@ -147,29 +147,28 @@ was auf maximale Unsicherheit hinweist.
 Formel \ref{eq:entropie} definiert die Entropie mathematisch.
 Hierbei steht $H(X)$ für die Entropie der Menge $X$.
 $P(x_i)$ steht für die Wahrscheinlichkeit des
-Auftretens des Ereignisses $x_i$.
+Eintretens des Ereignisses $x_i$.
 Die Summe wird über alle möglichen Ereignisse
 $x_i$ in $X$ gebildet.
 
-Diese Formel beschreibt die durchschnittliche Menge an Bits, die benötigt werden,
-um eine Nachricht aus X zu kodieren.
-Wenn die Entropie hoch ist, ist die Unsicherheit groß, und es werden mehr Bits
-benötigt, um die Informationen zu repräsentieren.
-Wenn die Entropie niedrig ist, gibt es weniger Unsicherheit, und somit werden
-weniger Bits benötigt.
+Diese Formel beschreibt die durchschnittliche Anzahl von Bits, die 
+benötigt werden, um eine Nachricht X zu kodieren.
+Wenn die Entropie hoch ist, ist die Unsicherheit groß und es werden mehr 
+Bits benötigt, um die Information darzustellen. 
+Ist die Entropie niedrig, ist die Unsicherheit gering und es werden weniger 
+Bits benötigt. 
 
-Man kann nun eine direkte Verbindung zwischen Entropie und Kompression herzustellen.
-Niedrige Entropie bedeutet, dass eine Datenmenge strukturiert ist, bzw. Muster aufweist.
-Das heißt, dass in den Daten wenig unsicherheit ist und die Daten Redundanz enthalten.
-Das bedeutet, niedrige Entropie sagt, dass die Daten komprimiert werden können.
+Man kann nun einen direkten Zusammenhang zwischen Entropie und Kompression herstellen. 
+Niedrige Entropie bedeutet, dass eine Datenmenge strukturiert ist oder Muster aufweist. 
+Das bedeutet, dass es wenig Unsicherheit in den Daten gibt und dass die Daten Redundanz 
+enthalten. Niedrige Entropie bedeutet, dass die Daten komprimiert werden können.
 
 
 \subsection{Redundanz und Mutual Information}
 
-Redundanz beschreibt Informationen die in Daten mehrfach vorhanden sind. \cite{friedrichs}
-Einfach gesagt kann man Redundanz als überflüssige Information betrachten.
-Eine hohe Redundanz sagt aus, dass sich wiederholende oder vorhersehbare Muster innerhalb
-der Daten befinden.
+Redundanz beschreibt Informationen die in Daten mehrfach vorhanden sind \cite{friedrichs}. 
+Vereinfacht kann Redundanz als überflüssige Information betrachtet werden.
+Eine hohe Redundanz deutet auf sich wiederholende oder vorhersehbare Muster in den Daten hin.
 
 Um eine Formel für die Redundanz aufzustellen benötigt man die mittlere Codewortlänge.
 Die mittlere Codewortlänge gibt den durchschnittlichen Bedarf an Bits pro Symbol in einer
@@ -177,16 +176,16 @@ Nachricht an.
 Sei $X$ ein Alphabet und $x \in X$.
 $C(x)$ bezeichnet das zu $x$ gehörende Codewort.
 $l(x)$ bezeichnet die Länge von $C(x)$.
-Die mittlere Codewortlänge L(C) einer Nachricht C(x) mit der Wahrscheinlichkeitsverteilung
-p(x) ist in Formel \ref{eq:codewortlänge} definiert.
+Die mittlere Codewortlänge $L(C)$ einer Nachricht $C(x)$ mit der Wahrscheinlichkeitsverteilung
+$p(x)$ ist in Formel \ref{eq:codewortlänge} definiert.
 
 \begin{equation}
   \label{eq:codewortlänge}
   L(C) = \sum_{i}^{|X|} p(x_i) \cdot l(x_i)
 \end{equation}
 
-Mit der mittleren Codewortlänge lässt sich nun die Redundanz des Codes, bzw. der
-Nachricht berechnen.
+Mit der mittleren Codewortlänge kann die Redundanz des Codes bzw. der Nachricht berechnet 
+werden.
 Die Formel \ref{eq:redundanz} definiert die Redundanz einer Nachricht.
 
 \begin{equation}
@@ -196,65 +195,64 @@ Die Formel \ref{eq:redundanz} definiert die Redundanz einer Nachricht.
 
 Die Redundanz wird berechnet, indem von der tatsächlichen durchschnittlichen
 Anzahl an Bits pro Symbol die theoretisch minimale Anzahl an Bits pro Symbol
-abgezogen werden.
+abgezogen wird.
 Die theoretisch minimale Anzahl an Bits pro Symbol entspricht der enthaltenen
 Information und ist gleich der Entropie der Nachricht.
-Daraus ergibt sich, dass die Redundanz $\geq$ 0 sein muss.
+Daraus folgt, dass die Redundanz $\geq$ 0 sein muss.
 
-Mutual Information ist ein quantitatives Maß für die gegenseitige Abhängigkeit von zwei
-Variablen. \cite{shannon}
-Es misst, wie sehr die Kenntnis einer Variablen die Unsicherheit über die andere
-Variable reduziert.
-Dieses Konzept ist entscheidend, um die Struktur von Daten zu verstehen und
-voneinander abhängige Informationen zu erkennen.
+Mutual Information ist ein quantitatives Maß für die gegenseitige Abhängigkeit zweier
+Variablen \cite{shannon}. 
+Sie misst, inwieweit die Kenntnis der einen Variablen die Unsicherheit über die 
+andere Variable verringert.
+Dieses Konzept ist wichtig, um die Struktur der Daten zu verstehen und voneinander 
+abhängige Informationen zu erkennen. 
 
-Wenn die Mutual Information zwischen zwei Variablen hoch ist, bedeutet dies,
-dass das Wissen über eine Variable
-bedeutende Informationen über die andere Variable liefert.
-Hohe Mutual Information sagt dementsprechend aus, dass zwei Variablen stark voneinander
-Abhängig sind.
+Wenn die Mutual Information zwischen zwei Variablen hoch ist, bedeutet dies, dass die 
+Kenntnis der einen Variable wichtige Informationen über die andere Variable liefert.
+Hohe Mutual Information bedeutet also, dass zwei Variablen stark voneinander 
+abhängig sind.
 Das Wissen über den Wert einer Variable trägt bereits wesentlich zur Vorhersage
 oder zum Verständnis der anderen Variable bei.
 
-Geringe Mutual Informaion sagt aus, dass die beiden Variablen weniger gemeinsame
+Geringe Mutual Information bedeutet, dass die beiden Variablen weniger überschneidende 
 Information teilen.
-Das Wissen über den Wert einer Variable trägt nicht so stark zur
+Das Wissen über den Wert einer Variable trägt nicht zur
 Vorhersage oder zum Verständnis der anderen Variable bei.
-Das bedeutet eine schwächere Statistische Abhängig der Variablen.
+Dies führt zu einer geringeren statistischen Abhängigkeit der Variablen.
 
 Durch das erkennen von Mutual Information kann gezeigt werden, dass Muster und/ oder
 Wiederholungen und dementsprechend Redundanz in den Daten enthalten ist.
 Redundanz spielt im Bezug auf Kompression eine wichtige Rolle.
-Kompression funktioniert durch das identifizieren und eliminieren redundanter Elemente,
-um den Informationsgehalt zu maximieren und die Effizienz von Datenrepräsentationen
-zu steigern.
+Kompression funktioniert, indem redundante Information identifiziert und eliminiert 
+wird, um den Informationsgehalt zu maximieren und die Effizienz der Datenrepräsentation 
+zu erhöhen.
 
 
 \section{Informationstheorie}
 
-Eine wichtige Punkt in der Informationstheorie ist die Unterscheidung
-zwischen Daten und Information.
-Daten und Information werden im normalen Sprachgebrauch häufig als Synonym verwendet,
-was eigentlich nicht korrekt ist.
+Ein wichtiger Punkt in der Informationstheorie ist die Unterscheidung zwischen 
+Daten und Information. 
+Daten und Information werden umgangssprachlich oft synonym verwendet, was 
+nicht korrekt ist. 
 
 Daten sind rohe Fakten oder Symbole, die an sich keine spezifische Bedeutung haben.
-Informationen entstehen durch die Interpretation, Organisation und Strukturierung
-von Daten, wodurch ein sinnvoller Kontext geschaffen wird. \cite{pieper}
+Information entsteht durch die Interpretation, Organisation und Strukturierung von Daten, 
+wodurch ein sinnvoller Kontext geschaffen wird \cite{pieper}. 
 Daten werden zu Informationen, wenn sie für einen bestimmten Zweck verwendet werden können.
 
-Im Kontext der Datenkompression ist es wichtig zu verstehen, dass nicht alle Daten
-gleichermaßen informativ sind.
-Ein effektiver Kompressionsalgorithmen entfernt redundante
-und nicht informative Teile der Daten.
-Jedoch bleibt die gesamte Information enthalten.
-Die Daten sind somit invormativer und komprimierter als zuvor.
+Im Zusammenhang mit der Datenkompression ist es wichtig zu verstehen, dass 
+nicht alle Daten gleich informativ sind. 
+Ein effektiver Kompressionsalgorithmus entfernt redundante und nicht informative 
+Teile der Daten. 
+Die gesamte Information bleibt jedoch erhalten. 
+Die Daten sind dadurch informativer und komprimierter als zuvor.
 
 \subsection{Quellencodierungstheorem/ Source Coding Theorem}
 
-Das Quellencodierungstheorem beschäftigt sich mit der Effizienz der Datenkompression
-und sagt aus, dass es eine Grenze für die minimale mittlere Codierungslänge gibt,
-die für die Darstellung von Information aus einer bestimmten Quelle erforderlich
-ist. \cite{sharma}
+Das Quellencodierungstheorem befasst sich mit der Effizienz der Datenkompression 
+und besagt, dass es eine Grenze für die minimale mittlere Codierungslänge gibt, 
+die erforderlich ist, um Informationen aus einer bestimmten Quelle 
+darzustellen \cite{sharma}. 
 Das Quellencodierungstheorem besagt, dass die mittlere Codierungslänge $L$ pro Symbol
 für eine gegebene Quelle nicht kleiner sein kann als die Entropie $H$ der Quelle.
 Mathematisch in Formel \ref{eq:sct} ausgedrückt.
@@ -265,47 +263,47 @@ Mathematisch in Formel \ref{eq:sct} ausgedrückt.
 \end{equation}
 
 Die Entropie stellt dabei die untere Schranke für die mittlere Codierungslänge dar.
-Das zeigt, dass Datenkompression nicht bis ins unendliche möglich ist ohne
-Information zu verlieren.
-Die Maximale Kompression ist genau dann erreicht, wenn $L = H$ entspricht.
-Es würde also bei solchen Daten keinen sinn machen zu versuchen die Daten
-zu komprimieren, da das ohne Informationsverlust nicht möglich ist.
+Daraus wird ersichtlich, dass eine Datenkompression ohne Informationsverlust 
+nicht bis ins Unendliche möglich ist. 
+Die maximale Kompression ist genau dann erreicht, wenn $L = H$.
+Es ist daher nicht sinnvoll, zu versuchen, solche Daten zu komprimieren, da 
+dies ohne Informationsverlust nicht möglich ist.
 
-Vlt. Todo: Schubfachprinzip, Bedeutung von Entropie in diesem Kontext.
+% Vlt. Todo: Schubfachprinzip, Bedeutung von Entropie in diesem Kontext.
 
 \subsection{Kolmogorov Komplexität}
 
-Die Kolmogorov Komplexität ist ein Maß für die Strukturiertheit einer Zeichenkette.
-Sie entspricht der Länge des kürzesten Programms, das die Zeichenkette erzeugen
-kann. \cite{li}
+Die Kolmogorov Komplexität ist ein Maß für die Strukturiertheit einer Zeichenfolge.
+Sie entspricht der Länge des kürzesten Programms, das die Zeichenfolge 
+erzeugen kann \cite{li}. 
 Die Kolmogorov Komplexität ist dementsprechend ein Maß für die algorithmische Komplexität
-von Informationen.
+von Information.
 
-Die Kolmogorov Komplexität eines Objekts, z. B. eines Textes, ist die Länge
-des kürzesten Programms, das das Objekt als Ausgabe erzeugt.
-Hier ein Beispiel für so ein Programm.
-Betrachten wir die folgende Zeichenkette: "AAAAAAAAABBBBBCCCCCC".
-Die Zeichenkette besteht aus 20 Zeichen (9 x A, 5 x B, 6 x C).
-Mit einem einfachen Programm lässt sich die Zeichenkette deutlich kürzer
-beschreiben: "9A5B6C".
-Das Programm gibt die Länge der identischen aufeinanderfolgenden Zeichen an,
-gefolgt von dem Zeichen.
-So lässt sich die ursprüngliche Zeichenkette der Länge 20 in nur 6 Zeichen darstellen.
-Wir haben ein Programm gefunden, das die Länge der Beschreibung der Zeichenkette
-erheblich reduziert.
-Die Kolmogorov Komplexität dieser Zeichenkette ist deutlich geringer als
-die ursprüngliche Länge der Zeichenkette.
-Das zeigt, dass in der Zeichenkette Strukturen vorhanden sind.
+Die Kolmogorov Komplexität eines Objekts, z.B. eines Textes, ist die Länge des kürzesten 
+Programms, das das Objekt als Ausgabe erzeugt. 
+Hier ist ein Beispiel für ein solches Programm. 
+Betrachten wir die folgende Zeichenfolge: "AAAAAAAAABBBBBCCCCCC". 
+Die Zeichenfolge besteht aus 20 Zeichen (9 x A, 5 x B, 6 x C). 
+Mit einem einfachen Programm kann die Zeichenfolge wesentlich kürzer beschrieben 
+werden: "9A5B6C". 
+Das Programm gibt die Länge der identischen aufeinanderfolgenden Zeichen 
+gefolgt von dem Zeichen an. 
+Auf diese Weise kann die ursprüngliche Zeichenfolge der Länge 20 in nur 6 
+Zeichen dargestellt werden. 
+Wir haben ein Programm gefunden, das die Länge der Zeichenfolge erheblich reduziert. 
+Die Kolmogorov Komplexität dieser Zeichenfolge ist deutlich kleiner als die 
+ursprüngliche Länge der Zeichenfolge. 
+Das beweist, dass Strukturen in der Zeichenfolge vorhanden sind.
 
 Es ist wichtig zu beachten, dass die tatsächliche Kolmogorov Komplexität für
-allgemeine Zeichenketten wegen des Halteproblemes nicht praktisch
-berechenbar ist. \cite{OPPaper}
-Allerdings können Abschätzungen gemacht werden.
-Wenn ein Algorithmus gefunden wird, der eine Zeichenkette in einem kürzeren
-Programm darstellt entspricht die Kolmogorov Komplexität der Zeichenkette
+allgemeine Zeichenfolge wegen des Halteproblemes nicht praktisch
+berechenbar ist \cite{OPPaper}. 
+Allerdings können Schätzungen gemacht werden.
+Wenn ein Algorithmus gefunden wird, der eine Zeichenfolge in einem kürzeren
+Programm darstellt, entspricht die Kolmogorov Komplexität der Zeichenfolge
 maximal der Länge des Programms.
 Es ermöglicht den Informationsgehalt von Daten in
-Bezug auf die kürzeste mögliche algorithmische Beschreibung zu verstehen.
+Bezug auf die kürzest mögliche algorithmische Beschreibung zu verstehen.
 
 % Eine enge Verbindung besteht zur Vorstellung
 % der optimalen, universellen Datenkompression – je einfacher die Beschreibung, desto
@@ -321,130 +319,123 @@ Bezug auf die kürzeste mögliche algorithmische Beschreibung zu verstehen.
 % Anforderungen an Daten, damit diese komprimierbar sind
 \subsection{Datenanforderungen, Komprimierbarkeit}
 
-Daten können in verschiedene Gruppen eingeteilt werden.
-Auf der einen Seite stehen strukturierte Daten und auf der anderen Seite
-unstrukturierte Daten.
+Daten lassen sich in verschiedene Gruppen einteilen. 
+Auf der einen Seite stehen die strukturierten Daten und auf der anderen 
+Seite die unstrukturierten Daten. 
+Strukturierte Daten sind Daten, die wiederkehrende oder vorhersehbare Muster enthalten. 
+Die Entropie der Daten ist gering. Tabellen sind ein Beispiel für strukturierte Daten. 
+Unstrukturierte Daten sind Daten, die keine wiederkehrenden oder vorhersehbaren 
+Muster enthalten. Die Datenentropie ist hoch. 
+Ein Beispiel für unstrukturierte Daten sind zufällig generierte Daten. 
 
-Strukturierte Daten sind Daten in denen wiederkehrende oder vorhersagbare Muster
-enthalten sind.
-Die Entropie der Daten ist niedrig.
-Ein Beispiel für strukturierte Daten sind Tabellen.
-
-Unstrukturierte Daten sind Daten, in denen keine wiederkehrende oder vorhersagbare
-Muster enthalten sind.
-Die Entropie der Daten ist hoch.
-Ein Beispiel für unstrukturierte Daten sind zufällig erzeugte Daten.
-
-Strukturierte Daten enthalten meist eine höhere Redundanz als unstrukturierte
-Daten.
-Das ist dem Fakt geschuldet, dass die maximal mögliche Kompression, der Information in den
-Daten, der Entropie, entspricht.
+Strukturierte Daten enthalten in der Regel mehr Redundanz als unstrukturierte Daten. 
+Dies liegt daran, dass die maximal mögliche Kompression der Information in den Daten 
+gleich der Entropie ist. 
 Daten können theoretisch maximal auf das Niveau der Entropie der Daten komprimiert werden.
-Strukturierte Daten mit geringer Entropie haben ein tieferes Limit als unstrukturierte Daten.
-Deshalb können strukturierte Daten meist mehr komprimiert werden als unstrukturierte.
+Strukturierte Daten mit niedriger Entropie haben eine tiefere Grenze als 
+unstrukturierte Daten.
+Daher können strukturierte Daten in der Regel stärker komprimiert werden als 
+unstrukturierte Daten.
 
 \subsubsection{Vorverarbeitung}
 
-Eine Möglichkeit aus etwas unstrukturierten Daten strukturiertere zu machen ist über
-eine Vorverarbeitung der Daten.
-So eine Vorverarbeitung ist meist eine Normalisierung oder eine Datenfilterung.
-Wichtig ist, dass der Vorverarbeitungsschritt umkehrbar ist.
-Eine Art wie Daten für die Kompression Vorverarbeitet werden, wird im Lauf der
-Arbeit anhand des PNG Algorithmus gezeigt.
-PNG verwendet eine Datenfilterung.
+Eine Möglichkeit, unstrukturierte Daten in strukturiertere Daten umzuwandeln, ist 
+die Vorverarbeitung der Daten. 
+Eine solche Vorverarbeitung ist in der Regel eine Normalisierung oder Filterung 
+der Daten. 
+Wichtig ist, dass der Vorverarbeitungsschritt umkehrbar ist. 
+Eine Möglichkeit, Daten für die Kompression vorzubereiten, wird in dieser Arbeit 
+anhand des PNG-Algorithmus gezeigt. 
+PNG verwendet Datenfilterung.
 
 \subsubsection{Limitationen}
 
-Ein Beispiel für maximal unstrukturierte Daten die scheinbar nicht komprimierbar
-sind, sind normalverteilte Zufallszahlen.
-"The Random Compression Challenge" von Mark Nelson \cite{nelson} betrachtet genau dieses
-Problem.
-Das Ziel der Challenge ist es eine Datei, die etwa ein halbes Megabyte groß ist
-zu komprimieren.
-Die Datei besteht aus einer Millionen Zufallszahlen, die gleichverteilt sind und
-aus dem Buch "A Million Random Digits with 100,000 Normal Deviates" \cite{amilli}
-kommen.
+Ein Beispiel für maximal unstrukturierte Daten, die scheinbar nicht komprimierbar 
+sind, sind normalverteilte Zufallszahlen. 
+"The Random Compression Challenge" von Mark Nelson \cite{nelson} untersucht 
+genau dieses Problem. 
+Ziel der Challenge ist es, eine Datei zu komprimieren, die etwa ein halbes Megabyte groß ist.
+Die Datei besteht aus einer Millionen gleichverteilter Zufallszahlen, die aus dem 
+Buch "A Million Random Digits with 100,000 Normal Deviates" \cite{amilli} stammen.
 
-Es gibt zwei Arten wie die Challenge gewonnen werden kann.
-Die eine Möglichkeit ist es, die Kolmogorov Komplexität zu verwenden und ein
-Programm zu schreiben, dass die ursprüngliche Datei erzeugt.
+Es gibt zwei Wege, die Challenge zu gewinnen.
+Die erste Möglichkeit besteht darin, die Kolmogorov Komplexität zu verwenden und 
+ein Programm zu schreiben, das die Originaldatei erzeugt.
 Die größe des Programms muss kleiner sein, als die zu komprimierende Datei.
-Es geht dabei darum zu zeigen, dass die Kolmogorov Komplexität kleiner ist
-als die Größe der Datei selbst.
+Das Programm muss kleiner sein als die zu komprimierende Datei. Es muss gezeigt werden, 
+dass die Kolmogorov Komplexität kleiner ist als die Größe der Datei selbst.
 
-Die andere Möglichkeit ist es, ein System zu entwickeln, dass Dateien mit normalverteilten
-Zufallszahlen komprimieren und vollständig wieder aus der komprimierten Datei
-dekomprimieren kann.
-Die größe des Systems spielt dabei keine Rolle, weil das System mehr als nur eine
-Datei erfolgreich komprimieren und dekomprimieren muss.
-Es ist bewiesen, dass dieser Ansatz unmöglich ist \cite{nelson}.
-Der Grund dafür ist, dass die Entropie der größe der Datei selbst entspricht und
-ohne Informationsverlust nicht verkleinert werden kann.
+Die andere Möglichkeit besteht darin, ein System zu entwickeln, das in der Lage 
+ist, Dateien mit normalverteilten Zufallszahlen zu komprimieren und die komprimierte 
+Datei vollständig zu dekomprimieren. 
+Die Größe des Systems spielt dabei keine Rolle, da das System mehr als eine Datei 
+erfolgreich komprimieren und dekomprimieren muss. 
+Es ist bewiesen, dass dieser Ansatz unmöglich ist \cite{nelson}. 
+Der Grund dafür ist, dass die Entropie der Größe der Datei selbst entspricht und 
+nicht ohne Informationsverlust reduziert werden kann.
 
-Bis heute hat noch niemand die Challenge gewonnen.
-Das ist nicht verwunderlich, da
-die zweite Möglichkeit zu gewinnen bewiesenermaßen unmöglich ist.
-Hingegen ist die erste Möglichkeit mit dem Kolmogorov Komplexität nur
-vermutlich unmöglich.
-Das bedeutet es könnte eine Lösung geben, ist aber nach jetzigem Stand unwahrscheinlich.
-
-Die Challenge ist ein perfektes Beispiel dafür, wieso es Sinn macht die Daten zu
-kennen die man komprimieren will.
-Sie zeigt die Limitationen der Datenkompression auf.
+Bisher hat noch niemand die Challenge gewonnen. 
+Das ist nicht verwunderlich, denn die zweite Möglichkeit zu gewinnen ist 
+nachweislich unmöglich. 
+Dagegen ist die erste Möglichkeit mit der Kolmogorov Komplexität nur wahrscheinlich 
+unmöglich. 
+Das bedeutet, dass es zwar eine Lösung geben könnte, diese aber nach derzeitigem 
+Stand unwahrscheinlich ist. 
+Die Herausforderung ist ein perfektes Beispiel dafür, warum es sinnvoll ist, die 
+Daten zu kennen, die man komprimieren möchte. 
+Sie zeigt die Grenzen der Datenkompression auf.
 
 
 \section{Aufbau und Struktur von Bilddaten}
 
-Dieser Abschnitt beschäftigt sich mit der dem Aufbau und der Struktur von Bilddaten.
-Es gibt verschiedene Möglichkeiten Bilddaten zu speichern und darzustellen.
-In dieser Arbeit werden die Bilder in Form einer Rastergrafik/ Bitmap gespeichert, dem
-RGB Format.
-Eine Rastergrafik ist eine pixelbasierte Darstellung eines Bildes.
-Die Auflösung eines Bildes gibt an, wie viele Pixel in der Breite und Höhe vorhanden sind.
-Ein Pixel ist die kleinste diskrete Einheit in einem digitalen Bild.
+Dieser Abschnitt befasst sich mit dem Aufbau und der Struktur von Bilddaten. 
+Es gibt verschiedene Möglichkeiten, Bilddaten zu speichern und darzustellen. 
+In dieser Arbeit werden die Bilder in Form einer Rastergrafik/ Bitmap, dem RGB Format, 
+gespeichert. 
+Eine Rastergrafik ist eine pixelbasierte Darstellung eines Bildes. 
+Die Auflösung eines Bildes gibt an, wie viele Pixel in der Breite und Höhe vorhanden sind. 
+Ein Pixel ist die kleinste diskrete Einheit eines digitalen Bildes. 
 
-Das RGB Format ist eine Möglichkeit, Farbinformationen in digitalen Bildern zu
-repräsentieren und zu speichern.
-RGB steht für die Farben Rot (R), Grün (G) und Blau (B).
-Es ist ein additives Farbmodell und jede Farbe wird durch eine Kombination
-der drei Grundfarben erzeugt, auch weiß und schwarz. \cite{rite}
+Das RGB Format ist eine Möglichkeit, Farbinformationen in digitalen Bildern darzustellen 
+und zu speichern. 
+RGB steht für die Farben Rot (R), Grün (G) und Blau (B). 
+Es ist ein additives Farbmodell und jede Farbe wird durch eine Kombination der drei 
+Grundfarben, einschließlich Weiß und Schwarz, erzeugt \cite{rite}.
 
-Ein Beispielbild mit einer Auflösung von 800 Pixel Breite und 800 Pixel Höhe wird in
-dem RGB Format durch eine Matrix gespeichert.
-Die zugehörige Matrix hat eine Größe von (800, 800, 3), (Breite, Höhe, Farbkanäle).
-Die dritte Dimension ist die Anzahl der Farbkanäle.
-Für jeden Pixel werden drei Werte, die die Farbe des Pixels beschreiben, gespeichert.
-Der erste Wert ist der Rotanteil, der zweite der Grünanteil und der dritte
-den Blauanteil.
-Das RGB Format verwendet normalerweise 8 Bit pro Farbkanal, was eine Farbtiefe von
-24 Bit pro Pixel ergibt.
-Jeder Farbwert eines Pixels hat 8 Bit, bzw. 1 Byte Speicher zur Verfügung und kann
-Werte zwischen 0 und 255 annehmen.
+Ein Beispielbild mit einer Auflösung von 800 Pixel Breite und 800 Pixel Höhe wird 
+im RGB Format in einer Matrix gespeichert. 
+Die entsprechende Matrix hat die Größe (800, 800, 3), (Breite, Höhe, Farbkanäle). 
+Die dritte Dimension ist die Zahl der Farbkanäle. 
+Für jeden Pixel werden drei Werte gespeichert, die die Farbe des Pixels beschreiben. 
+Der erste Wert ist der Rotanteil, der zweite der Grünanteil und der dritte der Blauanteil. 
+Das RGB Format verwendet normalerweise 8 Bit pro Farbkanal, was eine Farbtiefe von 24 Bit 
+pro Pixel ergibt. 
+Jeder Farbwert eines Pixels hat 8 Bit bzw. 1 Byte Speicherplatz zur Verfügung und 
+kann Werte zwischen 0 und 255 annehmen.
 
 Bilder im RGB Format sind nach einem bestimmten Schema aufgebaut, weshalb
 Strukturen in den Bilddaten entstehen.
-Diese Strukturen können bei der Datenkompression helfen die Bilder zu komprimieren.
+Diese Strukturen können bei der Datenkompression helfen, die Bilder zu komprimieren.
 Eine Struktur im RGB Format ist die Darstellung von Nichtfarben
-wie schwarz und weiß.
-Um schwarz, bzw. weiß darzustellen muss ein Pixel für alle drei Farbkanälwerte entweder
-den Wert 0 oder 255 annehmen.
-Um reine Farben darzustellen wie rot, wird nur ein Pixelwert für den Rotanteil
-benötigt, während der Grün- und Blauanteil auf Null gesetzt ist.
-Ebenso gibt es viele Farbmischungen bei denen eine der Grundfarben nicht benötigt
-wird und somit deren Anteil im Pixel auf 0 gesetzt wird.
-Diese Strukturen entstehen durch das Speichern des Bildes im RGB Format.
-Eine weitere Struktur, die in den meisten Bildern vorhanden ist, ist, dass benachbarte
-Pixel meist ähnliche oder die gleiche Farbe besitzen.
-Das hat damit zu tun, dass es in Bildern meistens Regionen gibt, die zu einem
-Objekt oder Bildteil gehören, die eine homogene Farbe besitzen.
+wie Schwarz und Weiß.
+Um Schwarz oder Weiß darzustellen, muss ein Pixel für alle drei Farbkanalwerte entweder 
+den Wert 0 oder 255 annehmen. 
+Um reine Farben wie Rot darzustellen, wird nur ein Pixelwert für den Rotanteil 
+benötigt, während die Grün- und Blauanteile auf Null gesetzt werden. 
+Ebenso gibt es viele Farbmischungen, bei denen eine der Grundfarben nicht benötigt 
+wird und deren Anteil im Pixel daher auf 0 gesetzt wird. 
+Diese Strukturen entstehen, wenn das Bild im RGB Format vorliegt. 
+Eine weitere Struktur, die in den meisten Bildern vorkommt, ist, dass benachbarte 
+Pixel meist ähnliche oder die gleiche Farbe haben. 
+Dies hängt damit zusammen, dass es in Bildern häufig Regionen gibt, die zu einem 
+Objekt oder Bildteil gehören und eine homogene Farbe besitzen.
 
-Diese Strukturen und Wiederholungen in Bilddaten können ausgenutzt werden um die
+Diese Strukturen und Wiederholungen in den Bilddaten können ausgenutzt werden um die
 Daten zu komprimieren.
-Bei der Datenkompression ist es entscheidend, welche Algorithmen diese in Bildern
-spezifisch enthaltenen Redundanzen erkennen und ausnutzen kann.
+Bei der Datenkompression ist es entscheidend, welche Algorithmen diese Redundanzen, 
+die strukturell in den Bildern enthalten sind, erkennen und ausnutzen können.
 
 % Todo vlt Vergleich mit Textdaten, Unterschiede!!!!, hier oder später aber wäre interessant
-
 
 \section{Messbarkeit der Kompressionsalgorithmen}
 
@@ -452,144 +443,135 @@ Es ist wichtig, Kriterien festzulegen, anhand derer die Algorithmen bewertet wer
 Eine Messbarkeit ist notwendig, um Datenkompressionsalgorithmen und deren Ergebnisse
 vergleichen zu können und um zu entscheiden, was ein guter Kompressionsalgorithmus ist.
 
-Ein Kompressionsalgorithmus funktioniert nach verschiedenen Schritten.
-Schritt 1 ist die Vorverarbeitung der zu komprimierenden Daten.
-Dieser Schritt ist Optional und transformiert die ursprünglichen Daten.
-Schritt 2 ist die Kompression der Daten.
+Ein Kompressionsalgorithmus arbeitet in mehreren Schritten. 
+Schritt 1 ist die Vorverarbeitung der zu komprimierenden Daten. 
+Dieser Schritt ist optional und transformiert die Originaldaten. 
+Schritt 2 ist die Komprimierung der Daten. 
 In diesem Schritt wird der für die Kompression spezifische Algorithmus angewendet,
-um die Daten zu Komprimieren.
-Heraus kommen komprimierte Daten und optional je nach Algorithmus
-spezifische Zusatzinformationen.
-Schritt 3 ist die Dekompression der komprimierten Daten.
-Dabei wird die Kompression rückgängig gemacht.
-Schritt 4 ist das Rückgangigmachen des Vorverarbeitungsschritt, falls verwendet.
-Die Daten, die den Zyklus durchlaufen, sind mit den Originaldaten identisch,
-da es sich um verlustfreie Kompressionsalgorithmen handelt.
-
-Um die Qualität eines Kompressionsalgorithmus konkret bewerten zu können, werden
+um die Daten zu komprimieren.
+Das Ergebnis sind komprimierte Daten und optional je nach Algorithmus spezifische 
+Zusatzinformationen. 
+Schritt 3 ist die Dekompression der komprimierten Daten. 
+Dabei wird die Kompression rückgängig gemacht. 
+Schritt 4 ist die Dekompression des Vorverarbeitungsschrittes, falls verwendet. 
+Die Daten, die diesen Zyklus durchlaufen, sind mit den Originaldaten identisch, da 
+es sich um verlustfreie Kompressionsalgorithmen handelt. 
+Um die Qualität eines Kompressionsalgorithmus konkret bewerten zu können, werden 
 die folgenden drei Kriterien festgelegt, anhand derer die Bewertung vorgenommen wird.
+
 
 \subsection{Kompressionsrate}
 
-Ein Punkt um zu entscheiden wie gut ein Datenkompressionsverfahren
-funktioniert ist die Datengröße der komprimierten Daten (nach Schritt 2, inklusive
-Zusatzinformationen falls vorhanden) zu betrachten.
-Die Datengröße kann in der Maßeinheit Bit, bzw. Byte, bestimmt werden und gibt an,
-wie viel Speicherplatz Daten benötigen.
-% Die komprimierten Daten enthälten sämtliche Information und die Originaldaten 
-% können daraus rekonstruiert werden.
-Ein Maß um zu messen, wie stark die Daten im Verhältnis zu den Originaldaten mit dem
-jeweiligen Algorithmus komprimierbar sind, ist die Kompressionsrate.
-
-Die Kompressionsrate wird aus dem Verhältnis zwischen der Größe der ursprünglichen,
-nicht komprimierten, Daten und der Größe der komprimierten Daten bestimmt.
-Sie wird in Prozent angegeben und ist in Formel \ref{eq:komprate} angegeben.
+Eine Möglichkeit, die Effizienz eines Datenkompressionsverfahrens zu beurteilen, 
+besteht darin, die Datengröße der komprimierten Daten (nach Schritt 2, einschließlich 
+Zusatzinformationen, falls vorhanden) zu betrachten. 
+Die Datengröße kann in der Maßeinheit Bit oder Byte bestimmt werden und gibt an, wie 
+viel Speicherplatz die Daten benötigen. 
+Ein Maß dafür, wie stark die Daten im Vergleich zu den Originaldaten mit dem 
+jeweiligen Algorithmus komprimiert werden können, ist die Kompressionsrate. 
+Die Kompressionsrate ergibt sich aus dem Verhältnis der Größe der ursprünglichen, 
+unkomprimierten Daten zur Größe der komprimierten Daten.
+Sie wird in Prozent angegeben und ist in der Formel \ref{eq:komprate} angegeben.
 
 \begin{equation}
   \label{eq:komprate}
   \text{Kompressionsrate} = \left(1 - \frac{\text{Größe komp. Daten}}{\text{Größe unkomp. Daten}}\right) \times 100 \%
 \end{equation}
 
-Je höher die Kompressionsrate, desto stärker hat der Algorithmus die Daten
-komprimiert.
-Eine Kompressionsrate von 100 \% ist nicht erreichbar, außer die Originaldaten enthalten
-keine Information, bzw. sind leer.
-Ein Wert von 0 \% bedeutet, dass keine Kompression stattgefunden hat und die komprimierten
-Daten genauso groß sind wie die ursprünglichen.
-Ein negativer Wert ist möglich und zeigt, dass die komprimierten Daten mehr Speicherplatz
-benötigen als die ursprünglichen Daten.
-Das bedeutet, dass der Algorithmus die ursprünglichen Daten nicht erfolgreich
-komprimieren kann.
-Die Kompressionsrate kann Werte annehmen im Bereich $(-\infty, 100]$.
-
+Je höher die Kompressionsrate, desto stärker hat der Algorithmus die Daten komprimiert. 
+Eine Kompressionsrate von 100 \% kann nur erreicht werden, wenn die Originaldaten keine 
+Informationen enthalten und daher leer sind. 
+Ein Wert von 0 \% bedeutet, dass keine Kompression stattgefunden hat und die komprimierten 
+Daten genauso groß sind wie die Originaldaten. 
+Ein negativer Wert ist möglich und zeigt an, dass die komprimierten Daten mehr 
+Speicherplatz benötigen als die Originaldaten. Dies bedeutet, dass der Algorithmus 
+die Originaldaten nicht erfolgreich komprimieren konnte. 
+Die Kompressionsrate kann Werte im Bereich $(-\infty, 100]$ annehmen. 
 Die Bewertung mit der Kompressionsrate ist datenabhängig und wird konkret
 ermittelt.
 Das Bedeutet die zu komprimierenden Daten sind entscheidend.
 
+
 \subsection{Kompressionszeit}
 
-Ein weiterer Punkt um Datenkompressionsalgorithmen zu bewerten, ist die
-Kompressionszeit.
-Die Kompressionszeit gibt an, wie lange ein Algorithmus benötigt um
-komprimierte Daten aus den ursprünglichen Daten zu erzeugen.
-Sie misst die kombinierte Zeit für die Vorverarbeitung (Schritt 1) und die
-anwendung des Kompressionsalgorithmus (Schritt 2).
-Die Kompressionszeit wird in Sekunden, bzw. Millisekunden, gemessen.
+Ein weiteres Kriterium zur Bewertung von Datenkompressionsalgorithmen ist die Kompressionszeit. 
+Die Kompressionszeit gibt an, wie lange ein Algorithmus benötigt, um aus den Originaldaten 
+komprimierte Daten zu erzeugen. 
+Sie misst die kombinierte Zeit für die Vorverarbeitung (Schritt 1) und die Anwendung 
+des Kompressionsalgorithmus (Schritt 2). 
+Die Kompressionszeit wird in Sekunden gemessen. 
+Eine Messung erfolgt immer genau an einem Input, der komprimiert wird. 
+Es werden also konkrete Werte gemessen. 
+Durch das Messen und Vergleichen von unterschiedlich großen Eingangsdaten können konkrete 
+Aussagen über die Kompressionszeit in Abhängigkeit von der Größe der Eingangsdaten 
+gemacht werden. 
 
-Eine Messung erfolgt immer genau an einem Input, der komprimiert wird.
-Es werden also konkrete Werte gemessen.
-Durch das Messen und den Vergleichen verschiedengroßer Eingangsdaten können konkrete
-Aussagen über die Kompressionszeit abhängig von der Größe der
-Eingangsdaten getroffen werden.
-
-Die konkreten Ergebnisse der Kompressionszeit können mit der
-theoretisch erwarteten Laufzeit der Algorithmen verglichen werden.
-Die theoretische Laufzeit eines Algorithmus wird in Form der O-Notation
-angegeben.
-Die O-Notation beschreibt die Obergrenze des Wachstumsverhaltens der Laufzeit
-eines Algorithmus in Bezug auf einen wachsenden Input. \cite{chivers}
-Mit den praktischen Messungen und der theoretischen Vorhersage können
-Erkenntnisse über die implementierten Algorithmen getroffen werden.
-
+Die konkreten Ergebnisse der Kompressionszeit können mit der theoretisch erwarteten 
+Laufzeit der Algorithmen verglichen werden. 
+Die theoretische Laufzeit eines Algorithmus wird in der O-Notation angegeben. 
+Die O-Notation beschreibt die obere Grenze des Wachstumsverhaltens der Laufzeit eines 
+Algorithmus in Bezug auf eine wachsende Eingabe \cite{chivers}.  
+Aus den praktischen Messungen und der theoretischen Vorhersage können Rückschlüsse auf 
+die implementierten Algorithmen gezogen werden.
 % vlt noch mehr O-Notation
 
 \subsection{Dekompressionszeit}
 
-Die Dekompressionszeit ein weiteres Maß um Datenkompressionsalgorithmen zu bewerten.
-Sie gibt an, wie lange ein Algorithmus benötigt um
-die ursprünglichen Daten aus den komprimierten Daten zu erzeugen.
-Sie misst die kombinierte Zeit für die Dekompression (Schritt 3) und das
-Rückgangigmachen der Vorverarbeitung (Schritt 4).
-Die Dekompressionszeit wird in Sekunden, bzw. Millisekunden, gemessen.
-Die Messungen erfolgen ebenso wie bei der Kompressionszeit an konkreten Daten.
+Die Dekompressionszeit ist ein weiteres Maß zur Bewertung von 
+Datenkompressionsalgorithmen. 
+Sie gibt an, wie viel Zeit ein Algorithmus benötigt, um aus komprimierten Daten 
+wieder die ursprünglichen Daten zu erzeugen. 
+Sie misst die kombinierte Zeit für die Dekompression (Schritt 3) und die Umkehrung 
+der Vorverarbeitung (Schritt 4). Die Dekompressionszeit wird in Sekunden gemessen. 
+Die Messungen erfolgen wie bei der Kompressionszeit an konkreten Daten.
 
-\subsection{Abwiegen der Messkriterien}
 
-Nach der definition der drei Messkriterien anhand derer die
-Kompressionsalgorithmen verglichen werden, können diese zudem gewichtet
-werden.
-Je nach Anwendungsfall sind die Messkriterien unterschiedlich wichtig.
-In den folgenden Abschnitten werden drei Beispiele für unterschiedliche
-Anwendungen und Gewichtungen der Kriterien dargestellt.
+\subsection{Abwägung der Messkriterien}
+
+Nach der Definition der drei Messkriterien, anhand derer die Kompressionsalgorithmen 
+verglichen werden, können diese zusätzlich gewichtet werden. 
+Je nach Anwendungsfall sind die Messkriterien von unterschiedlicher Bedeutung. 
+In den folgenden Abschnitten werden drei Beispiele für unterschiedliche Anwendungen 
+und Gewichtungen der Kriterien vorgestellt.
 
 Beispiel 1, Echtzeitanwendungen:
-Beim Senden von Daten über ein bandbreitenbegrenztes Netz macht es für
-Echtzeitanwendungen Sinn die Daten vor dem Senden zu komprimieren.
+Bei der Übertragung von Daten über ein Netzwerk mit begrenzter Bandbreite ist es für 
+Echtzeitanwendungen sinnvoll, die Daten vor der Übertragung zu komprimieren.
 Dadurch wird nur eine geringere Bandbreite benötigt und die Übertragung der
-Daten funktioniert schneller.
+Daten erfolgt schneller.
 Auf der Empfängerseite müssen die Daten möglichst schnell dekomprimiert werden.
 Für diesen Anwendungsfall ist die Kompressions- und Dekompressionszeit entscheidend.
-Die Kompressionsrate spielt eine hintergeordnete Rolle.
+Die Kompressionsrate spielt eine untergeordnete Rolle.
 
-Beispiel 2, Ressourcen im Internet:
-Bei einer Webseite die Ressourcen wie Bilder anzeigen soll ist es wichtig,
-dem Besucher der Webseite die Ressourcen möglichst schnell bereitzustellen.
-Da das Internet ein bandbreitenbegrenztes Netz ist, macht es Sinn Ressourcen komprimiert
-zu senden und beim Besucher zu dekomprimieren.
-Für diesen Anwendungsfall ist die Kompressionszeit egal, da die Ressourcen
-bereits in vorkomprimierter Form vorliegen können.
-Entscheidend ist hier die Dekompressionszeit und zweitrangig die Kompressionsrate.
+Beispiel 2: Ressourcen im Internet: 
+Für eine Webseite, die Ressourcen wie z.B. Bilder anzeigen soll, ist es 
+wichtig, dem Besucher der Webseite die Ressourcen so schnell wie möglich zur 
+Verfügung zu stellen. 
+Da das Internet ein Netzwerk mit begrenzter Bandbreite ist, ist es sinnvoll, die 
+Ressourcen komprimiert zu senden und beim Besucher zu dekomprimieren. 
+Für diesen Anwendungsfall spielt die Kompressionszeit keine Rolle, da die Ressourcen 
+bereits in vorkomprimierter Form vorliegen können. 
+Entscheidend ist hier die Dekompressionszeit und sekundär die Kompressionsrate.
 
 Beispiel 3, Archivierung:
-Archivierung ist das langfristiges Speichern von Daten.
+Archivierung ist das langfristige Speichern von Daten.
 Auf die Daten wird nur selten zugegriffen.
 Entscheidend ist, dass die Daten möglichst wenig Speicherplatz benötigen,
-um möglichst viel speichern zu können.
+um möglichst viele Daten speichern zu können.
 Für diesen Anwendungsfall ist das Messkriterium Kompressionsrate wichtig.
-Kompressions- und Dekompressionszeit der Daten spielt wegen der seltenen und
-nicht dringenden Datenzugriffe keine Rolle.
+Die Zeit für die Kompression und Dekompression der Daten spielt aufgrund der 
+seltenen und nicht zeitkritischen Datenzugriffe keine Rolle.
 
-Aus den Beispielen ist zu erkennen, dass es Sinn hat die
-Datenkompressionsalgorithmen nach den drei Kriterien zu vergleichen,
-da je nach Anforderung unterschiedlich wichtig sind.
+Die Beispiele zeigen, dass es sinnvoll ist, die Datenkompressionsalgorithmen 
+anhand der drei Kriterien zu vergleichen, da diese je nach Anforderung unterschiedlich 
+wichtig sind.
 
 
 \section{Aufbau des praktischen Versuchs}
 
-Das Ziel des praktischen Versuches ist verschiedene Datenkompressionsalgorithmen
-anhand von Bildern zu verglichen.
-Nicht alle der Algorithmen die verglichen werden sind für das Komprimieren von
-Bildern ausgelegt.
+Ziel des praktischen Versuchs ist es, verschiedene Datenkompressionsalgorithmen 
+anhand von Bildern zu vergleichen. 
+Nicht alle Algorithmen, die verglichen werden, sind für die Kompression von Bildern geeignet. 
 Die Bilder müssen vorbereitet und in das richtige Format gebracht werden.
 
 \begin{figure}[h]
@@ -600,55 +582,47 @@ Die Bilder müssen vorbereitet und in das richtige Format gebracht werden.
 \end{figure}
 
 Abbildung \ref{fig:idea} zeigt den Aufbau des Versuchs.
-Die erste Zeile zeigt wie das Eingangsbild in das benötigte Format umgewandelt
+Die erste Zeile zeigt, wie das Eingangsbild in das benötigte Format umgewandelt
 wird.
-Das Origanlbild das komprimiert werden soll ist unkomprimiert und unbearbeitet.
+Das Originalbild, das komprimiert werden soll, ist unkomprimiert und unbearbeitet. 
 Es wird im ersten Schritt in eine RGB Matrix umgewandelt.
-Das Konvertieren vom Originalbild zur Matrix, aber auch von der Matrix
-zum Originalbild ist möglich und eindeutig umkehrbar.
+Die Konvertierung vom Originalbild zur Matrix, aber auch von der Matrix zum Originalbild 
+ist möglich und eindeutig umkehrbar.
 Die Matrix hat die Form (Pixelbreite Originalbild, Pixelhöhe Originalbild,
 3 Farbkanäle).
 Jeder der drei Farbkanäle (rot, grün, blau) beschreibt eine zweidimensionale Matrix,
 die für jeden Pixel den Wert der entsprechenden Farbe angibt.
-Im nächsten Schritt wird aus der Matrix eine Flache Liste gemacht.
+Im nächsten Schritt wird die Matrix in eine flache Liste umgewandelt.
 Dazu werden alle Werte der Farbkanäle aneinandergereiht.
-Zuerst alle Werte von Farbkanal für rot, dann grün, dann blau.
+Zuerst alle Werte des Farbkanals für Rot, dann für Grün, dann für Blau.
 
-Einige der Kompressionsalgorithmen, die verglichen werden, sind für Textdaten ausgelegt.
+Einige der verglichenen Kompressionsalgorithmen sind für Textdaten konzipiert.
 Textdaten sind eindimensionale Daten, während Bilddaten je nach Darstellung
-zweidimensional oder dreidimensional sind.
+zweidimensional sind.
 Mit den oben beschriebenen Schritten wird ein Bild in eine eindimensionale
 Form umgewandelt.
-Die Algorithmen können mit dieser Reprasentation eines Bildes arbeiten.
+Die Algorithmen können mit dieser Darstellung eines Bildes arbeiten.
 
-Die untere Zeile in Abbildung \ref{fig:idea} beschreibt den Programmablauf.
-Input für die Kompressionsalgorithmen ist die eindimensionale RGB Liste.
-Der Algorithmus komprimiert die Eingagnsdaten und erzeugt die komprimierte
-Darstellung des Bildes, hier Komprimiertes Bild gennant.
-Die Zeit von Start des Algorithmus bis zum komprimierten Bild wird gemessen
-und als Kompressionszeit gespeichert.
-Aus den komprimierten Daten wird die Kompressionsrate, wie in Formel \ref{eq:komprate}
-beschrieben, berechnet.
-Im nächsten Schritt dekomprimiert der Algorithmus die komprimierten Daten und
-erzeugt die ursprüngliche RGB Liste.
+Die untere Zeile der Abbildung \ref{fig:idea} beschreibt den Programmablauf. 
+Die Eingabe für den Kompressionsalgorithmus ist die eindimensionale RGB Liste. 
+Der Algorithmus komprimiert die Eingabedaten und erzeugt die komprimierte 
+Darstellung des Bildes, hier Komprimiertes Bild genannt. 
+Die Zeit vom Start des Algorithmus bis zum komprimierten Bild wird gemessen 
+und als Kompressionszeit gespeichert. 
+Aus den komprimierten Daten wird die Kompressionsrate nach der 
+Formel \ref{eq:komprate} berechnet. 
+Im nächsten Schritt dekomprimiert der Algorithmus die komprimierten Daten 
+und erzeugt die ursprüngliche RGB Liste. 
 Die Zeit für die Dekompression wird als Dekompressionszeit gespeichert.
 
+% Umsetzung in Python, high level programming language, schnell umsetzbar, aber nicht
+% Laufzeitoptimiert
+% Vereinfachungen/ Annahmen getroffen:
+% - keine Optimierungen der Algorithmen,
+% - 8-Bit Farbinformationen,
 
 
-
-
-
-
-
-
-Umsetzung in Python, high level programming language, schnell umsetzbar, aber nicht
-Laufzeitoptimiert
-Vereinfachungen/ Annahmen getroffen:
-- keine Optimierungen der Algorithmen,
-- 8-Bit Farbinformationen,
-
-
-
+% Todo ab hier!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 \section{Vorstellung der Kompressionsalgorithmen}
 
