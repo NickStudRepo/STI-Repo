@@ -12,9 +12,10 @@ Bestandteile des Repos sind:
 - CodeCompression: Code, mit dem alle praktischen Messergebnisse erzielt wurden.
 - Seminararbeit: Enthält den Latex Code der Seminararbeit und die Seminararbeit selbst.
 
-Anmerkungen, interessante Dateien:
-- Alle Messergebnisse: Ergebnisse/Ergebnisse.xlsx
-- Zwischenpräsentation: Ergebnisse/Zwischenpräsentation/Zwischenpräsentation_final.pptx
-- Paper: Seminararbeit/paper/paper.pdf
+Interessante Dateien:
+- [Alle Messergebnisse](Ergebnisse/Ergebnisse.xlsx)
+- [Zwischenpräsentation](Ergebnisse/Zwischenpräsentation/Zwischenpräsentation_final.pptx)
+- [Abschlusspräsentation](Ergebnisse/Abschlusspräsentation/Final-Presentation-Nick-Schreiber.pptx)
+- [Paper](Seminararbeit/paper/paper.pdf)
 
 
